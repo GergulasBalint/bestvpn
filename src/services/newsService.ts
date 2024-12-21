@@ -80,10 +80,20 @@ const cleanDescription = (html: string): string => {
   // Remove HTML tags and decode entities
   const div = document.createElement('div');
   div.innerHTML = html;
+  
+  // Remove img tags completely before getting text
+  const imgTags = div.getElementsByTagName('img');
+  while (imgTags.length > 0) {
+    imgTags[0].remove();
+  }
+  
   const text = div.textContent || div.innerText || '';
   
-  // Get first paragraph and trim it
-  const paragraphs = text.split('\n').filter(p => p.trim().length > 0);
+  // Get first meaningful paragraph
+  const paragraphs = text.split('\n')
+    .map(p => p.trim())
+    .filter(p => p.length > 0 && !p.startsWith('src='));
+    
   const firstParagraph = paragraphs[0] || '';
   return firstParagraph.substring(0, 150).trim() + (firstParagraph.length > 150 ? '...' : '');
 };
