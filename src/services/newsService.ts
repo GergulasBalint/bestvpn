@@ -56,10 +56,11 @@ export const getVPNNews = async (): Promise<NewsCardProps[]> => {
 
 const extractImageUrl = (description: string): string => {
   if (!description) return '';
-  const imgMatch = description.match(/<img[^>]+src="([^"]+)"[^>]*>/);
+  const imgMatch = description.match(/src="([^"]+)"/);
   if (!imgMatch) return '';
   const url = imgMatch[1];
-  return url.replace(/\.([0-9]+)\./g, '.640.');
+  // Ensure we get the full-size image
+  return url.replace(/t\/[^\/]+\//, 't/pcmag_uk/');
 };
 
 const formatDate = (dateStr: string): string => {
@@ -82,26 +83,24 @@ const formatDate = (dateStr: string): string => {
 const cleanDescription = (html: string): string => {
   if (!html) return 'No description available';
   
-  // First remove the image tag completely
-  const withoutImg = html.replace(/<img[^>]*>/g, '');
-  
-  // Remove all HTML tags
-  const withoutTags = withoutImg.replace(/<[^>]*>/g, ' ');
-  
-  // Decode HTML entities
-  const div = document.createElement('div');
-  div.innerHTML = withoutTags;
-  const decoded = div.textContent || div.innerText || '';
-  
-  // Clean up whitespace and get meaningful content
-  const cleaned = decoded
+  // Remove the img tag and any text containing "src=" or "<img"
+  const cleanedHtml = html
+    .replace(/<img[^>]*>/g, '')
     .split('\n')
-    .map(line => line.trim())
-    .filter(line => line.length > 0)
-    .join(' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-
-  if (cleaned.length <= 150) return cleaned;
-  return cleaned.substring(0, 147) + '...';
+    .filter(line => !line.includes('src=') && !line.includes('<img'))
+    .join('\n');
+  
+  // Remove remaining HTML tags
+  const div = document.createElement('div');
+  div.innerHTML = cleanedHtml;
+  const text = div.textContent || div.innerText || '';
+  
+  // Get first meaningful paragraph
+  const paragraphs = text
+    .split('\n')
+    .map(p => p.trim())
+    .filter(p => p.length > 0);
+  
+  const firstParagraph = paragraphs[0] || 'No description available';
+  return firstParagraph.length <= 150 ? firstParagraph : firstParagraph.substring(0, 147) + '...';
 };
