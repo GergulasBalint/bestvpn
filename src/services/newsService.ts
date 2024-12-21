@@ -30,7 +30,7 @@ export const getVPNNews = async (): Promise<NewsCardProps[]> => {
     return items.map((item: NewsItem) => ({
       title: item.title[0],
       description: cleanDescription(item.description[0]),
-      link: item.link[0].trim(),
+      link: ensureAbsoluteUrl(item.link[0]),
       image: item.enclosure?.[0]?.$.url || item['media:content']?.[0]?.$.url || '',
       date: formatDate(item.pubDate[0])
     }));
@@ -41,14 +41,23 @@ export const getVPNNews = async (): Promise<NewsCardProps[]> => {
   }
 };
 
+const ensureAbsoluteUrl = (url: string): string => {
+  try {
+    new URL(url);
+    return url.trim();
+  } catch {
+    return `https://${url.trim()}`;
+  }
+};
+
 export const formatNewsItem = (item: NewsItem) => {
   return {
     title: item.title[0],
     description: cleanDescription(item.description[0]),
-    link: item.link[0],
+    link: ensureAbsoluteUrl(item.link[0]),
     imageUrl: item['media:content']?.[0]?.$.url || '',
-    pubDate: new Date(item.pubDate[0]).toLocaleDateString()
-  };
+    pubDate: formatDate(item.pubDate[0])
+  }
 };
 
 const formatDate = (dateStr: string) => {
