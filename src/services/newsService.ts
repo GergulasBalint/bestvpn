@@ -50,11 +50,10 @@ export const getVPNNews = async (): Promise<NewsCardProps[]> => {
 
 const extractImageUrl = (description: string): string => {
   if (!description) return '';
-  const imgMatch = description.match(/src="([^"]+)"/);
+  const imgMatch = description.match(/<img[^>]+src="([^"]+)"[^>]*>/);
   if (!imgMatch) return '';
   const url = imgMatch[1];
-  // Ensure we're getting a larger image by removing size constraints if they exist
-  return url.replace(/t\/[^\/]+\//, 't/pcmag_uk/');
+  return url.replace(/\.([0-9]+)\./g, '.640.');
 };
 
 const formatDate = (dateStr: string): string => {
@@ -77,23 +76,26 @@ const formatDate = (dateStr: string): string => {
 const cleanDescription = (html: string): string => {
   if (!html) return 'No description available';
   
-  // Remove HTML tags and decode entities
+  // First remove the image tag completely
+  const withoutImg = html.replace(/<img[^>]*>/g, '');
+  
+  // Remove all HTML tags
+  const withoutTags = withoutImg.replace(/<[^>]*>/g, ' ');
+  
+  // Decode HTML entities
   const div = document.createElement('div');
-  div.innerHTML = html;
+  div.innerHTML = withoutTags;
+  const decoded = div.textContent || div.innerText || '';
   
-  // Remove img tags completely before getting text
-  const imgTags = div.getElementsByTagName('img');
-  while (imgTags.length > 0) {
-    imgTags[0].remove();
-  }
-  
-  const text = div.textContent || div.innerText || '';
-  
-  // Get first meaningful paragraph
-  const paragraphs = text.split('\n')
-    .map(p => p.trim())
-    .filter(p => p.length > 0 && !p.startsWith('src='));
-    
-  const firstParagraph = paragraphs[0] || '';
-  return firstParagraph.substring(0, 150).trim() + (firstParagraph.length > 150 ? '...' : '');
+  // Clean up whitespace and get meaningful content
+  const cleaned = decoded
+    .split('\n')
+    .map(line => line.trim())
+    .filter(line => line.length > 0)
+    .join(' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  if (cleaned.length <= 150) return cleaned;
+  return cleaned.substring(0, 147) + '...';
 };
