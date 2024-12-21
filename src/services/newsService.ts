@@ -27,9 +27,11 @@ interface NewsResponse {
   };
 }
 
+const API_URL = 'https://vpn-news-backend.gergulasb.workers.dev';
+
 export const getVPNNews = async (): Promise<NewsCardProps[]> => {
   try {
-    const response = await fetch('http://localhost:3000/api/news');
+    const response = await fetch(`${API_URL}/api/news`);
     const data: NewsResponse = await response.json();
     
     return data.rss.channel[0].item.map(item => ({
