@@ -29,12 +29,16 @@ export const getVPNNews = async (): Promise<NewsCardProps[]> => {
     
     return items.map((item: NewsItem) => {
       const fullLink = Array.isArray(item.link) ? item.link[0] : item.link;
+      const fullTitle = Array.isArray(item.title) ? item.title[0] : item.title;
+      const fullDescription = Array.isArray(item.description) ? item.description[0] : item.description;
+      const pubDate = Array.isArray(item.pubDate) ? item.pubDate[0] : item.pubDate;
+
       return {
-        title: item.title[0],
-        description: cleanDescription(item.description[0]),
+        title: fullTitle,
+        description: cleanDescription(fullDescription),
         link: fullLink,
-        image: extractImageUrl(item.description[0]) || '',
-        date: formatDate(item.pubDate[0])
+        image: extractImageUrl(fullDescription),
+        date: formatDate(pubDate)
       };
     });
     
@@ -44,28 +48,33 @@ export const getVPNNews = async (): Promise<NewsCardProps[]> => {
   }
 };
 
-const extractImageUrl = (description: string): string | null => {
+const extractImageUrl = (description: string): string => {
+  if (!description) return '';
   const imgMatch = description.match(/src="([^"]+)"/);
-  return imgMatch ? imgMatch[1] : null;
+  if (!imgMatch) return '';
+  const url = imgMatch[1];
+  // Ensure we're getting a larger image by removing size constraints if they exist
+  return url.replace(/t\/[^\/]+\//, 't/pcmag_uk/');
 };
 
-const formatDate = (dateStr: string) => {
+const formatDate = (dateStr: string): string => {
+  if (!dateStr) return 'Recent';
   try {
     const date = new Date(dateStr);
     if (isNaN(date.getTime())) {
       return 'Recent';
     }
-    return date.toLocaleDateString('en-US', {
+    return new Intl.DateTimeFormat('en-US', {
       year: 'numeric',
       month: 'short',
       day: 'numeric'
-    });
+    }).format(date);
   } catch {
     return 'Recent';
   }
 };
 
-const cleanDescription = (html: string) => {
+const cleanDescription = (html: string): string => {
   if (!html) return 'No description available';
   
   // Remove HTML tags and decode entities
@@ -74,6 +83,7 @@ const cleanDescription = (html: string) => {
   const text = div.textContent || div.innerText || '';
   
   // Get first paragraph and trim it
-  const firstParagraph = text.split('\n').find(p => p.trim().length > 0) || '';
-  return firstParagraph.substring(0, 150).trim() + '...';
+  const paragraphs = text.split('\n').filter(p => p.trim().length > 0);
+  const firstParagraph = paragraphs[0] || '';
+  return firstParagraph.substring(0, 150).trim() + (firstParagraph.length > 150 ? '...' : '');
 };
