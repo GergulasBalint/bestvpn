@@ -33,11 +33,17 @@ export const getVPNNews = async (): Promise<NewsCardProps[]> => {
       const fullDescription = Array.isArray(item.description) ? item.description[0] : item.description;
       const pubDate = Array.isArray(item.pubDate) ? item.pubDate[0] : item.pubDate;
 
+      // Try to get image from multiple sources
+      const imageUrl = item.enclosure?.[0]?.$.url || 
+                      item['media:content']?.[0]?.$.url ||
+                      extractImageUrl(fullDescription) ||
+                      '';
+
       return {
         title: fullTitle,
         description: cleanDescription(fullDescription),
         link: fullLink,
-        image: extractImageUrl(fullDescription),
+        image: imageUrl,
         date: formatDate(pubDate)
       };
     });
