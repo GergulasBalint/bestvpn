@@ -27,13 +27,16 @@ export const getVPNNews = async (): Promise<NewsCardProps[]> => {
     const response = await axios.get(`${API_URL}/api/news`);
     const items = response.data.rss.channel[0].item;
     
-    return items.map((item: NewsItem) => ({
-      title: item.title[0],
-      description: cleanDescription(item.description[0]),
-      link: item.link[0],
-      image: extractImageUrl(item.description[0]) || '',
-      date: formatDate(item.pubDate[0])
-    }));
+    return items.map((item: NewsItem) => {
+      const fullLink = Array.isArray(item.link) ? item.link[0] : item.link;
+      return {
+        title: item.title[0],
+        description: cleanDescription(item.description[0]),
+        link: fullLink,
+        image: extractImageUrl(item.description[0]) || '',
+        date: formatDate(item.pubDate[0])
+      };
+    });
     
   } catch (error) {
     console.error('Failed to fetch VPN news:', error);
