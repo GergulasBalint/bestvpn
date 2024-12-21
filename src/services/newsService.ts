@@ -1,4 +1,5 @@
 import type { NewsCardProps } from '../components/NewsCard';
+import axios from 'axios';
 
 interface MediaContent {
   $: {
@@ -19,27 +20,19 @@ export interface NewsItem {
   pubDate: string[];
 }
 
-interface NewsResponse {
-  rss: {
-    channel: [{
-      item: NewsItem[];
-    }];
-  };
-}
-
 const API_URL = 'https://vpn-news-backend.gergulasb.workers.dev';
 
 export const getVPNNews = async (): Promise<NewsCardProps[]> => {
   try {
-    const response = await fetch(`${API_URL}/api/news`);
-    const data: NewsResponse = await response.json();
+    const response = await axios.get(`${API_URL}/api/news`);
+    const items = response.data.rss.channel[0].item;
     
-    return data.rss.channel[0].item.map(item => ({
+    return items.map((item: NewsItem) => ({
       title: item.title[0],
-      description: item.description[0].replace(/<[^>]*>/g, '').split('\n')[0],
+      description: cleanDescription(item.description[0]),
       link: item.link[0],
       image: item.enclosure?.[0]?.$.url || '',
-      date: item.pubDate[0]
+      date: new Date(item.pubDate[0]).toLocaleDateString()
     }));
     
   } catch (error) {

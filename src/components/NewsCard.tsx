@@ -7,8 +7,8 @@ export interface NewsCardProps {
 }
 
 const NewsCard = ({ title, description, link, image, date }: NewsCardProps) => {
-  // Extract image URL from enclosure if available
-  const imageUrl = image || 'default-image-url.jpg';
+  const fallbackImage = '/default-news-image.jpg'; // Add a default image to your public folder
+  const imageUrl = image || fallbackImage;
   
   return (
     <div className="glass-effect rounded-xl overflow-hidden transition-transform hover:scale-105">
@@ -20,7 +20,7 @@ const NewsCard = ({ title, description, link, image, date }: NewsCardProps) => {
             className="w-full h-full object-cover"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
-              target.src = 'fallback-image.jpg'; // Add a fallback image
+              target.src = fallbackImage;
             }}
           />
         </div>
