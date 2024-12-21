@@ -30,8 +30,8 @@ export const getVPNNews = async (): Promise<NewsCardProps[]> => {
     return items.map((item: NewsItem) => ({
       title: item.title[0],
       description: cleanDescription(item.description[0]),
-      link: ensureAbsoluteUrl(item.link[0]),
-      image: item.enclosure?.[0]?.$.url || item['media:content']?.[0]?.$.url || '',
+      link: item.link[0],
+      image: extractImageUrl(item.description[0]) || '',
       date: formatDate(item.pubDate[0])
     }));
     
@@ -41,23 +41,9 @@ export const getVPNNews = async (): Promise<NewsCardProps[]> => {
   }
 };
 
-const ensureAbsoluteUrl = (url: string): string => {
-  try {
-    new URL(url);
-    return url.trim();
-  } catch {
-    return `https://${url.trim()}`;
-  }
-};
-
-export const formatNewsItem = (item: NewsItem) => {
-  return {
-    title: item.title[0],
-    description: cleanDescription(item.description[0]),
-    link: ensureAbsoluteUrl(item.link[0]),
-    imageUrl: item['media:content']?.[0]?.$.url || '',
-    pubDate: formatDate(item.pubDate[0])
-  }
+const extractImageUrl = (description: string): string | null => {
+  const imgMatch = description.match(/src="([^"]+)"/);
+  return imgMatch ? imgMatch[1] : null;
 };
 
 const formatDate = (dateStr: string) => {
@@ -78,8 +64,13 @@ const formatDate = (dateStr: string) => {
 
 const cleanDescription = (html: string) => {
   if (!html) return 'No description available';
+  
+  // Remove HTML tags and decode entities
   const div = document.createElement('div');
   div.innerHTML = html;
   const text = div.textContent || div.innerText || '';
-  return text.split('\n')[0].substring(0, 150).trim() + '...';
+  
+  // Get first paragraph and trim it
+  const firstParagraph = text.split('\n').find(p => p.trim().length > 0) || '';
+  return firstParagraph.substring(0, 150).trim() + '...';
 };
