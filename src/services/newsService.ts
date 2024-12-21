@@ -30,9 +30,9 @@ export const getVPNNews = async (): Promise<NewsCardProps[]> => {
     return items.map((item: NewsItem) => ({
       title: item.title[0],
       description: cleanDescription(item.description[0]),
-      link: item.link[0],
-      image: item.enclosure?.[0]?.$.url || '',
-      date: new Date(item.pubDate[0]).toLocaleDateString()
+      link: item.link[0].trim(),
+      image: item.enclosure?.[0]?.$.url || item['media:content']?.[0]?.$.url || '',
+      date: formatDate(item.pubDate[0])
     }));
     
   } catch (error) {
@@ -51,9 +51,26 @@ export const formatNewsItem = (item: NewsItem) => {
   };
 };
 
+const formatDate = (dateStr: string) => {
+  try {
+    const date = new Date(dateStr);
+    if (isNaN(date.getTime())) {
+      return 'Recent';
+    }
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
+  } catch {
+    return 'Recent';
+  }
+};
+
 const cleanDescription = (html: string) => {
+  if (!html) return 'No description available';
   const div = document.createElement('div');
   div.innerHTML = html;
-  const text = div.textContent || '';
-  return text.split('\n')[0].substring(0, 150) + '...';
+  const text = div.textContent || div.innerText || '';
+  return text.split('\n')[0].substring(0, 150).trim() + '...';
 };
