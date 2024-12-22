@@ -22,6 +22,10 @@ export interface NewsItem {
 
 const API_URL = 'https://vpn-news-backend.gergulasb.workers.dev';
 
+// SEO metadata for Best VPN UK news
+const SEO_KEYWORDS = ['Best VPN UK', 'VPN News', 'UK VPN Services', 'VPN Reviews'];
+const SEO_DESCRIPTION = 'Latest news and updates about the best VPN services in the UK. Stay informed about VPN security, features, and deals.';
+
 export const getVPNNews = async (): Promise<NewsCardProps[]> => {
   try {
     const response = await axios.get(`${API_URL}/api/news`);
@@ -40,11 +44,13 @@ export const getVPNNews = async (): Promise<NewsCardProps[]> => {
                       '';
 
       return {
-        title: fullTitle,
-        description: cleanDescription(fullDescription),
+        title: optimizeTitle(fullTitle),
+        description: optimizeDescription(fullDescription),
         link: fullLink,
         image: imageUrl,
-        date: formatDate(pubDate)
+        date: formatDate(pubDate),
+        keywords: SEO_KEYWORDS,
+        metaDescription: SEO_DESCRIPTION
       };
     });
     
@@ -80,7 +86,16 @@ const formatDate = (dateStr: string): string => {
   }
 };
 
-const cleanDescription = (html: string): string => {
+const optimizeTitle = (title: string): string => {
+  // If title doesn't contain our main keyword and it's relevant, prepend it
+  const mainKeyword = 'Best VPN UK';
+  if (title.toLowerCase().includes('vpn') && !title.toLowerCase().includes(mainKeyword.toLowerCase())) {
+    return `${mainKeyword}: ${title}`;
+  }
+  return title;
+};
+
+const optimizeDescription = (html: string): string => {
   if (!html) return 'No description available';
   
   // Remove the img tag and any text containing "src=" or "<img"
@@ -101,6 +116,13 @@ const cleanDescription = (html: string): string => {
     .map(p => p.trim())
     .filter(p => p.length > 0);
   
-  const firstParagraph = paragraphs[0] || 'No description available';
+  let firstParagraph = paragraphs[0] || 'Latest updates on the Best VPN services in the UK';
+  
+  // Optimize for SEO if relevant
+  if (firstParagraph.toLowerCase().includes('vpn') && 
+      !firstParagraph.toLowerCase().includes('best vpn uk')) {
+    firstParagraph = `Best VPN UK Update: ${firstParagraph}`;
+  }
+  
   return firstParagraph.length <= 150 ? firstParagraph : firstParagraph.substring(0, 147) + '...';
 };

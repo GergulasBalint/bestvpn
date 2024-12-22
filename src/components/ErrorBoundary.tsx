@@ -24,10 +24,18 @@ class ErrorBoundary extends Component<Props, State> {
   public render() {
     if (this.state.hasError) {
       return (
-        <div className="text-center py-12">
-          <h2 className="text-2xl text-cyber-blue mb-4">Something went wrong</h2>
-          <p className="text-cyber-gray">Please try refreshing the page</p>
-        </div>
+        <section className="text-center py-12" role="alert" aria-live="polite">
+          <div itemScope itemType="http://schema.org/WebPage">
+            <h2 className="text-2xl text-cyber-blue mb-4" itemProp="name">
+              Best VPN UK News - Temporary Service Interruption
+            </h2>
+            <p className="text-cyber-gray" itemProp="description">
+              We're experiencing a temporary issue loading the latest VPN news and updates. 
+              Please refresh the page to try again or check back shortly for the latest VPN service reviews and updates.
+            </p>
+            <meta itemProp="keywords" content="Best VPN UK, VPN News, UK VPN Services, VPN Updates" />
+          </div>
+        </section>
       );
     }
 
