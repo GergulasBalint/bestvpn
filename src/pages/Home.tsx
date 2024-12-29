@@ -1,67 +1,45 @@
-import { useState, useEffect } from 'react';
-import { getVPNNews } from '../services/newsService';
-import NewsCard from '../components/NewsCard';
-import type { NewsCardProps } from '../components/NewsCard';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const [news, setNews] = useState<NewsCardProps[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchNews = async () => {
-      try {
-        const data = await getVPNNews();
-        setNews(data);
-        setLoading(false);
-      } catch (err) {
-        setError('Failed to load news');
-        setLoading(false);
-      }
-    };
-
-    fetchNews();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-cyber-blue"></div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="text-center text-red-500 py-20">
-        <h2 className="text-2xl font-bold">{error}</h2>
-      </div>
-    );
-  }
-
   return (
-    <div className="space-y-8">
-      <section className="text-center py-20">
-        <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text">
-          Stay Informed on VPN Security
+    <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
+      <section className="max-w-4xl mx-auto">
+        <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text">
+          Best VPN UK
         </h1>
-        <p className="text-xl text-cyber-gray max-w-2xl mx-auto">
-          Your trusted source for the latest news and updates in the world of VPNs and cyber security.
+        
+        <p className="text-xl text-cyber-gray mb-8 max-w-2xl mx-auto">
+          Your trusted source for VPN comparisons, reviews, and expert recommendations. 
+          We help UK users find the perfect VPN for their needs, with detailed analysis 
+          and up-to-date information on the best VPN services available.
         </p>
-      </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {news.map((item, index) => (
-          <NewsCard
-            key={index}
-            title={item.title}
-            description={item.description}
-            link={item.link}
-            image={item.image}
-            date={item.date}
-          />
-        ))}
-      </div>
+        <div className="space-y-6">
+          <Link 
+            to="/best-vpns"
+            className="inline-block bg-cyber-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-600 transition-colors duration-300"
+          >
+            Compare Top VPNs
+          </Link>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg">
+              <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Expert Reviews</h3>
+              <p className="text-cyber-gray">In-depth analysis of the best VPN services for UK users</p>
+            </div>
+            
+            <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg">
+              <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Price Comparison</h3>
+              <p className="text-cyber-gray">Find the best VPN deals and discounts available in the UK</p>
+            </div>
+            
+            <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg">
+              <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Security Focus</h3>
+              <p className="text-cyber-gray">Stay informed about VPN security and privacy features</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

@@ -20,8 +20,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <Link to="/" className="text-cyber-gray hover:text-cyber-blue transition-colors">
                 Home
               </Link>
-              <Link to="/latest" className="text-cyber-gray hover:text-cyber-blue transition-colors">
-                Latest
+              <Link to="/best-vpns" className="text-cyber-gray hover:text-cyber-blue transition-colors">
+                BestVPNs
               </Link>
               <Link to="/about" className="text-cyber-gray hover:text-cyber-blue transition-colors">
                 About
