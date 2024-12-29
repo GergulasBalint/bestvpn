@@ -122,7 +122,7 @@ const BestVPNs = () => {
 
             {/* VPN Details */}
             <div className="space-y-20">
-              {vpnData.map((vpn, index) => (
+              {vpnData.map((vpn) => (
                 <VPNDetailSection
                   key={vpn.name}
                   {...vpn}
