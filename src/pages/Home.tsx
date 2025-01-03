@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { getAllCityNames } from '../data/cityData';
+import CitySearch from '../components/CitySearch';
 
 const Home = () => {
   const cities = getAllCityNames();
@@ -11,6 +12,11 @@ const Home = () => {
           Best VPN UK
         </h1>
         
+        <div className="mb-12">
+          <h2 className="text-2xl mb-4">Find VPN recommendations for your city</h2>
+          <CitySearch />
+        </div>
+
         <p className="text-xl text-cyber-gray mb-8 max-w-2xl mx-auto">
           Your trusted source for VPN comparisons, reviews, and expert recommendations. 
           We help UK users find the perfect VPN for their needs, with detailed analysis 
