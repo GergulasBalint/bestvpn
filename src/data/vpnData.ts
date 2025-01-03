@@ -4,6 +4,34 @@ type VPNName = "ExpressVPN" | "NordVPN" | "Surfshark" | "CyberGhost" | "ProtonVP
 
 export const vpnData: VPNData[] = [
   {
+    id: 'nordvpn',
+    name: 'NordVPN',
+    rating: 5,
+    isEditorsChoice: true,
+    image: '/images/vpn/NordVPN.jpg',
+    description: "Editor's Choice: NordVPN stands out as the ultimate VPN solution, offering unmatched security features, blazing-fast speeds, and exceptional reliability. With its vast network of servers and cutting-edge technology, it's our top recommendation for users seeking the best VPN experience.",
+    features: [
+      'Military-grade encryption',
+      'No-logs policy verified by independent auditors',
+      'NordLynx protocol for maximum speed',
+      'Threat Protection feature',
+      'Dedicated IP addresses available'
+    ],
+    pros: [
+      'Lightning-fast connection speeds',
+      'Advanced security features',
+      'Large server network',
+      'Excellent for streaming',
+      '24/7 customer support'
+    ],
+    cons: [
+      'Premium pricing (but worth the investment)',
+      'Some servers can be crowded during peak hours'
+    ],
+    price: '£2.99/month',
+    link: 'https://nordvpn.com'
+  },
+  {
     name: "ExpressVPN",
     description: "ExpressVPN is known for its fast speeds and easy-to-use interface, making it a top pick for UK users who want good performance. It has over 3,000 servers in 94 countries, including many in the UK. This is great for streaming and sharing files. The service uses strong encryption and doesn't keep logs of what you do online, so your activities stay private and secure.",
     features: [
@@ -15,19 +43,6 @@ export const vpnData: VPNData[] = [
     ],
     price: "£6.67/month (15-month plan)",
     image: "/images/vpn/ExpressVPN.png"
-  },
-  {
-    name: "NordVPN",
-    description: "NordVPN is a top choice for UK users who really care about security. It offers lots of advanced features to protect your privacy and data. With over 5,400 servers worldwide, including many fast ones in the UK, NordVPN makes sure you can always find a good connection. It has cool features like double VPN and Onion over VPN, which give extra layers of protection for people who want to be super anonymous online.",
-    features: [
-      "CyberSec feature blocks ads and malware, making your browsing safer and smoother",
-      "You can get a dedicated IP address if you need to keep the same online identity",
-      "Automatic kill switch stops data leaks if the VPN connection drops",
-      "NordLynx protocol based on WireGuard for great speeds and security",
-      "Multi-factor authentication to keep your account extra safe"
-    ],
-    price: "£2.89/month (2-year plan)",
-    image: "/images/vpn/NordVPN.jpg"
   },
   {
     name: "Surfshark",
