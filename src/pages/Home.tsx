@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { getAllCityNames } from '../data/cityData';
 import CitySearch from '../components/CitySearch';
 import SEO from '../components/SEO';
 import Testimonials from '../components/Testimonials';
