@@ -1,74 +1,91 @@
 import { Link } from 'react-router-dom';
 import { getAllCityNames } from '../data/cityData';
 import CitySearch from '../components/CitySearch';
+import SEO from '../components/SEO';
+import Testimonials from '../components/Testimonials';
+import ReviewForm from '../components/ReviewForm';
 
 const Home = () => {
-  const cities = getAllCityNames();
+  // We'll just use a few popular cities for the featured section
+  const popularCities = ["London", "Manchester", "Birmingham", "Edinburgh", "Glasgow"];
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
+      <SEO 
+        title="Best VPN UK - Compare Top VPN Services for UK Users"
+        description="Find the perfect VPN for your needs in the UK. Compare prices, features, and security options. Expert reviews and city-specific recommendations for optimal online privacy."
+        keywords="VPN UK, best VPN services, UK VPN comparison, online privacy UK, secure VPN UK"
+      />
+      
       <section className="max-w-4xl mx-auto">
         <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text">
           Best VPN UK
         </h1>
         
-        <div className="mb-12">
-          <h2 className="text-2xl mb-4">Find VPN recommendations for your city</h2>
-          <CitySearch />
-        </div>
-
         <p className="text-xl text-cyber-gray mb-8 max-w-2xl mx-auto">
           Your trusted source for VPN comparisons, reviews, and expert recommendations. 
           We help UK users find the perfect VPN for their needs, with detailed analysis 
           and up-to-date information on the best VPN services available.
         </p>
 
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 mb-16">
+          <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg">
+            <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Expert Reviews</h3>
+            <p className="text-cyber-gray">In-depth analysis of the best VPN services for UK users</p>
+          </div>
+          
+          <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg">
+            <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Price Comparison</h3>
+            <p className="text-cyber-gray">Find the best VPN deals and discounts available in the UK</p>
+          </div>
+          
+          <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg">
+            <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Security Focus</h3>
+            <p className="text-cyber-gray">Stay informed about VPN security and privacy features</p>
+          </div>
+        </div>
+
+        <div className="mb-16">
           <Link 
             to="/best-vpns"
             className="inline-block bg-cyber-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-600 transition-colors duration-300"
           >
             Compare Top VPNs
           </Link>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-            <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Expert Reviews</h3>
-              <p className="text-cyber-gray">In-depth analysis of the best VPN services for UK users</p>
-            </div>
-            
-            <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Price Comparison</h3>
-              <p className="text-cyber-gray">Find the best VPN deals and discounts available in the UK</p>
-            </div>
-            
-            <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Security Focus</h3>
-              <p className="text-cyber-gray">Stay informed about VPN security and privacy features</p>
-            </div>
-          </div>
-
-          {/* Local VPN Guides */}
-          <section className="mt-16">
-            <h2 className="text-3xl font-bold mb-8 text-cyber-blue">Local VPN Guides</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-              {cities.map((city) => (
-                <Link
-                  key={city}
-                  to={`/city/${city.toLowerCase()}`}
-                  className="bg-white/5 backdrop-blur-sm p-4 rounded-lg hover:bg-white/10 transition-colors duration-300"
-                >
-                  <h3 className="text-lg font-semibold text-cyber-blue">
-                    {city}
-                  </h3>
-                  <p className="text-sm text-cyber-gray">
-                    Best VPN for {city}
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </section>
         </div>
+
+        {/* Frequently searched cities section */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold mb-8 text-cyber-blue">Frequently Searched Cities</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
+            {popularCities.map((city) => (
+              <Link
+                key={city}
+                to={`/city/${city.toLowerCase()}`}
+                className="bg-white/5 backdrop-blur-sm p-4 rounded-lg hover:bg-white/10 transition-colors duration-300"
+              >
+                <h3 className="text-lg font-semibold text-cyber-blue">
+                  {city}
+                </h3>
+                <p className="text-sm text-cyber-gray">
+                  Best VPN for {city}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Search section */}
+        <div className="mb-12">
+          <h2 className="text-2xl mb-4">Find VPN recommendations for your city</h2>
+          <CitySearch />
+        </div>
+
+        {/* Testimonials section */}
+        <Testimonials />
+
+        {/* Review Form section */}
+        <ReviewForm />
       </section>
     </div>
   );
