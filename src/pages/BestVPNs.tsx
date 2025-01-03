@@ -4,7 +4,7 @@ import VPNDetailSection from '../components/VPNDetailSection';
 import { vpnData } from '../data/vpnData';
 
 // SEO Constants
-const PAGE_TITLE = "Best VPN UK 2024: Top 6 VPNs for Privacy and Security";
+const PAGE_TITLE = "Best VPN UK 2025: Top 6 VPNs for Privacy and Security";
 const PAGE_DESCRIPTION = "Compare the top 6 VPNs for UK users. In-depth analysis of ExpressVPN, NordVPN, Surfshark, CyberGhost, ProtonVPN, and Private Internet Access. Find the best VPN for your needs.";
 const PAGE_KEYWORDS = ["Best VPN UK", "VPN Comparison", "ExpressVPN UK", "NordVPN UK", "Surfshark", "CyberGhost", "ProtonVPN", "Private Internet Access"];
 const SITE_NAME = "Best VPN UK";
@@ -30,8 +30,8 @@ const getStructuredData = () => ({
       "url": "https://bestvpn-uk.com/logo.png"
     }
   },
-  "datePublished": "2024-03-19",
-  "dateModified": "2024-03-19",
+  "datePublished": "2025-01-03",
+  "dateModified": "2025-01-03",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": CANONICAL_URL
@@ -143,7 +143,7 @@ const BestVPNs = () => {
 
             {/* Footer */}
             <footer className="mt-12 text-sm text-gray-400 border-t border-gray-700 pt-8">
-              <p>Last Updated: March 19, 2024</p>
+              <p>Last Updated: January 3, 2025</p>
               <p>Author: Best VPN UK Editorial Team</p>
             </footer>
           </article>

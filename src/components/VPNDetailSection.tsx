@@ -25,7 +25,7 @@ const VPNDetailSection: React.FC<VPNDetailSectionProps> = ({ vpn }) => {
             <img
               src="/images/editors-choice-badge.png"
               alt="Editor's Choice"
-              className="absolute -top-4 -right-4 w-24 h-24 z-10"
+              className="absolute -top-6 -right-6 w-32 h-32 z-10 transform rotate-12"
             />
           )}
           <img 
