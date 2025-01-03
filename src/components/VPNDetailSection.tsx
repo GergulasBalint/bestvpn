@@ -20,10 +20,15 @@ interface VPNDetailSectionProps {
 const VPNDetailSection: React.FC<VPNDetailSectionProps> = ({ vpn }) => {
   return (
     <div className="relative bg-white/5 backdrop-blur-sm rounded-lg p-6 mb-8">
-      {vpn.isEditorsChoice && <EditorChoice />}
-      
       <div className="flex flex-col md:flex-row gap-6">
-        <div className="md:w-1/4">
+        <div className="md:w-1/4 relative">
+          {vpn.isEditorsChoice && (
+            <img
+              src="/images/editors-choice-badge.png"
+              alt="Editor's Choice"
+              className="absolute -top-4 -right-4 w-24 h-24 z-10"
+            />
+          )}
           <img 
             src={vpn.image} 
             alt={`${vpn.name} logo`} 

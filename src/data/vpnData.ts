@@ -32,7 +32,10 @@ export const vpnData: VPNData[] = [
     link: 'https://nordvpn.com'
   },
   {
+    id: 'expressvpn',
     name: "ExpressVPN",
+    rating: 4.5,
+    image: "/images/vpn/ExpressVPN.png",
     description: "ExpressVPN is known for its fast speeds and easy-to-use interface, making it a top pick for UK users who want good performance. It has over 3,000 servers in 94 countries, including many in the UK. This is great for streaming and sharing files. The service uses strong encryption and doesn't keep logs of what you do online, so your activities stay private and secure.",
     features: [
       "TrustedServer technology for better security, which runs servers only on RAM",
@@ -41,11 +44,23 @@ export const vpnData: VPNData[] = [
       "Split tunneling lets you choose which apps use the VPN and which don't",
       "Lightway protocol for faster connections and better reliability"
     ],
+    pros: [
+      "Fastest VPN speeds",
+      "Excellent for streaming",
+      "Strong security features"
+    ],
+    cons: [
+      "More expensive than competitors",
+      "Limited to 5 devices"
+    ],
     price: "£6.67/month (15-month plan)",
-    image: "/images/vpn/ExpressVPN.png"
+    link: "https://expressvpn.com"
   },
   {
+    id: 'surfshark',
     name: "Surfshark",
+    rating: 4.3,
+    image: "/images/vpn/surfshark.jpg",
     description: "Surfshark has become popular because it offers lots of features at a low price, making it great for UK users who want to save money. What's really cool about Surfshark is that you can use it on as many devices as you want with one subscription. This is perfect for families or small businesses who need to protect multiple devices. Surfshark has over 3,200 servers in 100 countries, including several in the UK, so British users can get good coverage and reliable performance.",
     features: [
       "CleanWeb feature blocks ads and malware to keep you safe online",
@@ -54,11 +69,23 @@ export const vpnData: VPNData[] = [
       "Whitelister lets you choose which apps use the VPN and which don't",
       "NoBorders mode helps you get around network restrictions in countries with strict internet rules"
     ],
+    pros: [
+      "Unlimited device connections",
+      "Very affordable pricing",
+      "Strong security features"
+    ],
+    cons: [
+      "Newer service than competitors",
+      "Some servers can be slower"
+    ],
     price: "£1.79/month (24-month plan)",
-    image: "/images/vpn/surfshark.jpg"
+    link: "https://surfshark.com"
   },
   {
+    id: 'cyberghost',
     name: "CyberGhost",
+    rating: 4.2,
+    image: "/images/vpn/CyberGhost.jpg",
     description: "CyberGhost is known for being easy to use and set up, making it great for people in the UK who are new to VPNs. It has special servers for streaming and downloading, which is good for users who want to watch shows from other countries or share files safely. This is really helpful for UK users who want to access streaming services from other regions or keep their downloads private.",
     features: [
       "Over 7,400 servers worldwide, including many in the UK for good local connections",
@@ -67,11 +94,25 @@ export const vpnData: VPNData[] = [
       "NoSpy servers in Romania for extra privacy and security",
       "One-click connect feature for quick and easy protection, great for VPN beginners"
     ],
+    pros: [
+      "User-friendly interface",
+      "Large server network",
+      "Specialized streaming servers",
+      "Strong security features",
+      "45-day money-back guarantee"
+    ],
+    cons: [
+      "Can be slower on distant servers",
+      "Advanced features might be overwhelming for some"
+    ],
     price: "£1.99/month (3-year plan)",
-    image: "/images/vpn/CyberGhost.jpg"
+    link: "https://cyberghost.com"
   },
   {
+    id: 'protonvpn',
     name: "ProtonVPN",
+    rating: 4.0,
+    image: "/images/vpn/ProtonVPN.jpg",
     description: "ProtonVPN, made by the same people who created ProtonMail (a secure email service), really cares about privacy and security. This makes it a good choice for UK users who want to keep their online activities private. The service is based in Switzerland, which has strong privacy laws, adding to its appeal. ProtonVPN also offers a free version, which is great for UK users who want to try a VPN before paying for one.",
     features: [
       "Secure Core servers that send your traffic through multiple countries for extra privacy",
@@ -80,11 +121,24 @@ export const vpnData: VPNData[] = [
       "Clear privacy policy and regular checks by outside experts",
       "NetShield feature for blocking ads and malware"
     ],
+    pros: [
+      "Strong privacy focus",
+      "Based in Switzerland",
+      "Free tier available",
+      "Open-source apps"
+    ],
+    cons: [
+      "Fewer servers than competitors",
+      "Premium plans are expensive"
+    ],
     price: "£3.99/month",
-    image: "/images/vpn/ProtonVPN.jpg"
+    link: "https://protonvpn.com"
   },
   {
+    id: 'privateinternetaccess',
     name: "Private Internet Access",
+    rating: 4.1,
+    image: "/images/vpn/PrivateInternetAccessVPN.jpg",
     description: "Private Internet Access (PIA) stands out because it has one of the biggest networks of servers in the VPN world, with over 35,000 servers in 78 countries. This is really good for UK users because it means you can always find a fast server nearby, which makes your internet connection faster. PIA is serious about privacy and has proven in court that they don't keep logs of what users do online.",
     features: [
       "SOCKS5 proxy included for more options in how you route your internet traffic",
@@ -93,8 +147,18 @@ export const vpnData: VPNData[] = [
       "Port forwarding feature for advanced users who need special network setups",
       "Option to get a dedicated IP address if you need to keep the same online identity"
     ],
+    pros: [
+      "Huge server network",
+      "Proven no-logs policy",
+      "Open-source software",
+      "Affordable pricing"
+    ],
+    cons: [
+      "Basic interface",
+      "Average speeds"
+    ],
     price: "£1.69/month (3-year plan)",
-    image: "/images/vpn/PrivateInternetAccessVPN.jpg"
+    link: "https://privateinternetaccess.com"
   }
 ];
 
