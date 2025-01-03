@@ -18,10 +18,9 @@ const CityVPN: React.FC = () => {
   return (
     <>
       <SEO 
-        title={`Best VPN for ${formattedCityName} - Top VPN Services & Recommendations`}
-        description={`Find the best VPN services for ${formattedCityName}. Compare speeds, prices, and features. Get expert recommendations for secure internet access in ${formattedCityName}.`}
-        keywords={`VPN ${formattedCityName}, best VPN ${formattedCityName}, ${formattedCityName} VPN service, secure VPN ${formattedCityName}`}
-        canonicalUrl={`https://bestvpnuk.com/city/${cityName.toLowerCase()}`}
+        title={`Best VPN for ${formattedCityName} - Top VPN Services (${new Date().getFullYear()})`}
+        description={`Find the best VPN services for ${formattedCityName}. Compare speeds, features, and prices of top VPN providers for optimal performance in ${formattedCityName}.`}
+        keywords={`VPN ${formattedCityName}, best VPN ${formattedCityName}, fastest VPN ${formattedCityName}`}
       />
       <CityVPNGuide city={city} />
     </>
