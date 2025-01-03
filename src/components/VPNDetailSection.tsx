@@ -17,6 +17,8 @@ interface VPNDetailSectionProps {
 }
 
 const VPNDetailSection: React.FC<VPNDetailSectionProps> = ({ vpn }) => {
+  const isNordVPN = vpn.id === 'nordvpn';
+  
   return (
     <div className="relative bg-white/5 backdrop-blur-sm rounded-lg p-6 mb-8">
       <div className="flex flex-col md:flex-row gap-6">
@@ -28,11 +30,13 @@ const VPNDetailSection: React.FC<VPNDetailSectionProps> = ({ vpn }) => {
               className="absolute -top-6 -right-6 w-32 h-32 z-10 transform rotate-12"
             />
           )}
-          <img 
-            src={vpn.image} 
-            alt={`${vpn.name} logo`} 
-            className="w-full rounded-lg"
-          />
+          <div className={`rounded-lg overflow-hidden ${isNordVPN ? 'bg-white p-4' : ''}`}>
+            <img 
+              src={vpn.image} 
+              alt={`${vpn.name} logo`} 
+              className="w-full"
+            />
+          </div>
           <div className="mt-4 text-center">
             <div className="flex justify-center items-center gap-1 mb-2">
               {[...Array(5)].map((_, i) => (
