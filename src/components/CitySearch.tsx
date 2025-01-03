@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getAllCityNames } from '../data/cityData';
 
 interface CitySearchProps {
   variant?: 'default' | 'compact';
