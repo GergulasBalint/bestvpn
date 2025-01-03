@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import VPNComparisonTable from './VPNComparisonTable';
-import { vpnData } from '../data/vpnData';
 import type { CityData } from '../data/cityData';
 
 interface CityVPNGuideProps {
