@@ -1,5 +1,4 @@
 import React from 'react';
-import EditorChoice from './EditorChoice';
 
 interface VPNDetailSectionProps {
   vpn: {
