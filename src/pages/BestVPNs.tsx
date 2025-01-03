@@ -4,7 +4,7 @@ import VPNDetailSection from '../components/VPNDetailSection';
 import { vpnData } from '../data/vpnData';
 
 // SEO Constants
-const PAGE_TITLE = "Best VPN UK 2025: Top 6 VPNs for Privacy and Security";
+const PAGE_TITLE = "Top 6 VPNs for Privacy in the UK";
 const PAGE_DESCRIPTION = "Compare the top 6 VPNs for UK users. In-depth analysis of ExpressVPN, NordVPN, Surfshark, CyberGhost, ProtonVPN, and Private Internet Access. Find the best VPN for your needs.";
 const PAGE_KEYWORDS = ["Best VPN UK", "VPN Comparison", "ExpressVPN UK", "NordVPN UK", "Surfshark", "CyberGhost", "ProtonVPN", "Private Internet Access"];
 const SITE_NAME = "Best VPN UK";
@@ -76,10 +76,9 @@ const BestVPNs = () => {
                 Top 6 VPNs for Privacy in the UK
               </h1>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                Protecting your online privacy is really important these days. If you're in the UK, 
-                using a Virtual Private Network (VPN) is a good way to keep your internet activities 
-                safe and private. VPNs help protect you from data breaches, government snooping, 
-                and online criminals.
+                Top 6 VPNs for Privacy in the UK. Protecting your online privacy is really important these days. 
+                If you're in the UK, using a Virtual Private Network (VPN) is a good way to keep your internet 
+                activities safe and private.
               </p>
             </header>
 
@@ -143,7 +142,6 @@ const BestVPNs = () => {
 
             {/* Footer */}
             <footer className="mt-12 text-sm text-gray-400 border-t border-gray-700 pt-8">
-              <p>Last Updated: January 3, 2025</p>
               <p>Author: Best VPN UK Editorial Team</p>
             </footer>
           </article>
