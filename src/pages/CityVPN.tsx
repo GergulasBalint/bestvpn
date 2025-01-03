@@ -14,15 +14,31 @@ const CityVPN: React.FC = () => {
 
   let city = getCity(cityName) || generateCityData(cityName);
   const formattedCityName = cityName.charAt(0).toUpperCase() + cityName.slice(1);
+  const currentYear = new Date().getFullYear();
+
+  // Create rich SEO-friendly title variations
+  const title = `Best VPN for ${formattedCityName} (${currentYear}) - Top Rated VPN Services`;
+  const description = `Find the fastest and most secure VPN services for ${formattedCityName}. ` +
+    `Compare features, prices, and performance of top VPN providers. Get exclusive deals and ` +
+    `expert recommendations for ${formattedCityName} users.`;
+  const keywords = `VPN ${formattedCityName}, best VPN ${formattedCityName}, ` +
+    `fastest VPN ${formattedCityName}, secure VPN ${formattedCityName}, ` +
+    `${formattedCityName} VPN service, VPN providers ${formattedCityName}`;
 
   return (
     <>
       <SEO 
-        title={`Best VPN for ${formattedCityName} - Top VPN Services (${new Date().getFullYear()})`}
-        description={`Find the best VPN services for ${formattedCityName}. Compare speeds, features, and prices of top VPN providers for optimal performance in ${formattedCityName}.`}
-        keywords={`VPN ${formattedCityName}, best VPN ${formattedCityName}, fastest VPN ${formattedCityName}`}
+        title={title}
+        description={description}
+        keywords={keywords}
+        imageUrl="/images/vpn-city-hero.jpg"
       />
-      <CityVPNGuide city={city} />
+      <div className="city-vpn-content">
+        <h1 className="text-4xl font-bold mb-6">
+          Best VPN Services for {formattedCityName} ({currentYear})
+        </h1>
+        <CityVPNGuide city={city} />
+      </div>
     </>
   );
 };

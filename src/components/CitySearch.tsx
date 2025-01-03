@@ -1,36 +1,61 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getAllCityNames } from '../data/cityData';
 
-const CitySearch: React.FC = () => {
+interface CitySearchProps {
+  variant?: 'default' | 'compact';
+}
+
+const CitySearch: React.FC<CitySearchProps> = ({ variant = 'default' }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchTerm.trim()) {
-      // Convert to URL-friendly format and navigate
-      const formattedCity = searchTerm.trim()
-        .toLowerCase()
-        .replace(/\s+/g, '-');
-      navigate(`/city/${formattedCity}`);
+      navigate(`/city/${searchTerm.toLowerCase().trim()}`);
+      setSearchTerm('');
     }
   };
 
+  const isCompact = variant === 'compact';
+
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+    <form onSubmit={handleSubmit} className={`w-full ${isCompact ? '' : 'max-w-md mx-auto'}`}>
       <div className="relative">
         <input
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Enter your city..."
-          className="w-full px-4 py-2 text-gray-900 bg-white border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyber-blue"
+          className={`
+            w-full bg-white/5 border border-cyber-blue/30 
+            rounded-lg focus:ring-2 focus:ring-cyber-blue 
+            focus:border-transparent outline-none
+            ${isCompact ? 'py-1.5 px-3 text-sm' : 'py-3 px-4 text-lg'}
+          `}
         />
         <button
           type="submit"
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 px-4 py-1 bg-cyber-blue text-white rounded hover:bg-blue-600"
+          className={`
+            absolute right-2 text-cyber-blue hover:text-cyber-blue/80
+            ${isCompact ? 'top-1.5' : 'top-3'}
+          `}
         >
-          Search
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className={`${isCompact ? 'w-4 h-4' : 'w-6 h-6'}`}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            />
+          </svg>
         </button>
       </div>
     </form>

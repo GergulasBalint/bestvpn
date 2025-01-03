@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import CitySearch from './CitySearch';
 
 interface LayoutProps {
   children: ReactNode;
@@ -7,31 +8,32 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen bg-cyber-dark">
-      <nav className="glass-effect sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-cyber-dark text-white">
+      <nav className="bg-cyber-dark/90 backdrop-blur-sm fixed w-full z-50 border-b border-cyber-blue/20">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <div className="flex-shrink-0">
-              <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text">
-                BestVPNUK
+            <div className="flex items-center gap-8">
+              <Link to="/" className="text-cyber-blue font-bold text-xl">
+                Best VPN UK
               </Link>
+              <div className="hidden md:flex items-center gap-6">
+                <Link to="/best-vpns" className="hover:text-cyber-blue transition-colors">
+                  Compare VPNs
+                </Link>
+                <Link to="/about" className="hover:text-cyber-blue transition-colors">
+                  About
+                </Link>
+              </div>
             </div>
-            <div className="flex space-x-8">
-              <Link to="/" className="text-cyber-gray hover:text-cyber-blue transition-colors">
-                Home
-              </Link>
-              <Link to="/best-vpns" className="text-cyber-gray hover:text-cyber-blue transition-colors">
-                BestVPNs
-              </Link>
-              <Link to="/about" className="text-cyber-gray hover:text-cyber-blue transition-colors">
-                About
-              </Link>
+
+            <div className="hidden md:block w-72">
+              <CitySearch variant="compact" />
             </div>
           </div>
         </div>
       </nav>
       
-      <main className="container mx-auto">
+      <main className="pt-16">
         {children}
       </main>
 
