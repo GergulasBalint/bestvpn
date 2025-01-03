@@ -3,6 +3,7 @@ import { useParams, Navigate } from 'react-router-dom';
 import { getCity } from '../data/cityData';
 import { generateCityData } from '../utils/cityGenerator';
 import CityVPNGuide from '../components/CityVPNGuide';
+import NearbyCities from '../components/NearbyCities';
 import SEO from '../components/SEO';
 
 const CityVPN: React.FC = () => {
@@ -38,6 +39,8 @@ const CityVPN: React.FC = () => {
           Best VPN Services for {formattedCityName} ({currentYear})
         </h1>
         <CityVPNGuide city={city} />
+        
+        <NearbyCities currentCity={cityName} />
       </div>
     </>
   );
