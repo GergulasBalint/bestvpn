@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
+import { getAllCityNames } from '../data/cityData';
 
 const Home = () => {
+  const cities = getAllCityNames();
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
       <section className="max-w-4xl mx-auto">
@@ -38,6 +41,27 @@ const Home = () => {
               <p className="text-cyber-gray">Stay informed about VPN security and privacy features</p>
             </div>
           </div>
+
+          {/* Local VPN Guides */}
+          <section className="mt-16">
+            <h2 className="text-3xl font-bold mb-8 text-cyber-blue">Local VPN Guides</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              {cities.map((city) => (
+                <Link
+                  key={city}
+                  to={`/city/${city.toLowerCase()}`}
+                  className="bg-white/5 backdrop-blur-sm p-4 rounded-lg hover:bg-white/10 transition-colors duration-300"
+                >
+                  <h3 className="text-lg font-semibold text-cyber-blue">
+                    {city}
+                  </h3>
+                  <p className="text-sm text-cyber-gray">
+                    Best VPN for {city}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
         </div>
       </section>
     </div>
