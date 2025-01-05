@@ -3,15 +3,15 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { LatLngTuple, Icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const ServerLocationMap: FC = () => {
-  // Fix for default marker icon
-  const defaultIcon = new Icon({
-    iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
-    shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
-    iconSize: [25, 41],
-    iconAnchor: [12, 41]
-  });
+// Fix for marker icons in React
+delete (Icon.Default.prototype as any)._getIconUrl;
+Icon.Default.mergeOptions({
+  iconRetinaUrl: '/marker-icon-2x.png',
+  iconUrl: '/marker-icon.png',
+  shadowUrl: '/marker-shadow.png',
+});
 
+const ServerLocationMap: FC = () => {
   const serverLocations: { position: LatLngTuple; name: string }[] = [
     { position: [51.505, -0.09], name: 'London' },
     { position: [40.7128, -74.0060], name: 'New York' },
@@ -29,7 +29,7 @@ const ServerLocationMap: FC = () => {
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           {serverLocations.map(({ position, name }) => (
-            <Marker key={name} position={position} icon={defaultIcon}>
+            <Marker key={name} position={position}>
               <Popup>{name}</Popup>
             </Marker>
           ))}
