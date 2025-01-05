@@ -37,11 +37,29 @@ const features: Feature[] = [
     name: "Unlimited Devices",
     description: "No limit on connected devices",
     category: "usability"
-  }
+  },
+  {
+    name: "Ad Blocker",
+    description: "Blocks ads and malicious websites",
+    category: "security"
+  },
+  {
+    name: "Smart DNS",
+    description: "Optimized for streaming services",
+    category: "streaming"
+  },
 ];
 
 const vpnFeatures: Record<string, string[]> = {
-  'nordvpn': ["Kill Switch", "No-logs Policy", "Split Tunneling", "Netflix Support", "Multi-hop"],
+  'nordvpn': [
+    "Kill Switch",
+    "No-logs Policy",
+    "Split Tunneling",
+    "Netflix Support",
+    "Multi-hop",
+    "Ad Blocker",
+    "Smart DNS"
+  ],
   'expressvpn': ["Kill Switch", "No-logs Policy", "Split Tunneling", "Netflix Support"],
   'surfshark': ["Kill Switch", "No-logs Policy", "Split Tunneling", "Netflix Support", "Multi-hop", "Unlimited Devices"],
   // Add features for other VPNs
