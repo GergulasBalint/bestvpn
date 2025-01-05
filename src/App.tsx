@@ -1,25 +1,24 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import BestVPNs from './pages/BestVPNs';
 import About from './pages/About';
-import CityVPN from './pages/CityVPN';
-import ErrorBoundary from './components/ErrorBoundary';
+import CostComparison from './pages/CostComparison';
+import FeatureComparisonPage from './pages/FeatureComparisonPage';
 
 function App() {
   return (
-    <Router>
-      <ErrorBoundary>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/best-vpns" element={<BestVPNs />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/city/:cityName" element={<CityVPN />} />
-          </Routes>
-        </Layout>
-      </ErrorBoundary>
-    </Router>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/best-vpns" element={<BestVPNs />} />
+          <Route path="/compare-features" element={<FeatureComparisonPage />} />
+          <Route path="/compare-costs" element={<CostComparison />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
 

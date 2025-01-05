@@ -17,8 +17,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 Best VPN UK
               </Link>
               <div className="hidden md:flex items-center gap-6">
+                <Link to="/" className="hover:text-cyber-blue transition-colors">
+                  Home
+                </Link>
                 <Link to="/best-vpns" className="hover:text-cyber-blue transition-colors">
-                  Compare VPNs
+                  Best VPNs
+                </Link>
+                <Link to="/compare-features" className="hover:text-cyber-blue transition-colors">
+                  Compare Features
+                </Link>
+                <Link to="/compare-costs" className="hover:text-cyber-blue transition-colors">
+                  Compare Costs
                 </Link>
                 <Link to="/about" className="hover:text-cyber-blue transition-colors">
                   About

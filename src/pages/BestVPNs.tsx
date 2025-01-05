@@ -121,18 +121,6 @@ const BestVPNs = () => {
               <VPNComparisonTable className="mb-12" />
             </section>
 
-            {/* Compare VPN Costs */}
-            <section className="mb-16">
-              <h2 className="text-3xl font-bold mb-8 text-center">Compare VPN Costs</h2>
-              <VPNPriceCalculator />
-            </section>
-
-            {/* Feature Comparison */}
-            <section className="mb-16">
-              <h2 className="text-3xl font-bold mb-8 text-center">Feature Comparison</h2>
-              <FeatureComparison />
-            </section>
-
             {/* VPN Details */}
             <div className="space-y-20">
               {vpnData.map((vpn) => (
