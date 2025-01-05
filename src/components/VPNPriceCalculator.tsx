@@ -53,28 +53,54 @@ const VPNPriceCalculator: FC = () => {
           >
             Subscription Length
           </label>
-          <div className="flex items-center gap-4">
-            <input 
-              id="duration-slider"
-              type="range" 
-              min="1" 
-              max="36" 
-              value={duration} 
-              onChange={(e) => setDuration(Number(e.target.value))}
-              className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-cyber-blue"
-              aria-valuemin={1}
-              aria-valuemax={36}
-              aria-valuenow={duration}
-              aria-label="Select subscription duration in months"
-            />
-            <span className="min-w-[100px] text-center px-4 py-2 bg-gray-800 rounded-lg text-cyber-blue font-semibold">
-              {duration} {duration === 1 ? 'month' : 'months'}
-            </span>
+          <div className="relative flex items-center gap-4">
+            <div className="relative flex-1">
+              <div className="absolute w-full flex justify-between px-2 -top-6">
+                {[1, 12, 24, 36].map((month) => (
+                  <div
+                    key={month}
+                    className={`text-xs ${
+                      duration >= month ? 'text-cyber-blue' : 'text-gray-500'
+                    }`}
+                  >
+                    {month}m
+                  </div>
+                ))}
+              </div>
+              <div 
+                className="absolute h-2 bg-gradient-to-r from-gray-700 to-cyber-blue rounded-full"
+                style={{ width: `${(duration / 36) * 100}%` }}
+              />
+              <input 
+                id="duration-slider"
+                type="range" 
+                min="1" 
+                max="36" 
+                value={duration} 
+                onChange={(e) => setDuration(Number(e.target.value))}
+                className="range-slider relative w-full h-2 bg-gray-700 rounded-full appearance-none cursor-pointer z-10"
+                aria-valuemin={1}
+                aria-valuemax={36}
+                aria-valuenow={duration}
+                aria-label="Select subscription duration in months"
+              />
+            </div>
+            <div className="min-w-[120px]">
+              <div className="bg-gray-800 rounded-xl p-3 text-center">
+                <div className="text-2xl font-bold text-cyber-blue">
+                  {duration}
+                </div>
+                <div className="text-xs text-gray-400">
+                  {duration === 1 ? 'month' : 'months'}
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex justify-between text-sm text-gray-400">
-            <span>1 month</span>
-            <span>12 months</span>
-            <span>36 months</span>
+          <div className="flex justify-between text-sm text-gray-400 px-2">
+            <span>Monthly</span>
+            <span>1 Year</span>
+            <span>2 Years</span>
+            <span>3 Years</span>
           </div>
         </div>
 
