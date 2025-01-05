@@ -19,4 +19,6 @@ const DealAlerts: FC = () => {
       </div>
     </div>
   );
-}; 
+};
+
+export default DealAlerts; 

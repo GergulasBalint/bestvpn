@@ -14,4 +14,6 @@ const PrivacyNews: FC = () => {
       </div>
     </div>
   );
-}; 
+};
+
+export default PrivacyNews; 

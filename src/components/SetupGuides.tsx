@@ -18,4 +18,6 @@ const SetupGuides: FC = () => {
       </div>
     </div>
   );
-}; 
+};
+
+export default SetupGuides; 

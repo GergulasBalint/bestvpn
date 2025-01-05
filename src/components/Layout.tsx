@@ -32,6 +32,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <Link to="/about" className="hover:text-cyber-blue transition-colors">
                   About
                 </Link>
+                <Link to="/resources" className="hover:text-cyber-blue transition-colors">
+                  Resources
+                </Link>
               </div>
             </div>
 
