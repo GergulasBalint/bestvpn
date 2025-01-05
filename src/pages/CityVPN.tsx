@@ -1,81 +1,111 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { vpnData } from '../data/vpnData';
 
-const cityCoordinates: Record<string, { lat: number; lng: number }> = {
-  'london': { lat: 51.5074, lng: -0.1278 },
-  'manchester': { lat: 53.4808, lng: -2.2426 },
-  'birmingham': { lat: 52.4862, lng: -1.8904 },
-  'edinburgh': { lat: 55.9533, lng: -3.1883 },
-  // Add more cities as needed
-};
+interface SpeedTestLocation {
+  city: string;
+  country: string;
+  download: string;
+  upload: string;
+  ping: string;
+  distance: string;
+}
 
 const CityVPN: FC = () => {
   const { cityName } = useParams<{ cityName: string }>();
-  const normalizedCityName = cityName?.toLowerCase() || '';
-  const cityCoords = cityCoordinates[normalizedCityName];
-
-  useEffect(() => {
-    if (cityCoords) {
-      const googleMapScript = document.createElement('script');
-      googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`;
-      googleMapScript.async = true;
-      googleMapScript.defer = true;
-      window.document.body.appendChild(googleMapScript);
-
-      googleMapScript.addEventListener('load', () => {
-        const map = new google.maps.Map(document.getElementById('city-map'), {
-          center: cityCoords,
-          zoom: 13,
-          styles: [
-            { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
-            { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
-            { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
-            // Add more styles as needed
-          ]
-        });
-
-        new google.maps.Marker({
-          position: cityCoords,
-          map,
-          title: cityName
-        });
-      });
-
-      return () => {
-        document.body.removeChild(googleMapScript);
-      };
+  
+  const speedTestLocations: SpeedTestLocation[] = [
+    {
+      city: "London",
+      country: "UK",
+      download: "150 Mbps",
+      upload: "50 Mbps",
+      ping: "15ms",
+      distance: "Local"
+    },
+    {
+      city: "Amsterdam",
+      country: "Netherlands",
+      download: "140 Mbps",
+      upload: "45 Mbps",
+      ping: "22ms",
+      distance: "358 km"
+    },
+    {
+      city: "Paris",
+      country: "France",
+      download: "135 Mbps",
+      upload: "48 Mbps",
+      ping: "25ms",
+      distance: "344 km"
+    },
+    {
+      city: "Frankfurt",
+      country: "Germany",
+      download: "130 Mbps",
+      upload: "42 Mbps",
+      ping: "28ms",
+      distance: "660 km"
     }
-  }, [cityName, cityCoords]);
+  ];
 
   return (
     <>
       <Helmet>
-        <title>VPN in {cityName} - Best VPN UK</title>
-        <meta name="description" content={`Find the best VPN services and secure locations in ${cityName}.`} />
+        <title>VPN Speed Test Locations - {cityName} - Best VPN UK</title>
+        <meta name="description" content={`VPN speed test results and server locations near ${cityName}. Find the fastest VPN servers in your area.`} />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
         <main className="max-w-5xl mx-auto px-4 py-12">
           <header className="text-center mb-16">
             <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text">
-              VPN Services in {cityName}
+              VPN Speed Test Locations
             </h1>
+            <p className="text-xl text-gray-300">
+              Server speeds from {cityName}
+            </p>
           </header>
 
-          {/* City Map */}
-          <div className="mb-16">
-            <div 
-              id="city-map" 
-              className="w-full h-[400px] rounded-xl overflow-hidden"
-              style={{ border: '1px solid rgba(59, 130, 246, 0.2)' }}
-            />
-          </div>
+          {/* Speed Test Locations */}
+          <section className="mb-16">
+            <div className="grid gap-4">
+              {speedTestLocations.map((location) => (
+                <div 
+                  key={location.city}
+                  className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-cyber-blue/20 hover:border-cyber-blue/40 transition-colors"
+                >
+                  <div className="flex flex-wrap justify-between items-start gap-4">
+                    <div>
+                      <h3 className="text-xl font-semibold text-white">
+                        {location.city}, {location.country}
+                      </h3>
+                      <p className="text-sm text-gray-400">Distance: {location.distance}</p>
+                    </div>
+                    <div className="flex gap-6">
+                      <div className="text-center">
+                        <div className="text-cyber-blue font-bold">{location.download}</div>
+                        <div className="text-xs text-gray-400">Download</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-cyber-blue font-bold">{location.upload}</div>
+                        <div className="text-xs text-gray-400">Upload</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-cyber-blue font-bold">{location.ping}</div>
+                        <div className="text-xs text-gray-400">Ping</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
 
           {/* VPN Recommendations */}
           <section className="mt-16">
-            <h2 className="text-2xl font-bold text-cyber-blue mb-6">Recommended VPNs for {cityName}</h2>
+            <h2 className="text-2xl font-bold text-cyber-blue mb-6">Best VPNs for {cityName}</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {vpnData.slice(0, 3).map((vpn) => (
                 <div key={vpn.id} className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-cyber-blue/20">
