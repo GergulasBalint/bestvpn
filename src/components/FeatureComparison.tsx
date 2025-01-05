@@ -48,6 +48,26 @@ const features: Feature[] = [
     description: "Optimized for streaming services",
     category: "streaming"
   },
+  {
+    name: "WireGuard Protocol",
+    description: "Modern protocol for faster speeds",
+    category: "performance"
+  },
+  {
+    name: "10Gbps Servers",
+    description: "High-speed server infrastructure",
+    category: "performance"
+  },
+  {
+    name: "Server Network Size",
+    description: "Large network of servers worldwide",
+    category: "performance"
+  },
+  {
+    name: "Low Latency",
+    description: "Optimized for gaming and real-time applications",
+    category: "performance"
+  },
 ];
 
 const vpnFeatures: Record<string, string[]> = {
@@ -58,14 +78,21 @@ const vpnFeatures: Record<string, string[]> = {
     "Netflix Support",
     "Multi-hop",
     "Ad Blocker",
-    "Smart DNS"
+    "Smart DNS",
+    "WireGuard Protocol",
+    "10Gbps Servers",
+    "Server Network Size",
+    "Low Latency"
   ],
   'expressvpn': [
     "Kill Switch", 
     "No-logs Policy", 
     "Split Tunneling", 
     "Netflix Support",
-    "Smart DNS"
+    "Smart DNS",
+    "WireGuard Protocol",
+    "10Gbps Servers",
+    "Low Latency"
   ],
   'surfshark': [
     "Kill Switch", 
@@ -74,28 +101,37 @@ const vpnFeatures: Record<string, string[]> = {
     "Netflix Support", 
     "Multi-hop", 
     "Unlimited Devices",
-    "Ad Blocker"
+    "Ad Blocker",
+    "WireGuard Protocol",
+    "Server Network Size",
+    "Low Latency"
   ],
   'cyberghost': [
     "Kill Switch",
     "No-logs Policy",
     "Split Tunneling",
     "Netflix Support",
-    "Ad Blocker"
+    "Ad Blocker",
+    "WireGuard Protocol",
+    "Server Network Size"
   ],
   'protonvpn': [
     "Kill Switch",
     "No-logs Policy",
     "Split Tunneling",
     "Netflix Support",
-    "Multi-hop"
+    "Multi-hop",
+    "WireGuard Protocol",
+    "10Gbps Servers"
   ],
   'privateinternetaccess': [
     "Kill Switch",
     "No-logs Policy",
     "Split Tunneling",
     "Netflix Support",
-    "Ad Blocker"
+    "Ad Blocker",
+    "WireGuard Protocol",
+    "Server Network Size"
   ]
 };
 
