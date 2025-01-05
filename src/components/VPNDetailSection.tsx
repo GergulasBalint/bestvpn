@@ -20,7 +20,9 @@ const VPNDetailSection: React.FC<VPNDetailSectionProps> = ({ vpn }) => {
   const isNordVPN = vpn.id === 'nordvpn';
   
   return (
-    <div className="relative bg-white/5 backdrop-blur-sm rounded-lg p-6 mb-8">
+    <div className={`relative bg-white/5 backdrop-blur-sm rounded-lg p-6 mb-8 ${
+      isNordVPN ? 'border-2 border-yellow-400/80 shadow-[0_0_15px_rgba(251,191,36,0.3)]' : ''
+    }`}>
       <div className="flex flex-col md:flex-row gap-6">
         <div className="md:w-1/4 relative">
           {vpn.isEditorsChoice && (
