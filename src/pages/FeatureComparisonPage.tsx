@@ -1,8 +1,8 @@
-import React from 'react';
+import { FC } from 'react';
 import { Helmet } from 'react-helmet';
 import FeatureComparison from '../components/FeatureComparison';
 
-const FeatureComparisonPage = () => {
+const FeatureComparisonPage: FC = () => {
   return (
     <>
       <Helmet>

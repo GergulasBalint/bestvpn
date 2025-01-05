@@ -1,8 +1,8 @@
-import React from 'react';
+import { FC } from 'react';
 import { Helmet } from 'react-helmet';
 import VPNPriceCalculator from '../components/VPNPriceCalculator';
 
-const CostComparison = () => {
+const CostComparison: FC = () => {
   return (
     <>
       <Helmet>

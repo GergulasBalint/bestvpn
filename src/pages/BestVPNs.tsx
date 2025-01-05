@@ -2,8 +2,6 @@ import { Helmet } from 'react-helmet';
 import VPNComparisonTable from '../components/VPNComparisonTable';
 import VPNDetailSection from '../components/VPNDetailSection';
 import { vpnData } from '../data/vpnData';
-import VPNPriceCalculator from '../components/VPNPriceCalculator';
-import FeatureComparison from '../components/FeatureComparison';
 
 // SEO Constants
 const PAGE_TITLE = "Top 6 VPNs for Privacy in the UK";
