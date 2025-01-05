@@ -60,9 +60,43 @@ const vpnFeatures: Record<string, string[]> = {
     "Ad Blocker",
     "Smart DNS"
   ],
-  'expressvpn': ["Kill Switch", "No-logs Policy", "Split Tunneling", "Netflix Support"],
-  'surfshark': ["Kill Switch", "No-logs Policy", "Split Tunneling", "Netflix Support", "Multi-hop", "Unlimited Devices"],
-  // Add features for other VPNs
+  'expressvpn': [
+    "Kill Switch", 
+    "No-logs Policy", 
+    "Split Tunneling", 
+    "Netflix Support",
+    "Smart DNS"
+  ],
+  'surfshark': [
+    "Kill Switch", 
+    "No-logs Policy", 
+    "Split Tunneling", 
+    "Netflix Support", 
+    "Multi-hop", 
+    "Unlimited Devices",
+    "Ad Blocker"
+  ],
+  'cyberghost': [
+    "Kill Switch",
+    "No-logs Policy",
+    "Split Tunneling",
+    "Netflix Support",
+    "Ad Blocker"
+  ],
+  'protonvpn': [
+    "Kill Switch",
+    "No-logs Policy",
+    "Split Tunneling",
+    "Netflix Support",
+    "Multi-hop"
+  ],
+  'privateinternetaccess': [
+    "Kill Switch",
+    "No-logs Policy",
+    "Split Tunneling",
+    "Netflix Support",
+    "Ad Blocker"
+  ]
 };
 
 const FeatureComparison: React.FC = () => {
