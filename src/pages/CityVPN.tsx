@@ -1,79 +1,79 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { vpnData } from '../data/vpnData';
 
-const cityHotspots: Record<string, string[]> = {
-  'london': [
-    'Soho Square Gardens',
-    'St. Pancras International',
-    'Canary Wharf',
-    'The British Library',
-    'WeWork Locations'
-  ],
-  'manchester': [
-    'Manchester Central Library',
-    'Piccadilly Gardens',
-    'MediaCityUK',
-    'University of Manchester',
-    'Northern Quarter Cafes'
-  ],
-  'birmingham': [
-    'Library of Birmingham',
-    'Bullring Shopping Centre',
-    'Birmingham New Street Station',
-    'Brindleyplace',
-    'University of Birmingham'
-  ],
-  'edinburgh': [
-    'National Library of Scotland',
-    'Edinburgh Waverley Station',
-    'University of Edinburgh',
-    'Royal Mile Coffee Shops',
-    'Scottish Parliament'
-  ]
+const cityCoordinates: Record<string, { lat: number; lng: number }> = {
+  'london': { lat: 51.5074, lng: -0.1278 },
+  'manchester': { lat: 53.4808, lng: -2.2426 },
+  'birmingham': { lat: 52.4862, lng: -1.8904 },
+  'edinburgh': { lat: 55.9533, lng: -3.1883 },
+  // Add more cities as needed
 };
 
 const CityVPN: FC = () => {
   const { cityName } = useParams<{ cityName: string }>();
   const normalizedCityName = cityName?.toLowerCase() || '';
-  const hotspots = cityHotspots[normalizedCityName] || [];
+  const cityCoords = cityCoordinates[normalizedCityName];
+
+  useEffect(() => {
+    if (cityCoords) {
+      const googleMapScript = document.createElement('script');
+      googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`;
+      googleMapScript.async = true;
+      googleMapScript.defer = true;
+      window.document.body.appendChild(googleMapScript);
+
+      googleMapScript.addEventListener('load', () => {
+        const map = new google.maps.Map(document.getElementById('city-map'), {
+          center: cityCoords,
+          zoom: 13,
+          styles: [
+            { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+            { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+            { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+            // Add more styles as needed
+          ]
+        });
+
+        new google.maps.Marker({
+          position: cityCoords,
+          map,
+          title: cityName
+        });
+      });
+
+      return () => {
+        document.body.removeChild(googleMapScript);
+      };
+    }
+  }, [cityName, cityCoords]);
 
   return (
     <>
       <Helmet>
-        <title>VPN Hotspots in {cityName} - Best VPN UK</title>
-        <meta name="description" content={`Find the best VPN hotspots and secure internet locations in ${cityName}. Stay protected while browsing in public spaces.`} />
+        <title>VPN in {cityName} - Best VPN UK</title>
+        <meta name="description" content={`Find the best VPN services and secure locations in ${cityName}.`} />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
         <main className="max-w-5xl mx-auto px-4 py-12">
           <header className="text-center mb-16">
             <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text">
-              VPN Hotspots in {cityName}
+              VPN Services in {cityName}
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Secure internet locations and recommended VPN usage spots
-            </p>
           </header>
 
-          {hotspots.length > 0 ? (
-            <div className="grid md:grid-cols-2 gap-6">
-              {hotspots.map((spot) => (
-                <div key={spot} className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-cyber-blue/20">
-                  <h3 className="text-xl font-semibold text-cyber-blue mb-2">{spot}</h3>
-                  <p className="text-gray-300">
-                    Public WiFi available. We recommend using a VPN for secure browsing.
-                  </p>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center text-gray-300">
-              <p>No hotspots found for {cityName}. Try searching for another city.</p>
-            </div>
-          )}
+          {/* City Map */}
+          <div className="mb-16">
+            <div 
+              id="city-map" 
+              className="w-full h-[400px] rounded-xl overflow-hidden"
+              style={{ border: '1px solid rgba(59, 130, 246, 0.2)' }}
+            />
+          </div>
 
+          {/* VPN Recommendations */}
           <section className="mt-16">
             <h2 className="text-2xl font-bold text-cyber-blue mb-6">Recommended VPNs for {cityName}</h2>
             <div className="grid md:grid-cols-3 gap-6">
