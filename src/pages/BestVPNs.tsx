@@ -2,6 +2,8 @@ import { Helmet } from 'react-helmet';
 import VPNComparisonTable from '../components/VPNComparisonTable';
 import VPNDetailSection from '../components/VPNDetailSection';
 import { vpnData } from '../data/vpnData';
+import VPNPriceCalculator from '../components/VPNPriceCalculator';
+import FeatureComparison from '../components/FeatureComparison';
 
 // SEO Constants
 const PAGE_TITLE = "Top 6 VPNs for Privacy in the UK";
@@ -117,6 +119,18 @@ const BestVPNs = () => {
             <section className="mb-16">
               <h2 className="text-3xl font-bold mb-8 text-center">VPN Comparison</h2>
               <VPNComparisonTable className="mb-12" />
+            </section>
+
+            {/* Compare VPN Costs */}
+            <section className="mb-16">
+              <h2 className="text-3xl font-bold mb-8 text-center">Compare VPN Costs</h2>
+              <VPNPriceCalculator />
+            </section>
+
+            {/* Feature Comparison */}
+            <section className="mb-16">
+              <h2 className="text-3xl font-bold mb-8 text-center">Feature Comparison</h2>
+              <FeatureComparison />
             </section>
 
             {/* VPN Details */}
