@@ -28,17 +28,17 @@ const Home = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 mb-16">
-          <div className="card-gradient-border border-blue-500/20 hover:border-blue-500/40">
+          <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300 shadow-lg">
             <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Expert Reviews</h3>
             <p className="text-cyber-gray">In-depth analysis of the best VPN services for UK users</p>
           </div>
           
-          <div className="card-gradient-border border-purple-500/20 hover:border-purple-500/40">
+          <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300 shadow-lg">
             <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Price Comparison</h3>
             <p className="text-cyber-gray">Find the best VPN deals and discounts available in the UK</p>
           </div>
           
-          <div className="card-gradient-border border-green-500/20 hover:border-green-500/40">
+          <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-green-500/50 transition-all duration-300 shadow-lg">
             <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Security Focus</h3>
             <p className="text-cyber-gray">Stay informed about VPN security and privacy features</p>
           </div>
@@ -61,7 +61,7 @@ const Home = () => {
               <Link
                 key={city}
                 to={`/city/${city.toLowerCase()}`}
-                className="card-gradient-border card-hover-glow p-4"
+                className="bg-gray-800/50 backdrop-blur-sm p-4 rounded-xl border border-gray-700 hover:border-cyber-blue/50 hover:bg-gray-800/70 transition-all duration-300 shadow-lg"
               >
                 <h3 className="text-lg font-semibold text-cyber-blue">
                   {city}
@@ -75,7 +75,7 @@ const Home = () => {
         </section>
 
         {/* Search section */}
-        <div className="mb-12 card-gradient-border">
+        <div className="mb-12 bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 shadow-lg">
           <h2 className="text-2xl mb-4">Find VPN recommendations for your city</h2>
           <CitySearch />
         </div>
