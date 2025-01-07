@@ -178,20 +178,24 @@ const FeatureComparison: React.FC = () => {
           <table className="w-full min-w-[800px]">
             <thead>
               <tr className="bg-gray-800/80">
-                <th className="text-left py-5 px-6 text-gray-300 font-medium w-1/4">
+                <th className="text-left py-8 px-6 text-gray-300 font-medium w-1/4 align-bottom">
                   Feature
                 </th>
                 {vpnData.map(vpn => (
                   <th 
                     key={vpn.id} 
-                    className={`text-center py-5 px-6 relative w-[15%] ${
+                    className={`text-center py-8 px-6 relative w-[15%] ${
                       vpn.id === 'nordvpn' 
                         ? 'border-x-2 border-t-2 border-yellow-400/50 bg-yellow-400/5' 
                         : ''
                     }`}
                   >
-                    {vpn.id === 'nordvpn' && <EditorChoice />}
-                    <span className="font-semibold text-white">{vpn.name}</span>
+                    {vpn.id === 'nordvpn' && (
+                      <div className="absolute -top-4 left-0 right-0">
+                        <EditorChoice />
+                      </div>
+                    )}
+                    <span className="font-semibold text-white block mt-4">{vpn.name}</span>
                   </th>
                 ))}
               </tr>
