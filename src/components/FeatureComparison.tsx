@@ -175,7 +175,12 @@ const FeatureComparison: React.FC = () => {
             <tr className="border-b border-gray-700">
               <th className="text-left py-4 px-4">Feature</th>
               {vpnData.map(vpn => (
-                <th key={vpn.id} className="text-center py-4 px-4">{vpn.name}</th>
+                <th key={vpn.id} className={`text-center py-4 px-4 relative ${
+                  vpn.id === 'nordvpn' ? 'border-x-2 border-t-2 border-yellow-400/50' : ''
+                }`}>
+                  {vpn.id === 'nordvpn' && <EditorChoice />}
+                  {vpn.name}
+                </th>
               ))}
             </tr>
           </thead>
@@ -187,9 +192,14 @@ const FeatureComparison: React.FC = () => {
                   <div className="text-sm text-gray-400">{feature.description}</div>
                 </td>
                 {vpnData.map(vpn => (
-                  <td key={vpn.id} className="text-center py-4 px-4">
+                  <td 
+                    key={vpn.id} 
+                    className={`text-center py-4 px-4 ${
+                      vpn.id === 'nordvpn' ? 'border-x-2 border-yellow-400/50 bg-yellow-400/5' : ''
+                    }`}
+                  >
                     {vpnFeatures[vpn.id]?.includes(feature.name) ? (
-                      <span className="text-green-400">✓</span>
+                      <span className={`text-${vpn.id === 'nordvpn' ? 'yellow' : 'green'}-400`}>✓</span>
                     ) : (
                       <span className="text-red-400">✗</span>
                     )}
