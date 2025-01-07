@@ -30,10 +30,10 @@ export const vpnData: VPNData[] = [
     cons: ['More expensive', 'Only 5 connections'],
     price: '£5.99',
     link: 'https://expressvpn.com',
-    ukServers: '',
-    speed: '',
-    streaming: '',
-    ratingClass: ''
+    ukServers: '4',
+    speed: '89.42 Mbps',
+    streaming: 'Netflix, BBC, Prime',
+    ratingClass: 'bg-green-100 text-green-800'
   },
   {
     id: 'surfshark',
@@ -46,10 +46,58 @@ export const vpnData: VPNData[] = [
     cons: ['Newer provider', 'Variable speeds'],
     price: '£1.99',
     link: 'https://surfshark.com',
-    ukServers: '',
-    speed: '',
-    streaming: '',
-    ratingClass: ''
+    ukServers: '3',
+    speed: '88.51 Mbps',
+    streaming: 'Netflix, BBC',
+    ratingClass: 'bg-green-100 text-green-800'
+  },
+  {
+    id: 'cyberghost',
+    name: 'CyberGhost',
+    rating: "4.6",
+    image: '/images/vpn/CyberGhost.jpg',
+    description: 'User-friendly VPN with specialized streaming servers',
+    features: ['NoSpy servers', 'Smart Rules', 'Automated HTTPS'],
+    pros: ['Large server network', 'Good for streaming', 'Easy to use'],
+    cons: ['Peak hour slowdowns', 'Basic features only'],
+    price: '£2.89',
+    link: 'https://cyberghost.com',
+    ukServers: '700+',
+    speed: '85.96 Mbps',
+    streaming: 'Netflix, BBC',
+    ratingClass: 'bg-green-100 text-green-800'
+  },
+  {
+    id: 'protonvpn',
+    name: 'ProtonVPN',
+    rating: "4.5",
+    image: '/images/vpn/ProtonVPN.jpg',
+    description: 'Security-focused VPN from the makers of ProtonMail',
+    features: ['Secure Core', 'NetShield', 'TOR over VPN'],
+    pros: ['Strong privacy focus', 'Open source', 'Free tier'],
+    cons: ['Limited server network', 'Higher prices'],
+    price: '£4.99',
+    link: 'https://protonvpn.com',
+    ukServers: '8',
+    speed: '84.18 Mbps',
+    streaming: 'Netflix',
+    ratingClass: 'bg-green-100 text-green-800'
+  },
+  {
+    id: 'privateinternetaccess',
+    name: 'Private Internet Access',
+    rating: "4.4",
+    image: '/images/vpn/PrivateInternetAccessVPN.jpg',
+    description: 'Established VPN with proven no-logs policy',
+    features: ['MACE ad blocker', 'Port forwarding', 'Split tunneling'],
+    pros: ['Affordable', 'Proven privacy', 'Many customization options'],
+    cons: ['Basic interface', 'Inconsistent speeds'],
+    price: '£1.69',
+    link: 'https://privateinternetaccess.com',
+    ukServers: '2',
+    speed: '82.78 Mbps',
+    streaming: 'Netflix',
+    ratingClass: 'bg-green-100 text-green-800'
   }
 ];
 
