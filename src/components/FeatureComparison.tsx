@@ -173,66 +173,73 @@ const FeatureComparison: React.FC = () => {
         ))}
       </div>
 
-      <div className="overflow-x-auto rounded-xl border border-gray-700/50">
-        <table className="w-full">
-          <thead>
-            <tr className="bg-gray-800/80">
-              <th className="text-left py-5 px-6 text-gray-300 font-medium">Feature</th>
-              {vpnData.map(vpn => (
-                <th 
-                  key={vpn.id} 
-                  className={`text-center py-5 px-6 relative ${
-                    vpn.id === 'nordvpn' 
-                      ? 'border-x-2 border-t-2 border-yellow-400/50 bg-yellow-400/5' 
-                      : ''
-                  }`}
-                >
-                  {vpn.id === 'nordvpn' && <EditorChoice />}
-                  <span className="font-semibold text-white">{vpn.name}</span>
+      <div className="relative">
+        <div className="overflow-x-auto -mx-8 px-8">
+          <table className="w-full min-w-[800px]">
+            <thead>
+              <tr className="bg-gray-800/80">
+                <th className="text-left py-5 px-6 text-gray-300 font-medium w-1/4">
+                  Feature
                 </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {filteredFeatures.map((feature, idx) => (
-              <tr 
-                key={feature.name} 
-                className={`border-t border-gray-700/50 transition-colors ${
-                  idx % 2 === 0 ? 'bg-gray-800/30' : 'bg-gray-800/10'
-                }`}
-              >
-                <td className="py-4 px-6">
-                  <div className="font-medium text-white">{feature.name}</div>
-                  <div className="text-sm text-gray-400 mt-1">{feature.description}</div>
-                </td>
                 {vpnData.map(vpn => (
-                  <td 
+                  <th 
                     key={vpn.id} 
-                    className={`text-center py-4 px-6 ${
+                    className={`text-center py-5 px-6 relative w-[15%] ${
                       vpn.id === 'nordvpn' 
-                        ? 'border-x-2 border-yellow-400/50 bg-yellow-400/5' 
+                        ? 'border-x-2 border-t-2 border-yellow-400/50 bg-yellow-400/5' 
                         : ''
                     }`}
                   >
-                    {vpnFeatures[vpn.id]?.includes(feature.name) ? (
-                      <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full ${
-                        vpn.id === 'nordvpn' 
-                          ? 'bg-yellow-400/10 text-yellow-400' 
-                          : 'bg-green-400/10 text-green-400'
-                      }`}>
-                        ✓
-                      </span>
-                    ) : (
-                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-400/10 text-red-400">
-                        ✗
-                      </span>
-                    )}
-                  </td>
+                    {vpn.id === 'nordvpn' && <EditorChoice />}
+                    <span className="font-semibold text-white">{vpn.name}</span>
+                  </th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {filteredFeatures.map((feature, idx) => (
+                <tr 
+                  key={feature.name} 
+                  className={`border-t border-gray-700/50 transition-colors ${
+                    idx % 2 === 0 ? 'bg-gray-800/30' : 'bg-gray-800/10'
+                  }`}
+                >
+                  <td className="py-4 px-6">
+                    <div className="font-medium text-white">{feature.name}</div>
+                    <div className="text-sm text-gray-400 mt-1">{feature.description}</div>
+                  </td>
+                  {vpnData.map(vpn => (
+                    <td 
+                      key={vpn.id} 
+                      className={`text-center py-4 px-6 ${
+                        vpn.id === 'nordvpn' 
+                          ? 'border-x-2 border-yellow-400/50 bg-yellow-400/5' 
+                          : ''
+                      }`}
+                    >
+                      {vpnFeatures[vpn.id]?.includes(feature.name) ? (
+                        <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full ${
+                          vpn.id === 'nordvpn' 
+                            ? 'bg-yellow-400/10 text-yellow-400' 
+                            : 'bg-green-400/10 text-green-400'
+                        }`}>
+                          ✓
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-400/10 text-red-400">
+                          ✗
+                        </span>
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        
+        <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-gray-800/50 to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-gray-800/50 to-transparent pointer-events-none" />
       </div>
     </div>
   );
