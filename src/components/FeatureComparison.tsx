@@ -202,37 +202,55 @@ const FeatureComparison: React.FC = () => {
               </tr>
             </thead>
             <tbody>
-              {filteredFeatures.map((feature, idx) => (
+              {filteredFeatures.map((feature) => (
                 <tr 
                   key={feature.name} 
-                  className={`border-t border-gray-700/50 transition-colors ${
-                    idx % 2 === 0 ? 'bg-gray-800/30' : 'bg-gray-800/10'
-                  }`}
+                  className={`border-b border-gray-700/30 hover:bg-gray-800/40 transition-all duration-300`}
                 >
-                  <td className="py-4 px-6">
-                    <div className="font-medium text-white">{feature.name}</div>
-                    <div className="text-sm text-gray-400 mt-1">{feature.description}</div>
+                  <td className="py-6 px-8">
+                    <div className="font-medium text-white text-lg mb-1">{feature.name}</div>
+                    <div className="text-sm text-gray-400">{feature.description}</div>
                   </td>
                   {vpnData.map(vpn => (
                     <td 
                       key={vpn.id} 
-                      className={`text-center py-4 px-6 ${
+                      className={`text-center py-6 px-8 ${
                         vpn.id === 'nordvpn' 
                           ? 'border-x-2 border-yellow-400/50 bg-yellow-400/5' 
                           : ''
                       }`}
                     >
                       {vpnFeatures[vpn.id]?.includes(feature.name) ? (
-                        <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full ${
+                        <span className={`inline-flex items-center justify-center w-10 h-10 rounded-full ${
                           vpn.id === 'nordvpn' 
                             ? 'bg-yellow-400/10 text-yellow-400' 
                             : 'bg-green-400/10 text-green-400'
                         }`}>
-                          ✓
+                          <svg 
+                            className="w-6 h-6" 
+                            fill="currentColor" 
+                            viewBox="0 0 20 20"
+                          >
+                            <path 
+                              fillRule="evenodd" 
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" 
+                              clipRule="evenodd"
+                            />
+                          </svg>
                         </span>
                       ) : (
-                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-400/10 text-red-400">
-                          ✗
+                        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-red-400/10 text-red-400">
+                          <svg 
+                            className="w-6 h-6" 
+                            fill="currentColor" 
+                            viewBox="0 0 20 20"
+                          >
+                            <path 
+                              fillRule="evenodd" 
+                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" 
+                              clipRule="evenodd"
+                            />
+                          </svg>
                         </span>
                       )}
                     </td>
