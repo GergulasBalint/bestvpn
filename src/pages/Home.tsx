@@ -113,15 +113,51 @@ const Home = () => {
         <ReviewForm />
 
         <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-8 text-cyber-blue">Latest VPN News</h2>
+          <h2 className="text-3xl font-bold mb-8 text-cyber-blue">VPN Speed Comparison</h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300 shadow-lg">
-              <time className="text-sm text-gray-400">March 5, 2024</time>
-              <h3 className="text-lg font-semibold text-white mt-2">New Privacy Laws Impact VPN Users</h3>
-              <p className="text-gray-300 mt-2">Recent changes in UK privacy regulations affect how VPNs operate...</p>
-              <Link to="/news" className="text-cyber-blue hover:underline mt-4 inline-block">Read More →</Link>
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-white">ExpressVPN</h3>
+                <span className="text-green-400">94.2 Mbps</span>
+              </div>
+              <div className="w-full bg-gray-700 rounded-full h-2 mb-2">
+                <div className="bg-green-400 h-2 rounded-full" style={{ width: '94%' }}></div>
+              </div>
+              <p className="text-sm text-gray-400">Average UK Download Speed</p>
             </div>
-            {/* Add 2 more news cards */}
+
+            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300 shadow-lg">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-white">NordVPN</h3>
+                <span className="text-blue-400">93.6 Mbps</span>
+              </div>
+              <div className="w-full bg-gray-700 rounded-full h-2 mb-2">
+                <div className="bg-blue-400 h-2 rounded-full" style={{ width: '93%' }}></div>
+              </div>
+              <p className="text-sm text-gray-400">Average UK Download Speed</p>
+            </div>
+
+            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300 shadow-lg">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-white">Surfshark</h3>
+                <span className="text-purple-400">91.8 Mbps</span>
+              </div>
+              <div className="w-full bg-gray-700 rounded-full h-2 mb-2">
+                <div className="bg-purple-400 h-2 rounded-full" style={{ width: '91%' }}></div>
+              </div>
+              <p className="text-sm text-gray-400">Average UK Download Speed</p>
+            </div>
+          </div>
+          <div className="text-center mt-6">
+            <Link 
+              to="/compare-features" 
+              className="text-cyber-blue hover:underline inline-flex items-center gap-2"
+            >
+              View Full Speed Test Results 
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </Link>
           </div>
         </section>
       </section>
