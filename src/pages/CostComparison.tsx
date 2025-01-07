@@ -1,67 +1,132 @@
-import { FC } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
-import VPNPriceCalculator from '../components/VPNPriceCalculator';
+import VPNComparisonTable from '../components/VPNComparisonTable';
+import { vpnTableData } from '../data/vpnData';
 
-const CostComparison: FC = () => {
+const CostComparison: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Compare VPN Costs - Best VPN UK</title>
-        <meta name="description" content="Compare VPN costs and find the best value for your needs. Calculate total costs based on subscription length and number of devices." />
+        <title>VPN Cost Comparison 2024 | Best Value Analysis</title>
+        <meta name="description" content="Compare VPN costs and features to find the best value for your needs. Updated pricing and detailed analysis for 2024." />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
-        <main className="max-w-5xl mx-auto px-4 py-12">
-          <header className="text-center mb-16">
-            <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text">
-              Compare VPN Costs
+      <div className="min-h-screen py-12">
+        {/* Hero Section */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text">
+              VPN Price Comparison 2024
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Find the most cost-effective VPN solution for your needs
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Find the perfect balance of features and affordability with our comprehensive VPN comparison
             </p>
-          </header>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-cyber-blue/20">
-              <h3 className="text-lg font-semibold text-cyber-blue mb-2">Long-term Savings</h3>
-              <p className="text-gray-300">Compare how much you can save with longer subscription periods</p>
+          {/* Price Range Indicator */}
+          <div className="mt-12 bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center p-6 rounded-lg bg-gray-700/30">
+                <div className="text-lg font-semibold text-cyber-blue mb-2">Budget Friendly</div>
+                <div className="text-3xl font-bold text-white mb-2">£1.69 - £2.99</div>
+                <div className="text-sm text-gray-400">Perfect for cost-conscious users</div>
+              </div>
+              <div className="text-center p-6 rounded-lg bg-gray-700/30">
+                <div className="text-lg font-semibold text-cyber-blue mb-2">Mid Range</div>
+                <div className="text-3xl font-bold text-white mb-2">£3.00 - £4.99</div>
+                <div className="text-sm text-gray-400">Balance of features and cost</div>
+              </div>
+              <div className="text-center p-6 rounded-lg bg-gray-700/30">
+                <div className="text-lg font-semibold text-cyber-blue mb-2">Premium</div>
+                <div className="text-3xl font-bold text-white mb-2">£5.00+</div>
+                <div className="text-sm text-gray-400">Maximum features and support</div>
+              </div>
             </div>
-            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-cyber-blue/20">
-              <h3 className="text-lg font-semibold text-cyber-blue mb-2">Multi-device Plans</h3>
-              <p className="text-gray-300">Calculate costs based on the number of devices you need to protect</p>
+          </div>
+        </div>
+
+        {/* Main Comparison Table */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+          <VPNComparisonTable vpns={vpnTableData} className="mb-12" />
+        </div>
+
+        {/* Additional Information */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+              <h2 className="text-2xl font-bold text-cyber-blue mb-4">
+                Understanding VPN Pricing
+              </h2>
+              <ul className="space-y-4 text-gray-300">
+                <li className="flex items-start">
+                  <svg className="w-6 h-6 text-cyber-blue mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>Longer subscriptions offer better value</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-6 h-6 text-cyber-blue mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>Premium features justify higher costs</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-6 h-6 text-cyber-blue mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>Money-back guarantees protect your investment</span>
+                </li>
+              </ul>
             </div>
-            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-cyber-blue/20">
-              <h3 className="text-lg font-semibold text-cyber-blue mb-2">Best Value</h3>
-              <p className="text-gray-300">Find the most cost-effective VPN for your specific requirements</p>
+
+            <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+              <h2 className="text-2xl font-bold text-cyber-blue mb-4">
+                Value Considerations
+              </h2>
+              <ul className="space-y-4 text-gray-300">
+                <li className="flex items-start">
+                  <svg className="w-6 h-6 text-cyber-blue mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                  <span>Server network size and locations</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-6 h-6 text-cyber-blue mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                  <span>Connection speed and reliability</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-6 h-6 text-cyber-blue mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                  <span>Customer support quality</span>
+                </li>
+              </ul>
             </div>
           </div>
 
-          <section className="mb-16">
-            <VPNPriceCalculator />
-          </section>
-
-          <section className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-cyber-blue/20">
-            <h2 className="text-2xl font-bold text-cyber-blue mb-6">Money-Saving Tips</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* FAQ Section */}
+          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700 mb-16">
+            <h2 className="text-2xl font-bold text-cyber-blue mb-6">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-6">
               <div>
-                <h3 className="text-lg font-semibold text-white mb-2">🎯 Best Time to Buy</h3>
-                <p className="text-gray-300">Look for special deals during Black Friday and Cyber Monday for the biggest discounts.</p>
+                <h3 className="text-lg font-semibold text-white mb-2">Why do VPN prices vary so much?</h3>
+                <p className="text-gray-300">Prices reflect differences in server networks, features, support quality, and business models.</p>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white mb-2">💡 Subscription Length</h3>
-                <p className="text-gray-300">Longer subscriptions typically offer better value, with discounts up to 80% off.</p>
+                <h3 className="text-lg font-semibold text-white mb-2">Are expensive VPNs better?</h3>
+                <p className="text-gray-300">Not necessarily. The best VPN depends on your specific needs and usage patterns.</p>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white mb-2">👥 Family Plans</h3>
-                <p className="text-gray-300">Some VPNs offer family plans that can protect multiple devices at a better price.</p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-white mb-2">🔄 Money-back Guarantee</h3>
-                <p className="text-gray-300">All recommended VPNs offer 30-day money-back guarantees for risk-free testing.</p>
+                <h3 className="text-lg font-semibold text-white mb-2">Should I choose the cheapest option?</h3>
+                <p className="text-gray-300">Consider the balance of features, reliability, and support alongside price.</p>
               </div>
             </div>
-          </section>
-        </main>
+          </div>
+        </div>
       </div>
     </>
   );
