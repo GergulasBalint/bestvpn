@@ -14,6 +14,21 @@ const features: Feature[] = [
     category: "security"
   },
   {
+    name: "Double VPN",
+    description: "Routes traffic through two VPN servers for extra security",
+    category: "security"
+  },
+  {
+    name: "DNS Leak Protection",
+    description: "Prevents DNS requests from revealing your location",
+    category: "security"
+  },
+  {
+    name: "AES-256 Encryption",
+    description: "Military-grade encryption for all traffic",
+    category: "security"
+  },
+  {
     name: "No-logs Policy",
     description: "Provider doesn't store user activity data",
     category: "security"
@@ -68,6 +83,66 @@ const features: Feature[] = [
     description: "Optimized for gaming and real-time applications",
     category: "performance"
   },
+  {
+    name: "Server Network Size",
+    description: "Number of servers and locations available",
+    category: "performance"
+  },
+  {
+    name: "WireGuard Support",
+    description: "Modern, fast VPN protocol for better speeds",
+    category: "performance"
+  },
+  {
+    name: "Split Tunneling",
+    description: "Choose which apps use VPN connection",
+    category: "performance"
+  },
+  {
+    name: "P2P Optimized",
+    description: "Servers optimized for peer-to-peer sharing",
+    category: "performance"
+  },
+  {
+    name: "Netflix Support",
+    description: "Reliably unblocks Netflix in different regions",
+    category: "streaming"
+  },
+  {
+    name: "BBC iPlayer Access",
+    description: "Watch BBC iPlayer from anywhere",
+    category: "streaming"
+  },
+  {
+    name: "Smart DNS",
+    description: "Stream without speed loss on smart TVs",
+    category: "streaming"
+  },
+  {
+    name: "Multi-Platform Support",
+    description: "Apps for all major streaming devices",
+    category: "streaming"
+  },
+  {
+    name: "24/7 Live Chat",
+    description: "Round-the-clock customer support",
+    category: "usability"
+  },
+  {
+    name: "No-Logs Policy",
+    description: "Verified no-logs policy for privacy",
+    category: "usability"
+  },
+  {
+    name: "Unlimited Devices",
+    description: "Connect as many devices as you want",
+    category: "usability"
+  },
+  {
+    name: "Ad Blocker",
+    description: "Built-in ad and malware blocking",
+    category: "usability"
+  }
 ];
 
 const vpnFeatures: Record<string, string[]> = {
