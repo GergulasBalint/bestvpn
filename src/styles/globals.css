@@ -1,11 +1,18 @@
-/* Add this to your global CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .card-gradient-border {
-  @apply bg-white/5 backdrop-blur-sm rounded-xl border border-cyber-blue/20 
-  hover:border-cyber-blue/40 transition-all duration-300 
-  hover:shadow-[0_0_15px_rgba(59,130,246,0.1)] p-6;
+  @apply bg-gray-800/50 backdrop-blur-sm 
+    border border-gray-700/50 
+    rounded-xl p-6
+    hover:border-cyber-blue/30 
+    hover:bg-gray-800/70
+    transition-all duration-300
+    shadow-lg;
 }
 
 .card-hover-glow {
-  @apply hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] 
-  hover:border-cyber-blue/50 transition-all duration-300;
+  @apply hover:shadow-[0_0_15px_rgba(59,130,246,0.1)] 
+    hover:border-cyber-blue/50;
 } 
