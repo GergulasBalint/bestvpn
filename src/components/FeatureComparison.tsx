@@ -4,7 +4,7 @@ import { vpnData } from '../data/vpnData';
 interface Feature {
   name: string;
   description: string;
-  category: 'security' | 'performance' | 'usability' | 'streaming';
+  category: 'security' | 'performance' | 'usability' | 'streaming' | 'privacy' | 'business';
 }
 
 const features: Feature[] = [
@@ -142,6 +142,56 @@ const features: Feature[] = [
     name: "Ad Blocker",
     description: "Built-in ad and malware blocking",
     category: "usability"
+  },
+  {
+    name: "Anonymous Payment",
+    description: "Pay with crypto or gift cards",
+    category: "privacy"
+  },
+  {
+    name: "RAM-Only Servers",
+    description: "No data stored on physical drives",
+    category: "privacy"
+  },
+  {
+    name: "Warrant Canary",
+    description: "Transparency about government requests",
+    category: "privacy"
+  },
+  {
+    name: "Onion Over VPN",
+    description: "Route traffic through Tor network",
+    category: "privacy"
+  },
+  {
+    name: "Privacy Audit",
+    description: "Independent security audits",
+    category: "privacy"
+  },
+  {
+    name: "Dedicated IP",
+    description: "Static IP address for business use",
+    category: "business"
+  },
+  {
+    name: "Team Management",
+    description: "Central dashboard for team accounts",
+    category: "business"
+  },
+  {
+    name: "API Access",
+    description: "Programmatic VPN management",
+    category: "business"
+  },
+  {
+    name: "Priority Support",
+    description: "Dedicated business support line",
+    category: "business"
+  },
+  {
+    name: "GDPR Compliance",
+    description: "Meets EU data protection standards",
+    category: "business"
   }
 ];
 
@@ -157,7 +207,17 @@ const vpnFeatures: Record<string, string[]> = {
     "WireGuard Protocol",
     "10Gbps Servers",
     "Server Network Size",
-    "Low Latency"
+    "Low Latency",
+    "Anonymous Payment",
+    "RAM-Only Servers",
+    "Warrant Canary",
+    "Onion Over VPN",
+    "Privacy Audit",
+    "Dedicated IP",
+    "Team Management",
+    "API Access",
+    "Priority Support",
+    "GDPR Compliance"
   ],
   'expressvpn': [
     "Kill Switch", 
@@ -232,7 +292,7 @@ const FeatureComparison: React.FC = () => {
         >
           All Features
         </button>
-        {['security', 'performance', 'usability', 'streaming'].map(category => (
+        {['security', 'performance', 'usability', 'streaming', 'privacy', 'business'].map(category => (
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
