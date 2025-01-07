@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import VPNComparisonTable from './VPNComparisonTable';
 import type { CityData } from '../data/cityData';
+import { vpnTableData } from '../data/vpnData';
 
 interface CityVPNGuideProps {
   city: CityData;
@@ -106,7 +107,10 @@ const CityVPNGuide: React.FC<CityVPNGuideProps> = ({ city }) => {
             <h2 className="text-3xl font-bold mb-8 text-center">
               Recommended VPNs for {city.name}
             </h2>
-            <VPNComparisonTable className="mb-12" />
+            <VPNComparisonTable 
+              vpns={vpnTableData} 
+              className="mb-8" 
+            />
           </section>
 
           {/* Local Tips */}
