@@ -4,7 +4,7 @@ interface VPNDetailSectionProps {
   vpn: {
     id: string;
     name: string;
-    rating: number;
+    rating: string;
     isEditorsChoice?: boolean;
     image: string;
     description: string;
@@ -46,9 +46,9 @@ const VPNDetailSection: React.FC<VPNDetailSectionProps> = ({ vpn }) => {
                   key={i}
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
-                  fill={i < vpn.rating ? "currentColor" : "none"}
+                  fill={i < Number(vpn.rating) ? "currentColor" : "none"}
                   stroke="currentColor"
-                  className={`w-6 h-6 ${i < vpn.rating ? 'text-cyber-blue' : 'text-gray-400'}`}
+                  className={`w-6 h-6 ${i < Number(vpn.rating) ? 'text-cyber-blue' : 'text-gray-400'}`}
                 >
                   <path
                     fillRule="evenodd"

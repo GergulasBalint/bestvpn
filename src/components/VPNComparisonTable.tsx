@@ -1,11 +1,12 @@
 import React from 'react';
-import { vpnTableData } from '../data/vpnData';
+import { VPNTableData } from '../types/vpn';
 
 interface VPNComparisonTableProps {
+  vpns: VPNTableData[];
   className?: string;
 }
 
-const VPNComparisonTable: React.FC<VPNComparisonTableProps> = ({ className }) => {
+const VPNComparisonTable: React.FC<VPNComparisonTableProps> = ({ vpns, className = '' }) => {
   return (
     <div className={`overflow-x-auto ${className}`}>
       <table className="min-w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl border border-gray-700" itemScope itemType="http://schema.org/Table">
@@ -21,7 +22,7 @@ const VPNComparisonTable: React.FC<VPNComparisonTableProps> = ({ className }) =>
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-700">
-          {vpnTableData.map((vpn) => (
+          {vpns.map((vpn) => (
             <tr key={vpn.name} className="hover:bg-gray-700/30 transition-colors duration-150" itemScope itemType="http://schema.org/Product">
               <td className="px-6 py-4 whitespace-nowrap font-medium text-white" itemProp="name">{vpn.name}</td>
               <td className="px-6 py-4 text-gray-300" itemProp="additionalProperty">{vpn.ukServers}</td>

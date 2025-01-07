@@ -1,20 +1,28 @@
 export interface VPNData {
   id: string;
   name: string;
-  rating: number;
+  ukServers: string;
+  speed: string;
+  price: string;
+  streaming: string;
+  rating: string;
+  ratingClass: string;
   isEditorsChoice?: boolean;
   image: string;
   description: string;
   features: string[];
   pros: string[];
   cons: string[];
-  price: string;
   link: string;
+  // ... any other properties you need
 }
 
-export interface VPNTableData extends Omit<VPNData, 'rating'> {
+export interface VPNTableData {
+  id: string;
+  name: string;
   ukServers: string;
   speed: string;
+  price: string;
   streaming: string;
   rating: string;
   ratingClass: string;
