@@ -1,6 +1,18 @@
 import React from 'react';
 import { vpnTableData } from '../data/vpnData';
 
+const getVpnLogo = (vpnId: string) => {
+  const logoMap: { [key: string]: string } = {
+    nordvpn: '/images/vpn/NordVPN.jpg',
+    expressvpn: '/images/vpn/ExpressVPN.png',
+    surfshark: '/images/vpn/surfshark.jpg',
+    cyberghost: '/images/vpn/CyberGhost.jpg',
+    protonvpn: '/images/vpn/ProtonVPN.jpg',
+    privateinternetaccess: '/images/vpn/PrivateInternetAccessVPN.jpg'
+  };
+  return logoMap[vpnId];
+};
+
 const VPNDeals: React.FC = () => {
   return (
     <div className="mb-16">
@@ -22,7 +34,7 @@ const VPNDeals: React.FC = () => {
               {/* VPN Logo and Name */}
               <div className="flex items-center space-x-4 mb-6">
                 <img 
-                  src={`/images/vpn/${vpn.id}.jpg`}
+                  src={getVpnLogo(vpn.id)}
                   alt={`${vpn.name} logo`}
                   className="w-12 h-12 rounded-full bg-white p-1"
                 />
