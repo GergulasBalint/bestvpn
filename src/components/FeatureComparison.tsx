@@ -183,7 +183,7 @@ const FeatureComparison: React.FC = () => {
                 {vpnData.map(vpn => (
                   <th 
                     key={vpn.id} 
-                    className={`text-center py-12 px-6 relative w-[15%] ${
+                    className={`text-center pt-16 pb-5 px-6 relative w-[15%] ${
                       vpn.id === 'nordvpn' 
                         ? 'border-x-2 border-t-2 border-yellow-400/50 bg-yellow-400/5' 
                         : ''
@@ -193,7 +193,7 @@ const FeatureComparison: React.FC = () => {
                       <img 
                         src="/images/editors-choice-badge.png"
                         alt="Editor's Choice"
-                        className="absolute -top-6 -right-3 w-20 h-20"
+                        className="absolute top-0 -right-3 w-16 h-16"
                       />
                     )}
                     <span className="font-semibold text-white">{vpn.name}</span>
