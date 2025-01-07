@@ -144,24 +144,28 @@ const FeatureComparison: React.FC = () => {
     : features.filter(f => f.category === selectedCategory);
 
   return (
-    <div className="card-gradient-border">
-      <h2 className="text-2xl font-bold text-cyber-blue mb-4">Feature Comparison</h2>
+    <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-700 p-8">
+      <h2 className="text-2xl font-bold text-cyber-blue mb-6">Feature Comparison</h2>
       
-      <div className="mb-6 flex gap-2">
+      <div className="mb-8 flex flex-wrap gap-3">
         <button 
           onClick={() => setSelectedCategory('all')}
-          className={`px-4 py-2 rounded ${
-            selectedCategory === 'all' ? 'bg-cyber-blue text-white' : 'bg-gray-800 text-gray-300'
+          className={`px-6 py-2.5 rounded-lg font-medium transition-all duration-300 ${
+            selectedCategory === 'all' 
+              ? 'bg-cyber-blue text-white shadow-lg shadow-cyber-blue/20' 
+              : 'bg-gray-700/50 text-gray-300 hover:bg-gray-700'
           }`}
         >
-          All
+          All Features
         </button>
         {['security', 'performance', 'usability', 'streaming'].map(category => (
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
-            className={`px-4 py-2 rounded capitalize ${
-              selectedCategory === category ? 'bg-cyber-blue text-white' : 'bg-gray-800 text-gray-300'
+            className={`px-6 py-2.5 rounded-lg font-medium capitalize transition-all duration-300 ${
+              selectedCategory === category 
+                ? 'bg-cyber-blue text-white shadow-lg shadow-cyber-blue/20' 
+                : 'bg-gray-700/50 text-gray-300 hover:bg-gray-700'
             }`}
           >
             {category}
@@ -169,39 +173,59 @@ const FeatureComparison: React.FC = () => {
         ))}
       </div>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto rounded-xl border border-gray-700/50">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-gray-700">
-              <th className="text-left py-4 px-4">Feature</th>
+            <tr className="bg-gray-800/80">
+              <th className="text-left py-5 px-6 text-gray-300 font-medium">Feature</th>
               {vpnData.map(vpn => (
-                <th key={vpn.id} className={`text-center py-4 px-4 relative ${
-                  vpn.id === 'nordvpn' ? 'border-x-2 border-t-2 border-yellow-400/50' : ''
-                }`}>
+                <th 
+                  key={vpn.id} 
+                  className={`text-center py-5 px-6 relative ${
+                    vpn.id === 'nordvpn' 
+                      ? 'border-x-2 border-t-2 border-yellow-400/50 bg-yellow-400/5' 
+                      : ''
+                  }`}
+                >
                   {vpn.id === 'nordvpn' && <EditorChoice />}
-                  {vpn.name}
+                  <span className="font-semibold text-white">{vpn.name}</span>
                 </th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {filteredFeatures.map(feature => (
-              <tr key={feature.name} className="border-b border-gray-800">
-                <td className="py-4 px-4">
-                  <div className="font-semibold text-white">{feature.name}</div>
-                  <div className="text-sm text-gray-400">{feature.description}</div>
+            {filteredFeatures.map((feature, idx) => (
+              <tr 
+                key={feature.name} 
+                className={`border-t border-gray-700/50 transition-colors ${
+                  idx % 2 === 0 ? 'bg-gray-800/30' : 'bg-gray-800/10'
+                }`}
+              >
+                <td className="py-4 px-6">
+                  <div className="font-medium text-white">{feature.name}</div>
+                  <div className="text-sm text-gray-400 mt-1">{feature.description}</div>
                 </td>
                 {vpnData.map(vpn => (
                   <td 
                     key={vpn.id} 
-                    className={`text-center py-4 px-4 ${
-                      vpn.id === 'nordvpn' ? 'border-x-2 border-yellow-400/50 bg-yellow-400/5' : ''
+                    className={`text-center py-4 px-6 ${
+                      vpn.id === 'nordvpn' 
+                        ? 'border-x-2 border-yellow-400/50 bg-yellow-400/5' 
+                        : ''
                     }`}
                   >
                     {vpnFeatures[vpn.id]?.includes(feature.name) ? (
-                      <span className={`text-${vpn.id === 'nordvpn' ? 'yellow' : 'green'}-400`}>✓</span>
+                      <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full ${
+                        vpn.id === 'nordvpn' 
+                          ? 'bg-yellow-400/10 text-yellow-400' 
+                          : 'bg-green-400/10 text-green-400'
+                      }`}>
+                        ✓
+                      </span>
                     ) : (
-                      <span className="text-red-400">✗</span>
+                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-400/10 text-red-400">
+                        ✗
+                      </span>
                     )}
                   </td>
                 ))}
