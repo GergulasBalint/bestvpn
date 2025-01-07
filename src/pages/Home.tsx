@@ -3,6 +3,7 @@ import CitySearch from '../components/CitySearch';
 import SEO from '../components/SEO';
 import Testimonials from '../components/Testimonials';
 import ReviewForm from '../components/ReviewForm';
+import EditorChoice from '../components/EditorChoice';
 
 const Home = () => {
   // We'll just use a few popular cities for the featured section
@@ -126,15 +127,17 @@ const Home = () => {
               <p className="text-sm text-gray-400">Average UK Download Speed</p>
             </div>
 
-            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300 shadow-lg">
+            <div className="relative bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border-2 border-yellow-400/50 hover:border-yellow-400 transition-all duration-300 shadow-lg hover:shadow-yellow-400/20">
+              <EditorChoice />
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-semibold text-white">NordVPN</h3>
-                <span className="text-blue-400">93.6 Mbps</span>
+                <span className="text-yellow-400">96.8 Mbps</span>
               </div>
               <div className="w-full bg-gray-700 rounded-full h-2 mb-2">
-                <div className="bg-blue-400 h-2 rounded-full" style={{ width: '93%' }}></div>
+                <div className="bg-yellow-400 h-2 rounded-full" style={{ width: '97%' }}></div>
               </div>
               <p className="text-sm text-gray-400">Average UK Download Speed</p>
+              <div className="absolute inset-0 rounded-xl bg-yellow-400/5 pointer-events-none"></div>
             </div>
 
             <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300 shadow-lg">
