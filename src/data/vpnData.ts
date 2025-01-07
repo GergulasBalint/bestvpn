@@ -65,5 +65,54 @@ export const vpnTableData: VPNTableData[] = [
     rating: '4.9/5',
     ratingClass: 'bg-green-100 text-green-800'
   },
-  // ... other VPNs
+  {
+    id: 'expressvpn',
+    name: 'ExpressVPN',
+    ukServers: '4',
+    speed: '89.42 Mbps',
+    price: '£5.99',
+    streaming: 'Netflix, BBC, Prime',
+    rating: '4.8/5',
+    ratingClass: 'bg-green-100 text-green-800'
+  },
+  {
+    id: 'surfshark',
+    name: 'Surfshark',
+    ukServers: '3',
+    speed: '88.51 Mbps',
+    price: '£1.99',
+    streaming: 'Netflix, BBC',
+    rating: '4.7/5',
+    ratingClass: 'bg-green-100 text-green-800'
+  },
+  {
+    id: 'cyberghost',
+    name: 'CyberGhost',
+    ukServers: '700+',
+    speed: '85.96 Mbps',
+    price: '£2.89',
+    streaming: 'Netflix, BBC',
+    rating: '4.6/5',
+    ratingClass: 'bg-green-100 text-green-800'
+  },
+  {
+    id: 'protonvpn',
+    name: 'ProtonVPN',
+    ukServers: '8',
+    speed: '84.18 Mbps',
+    price: '£4.99',
+    streaming: 'Netflix',
+    rating: '4.5/5',
+    ratingClass: 'bg-green-100 text-green-800'
+  },
+  {
+    id: 'privateinternetaccess',
+    name: 'Private Internet Access',
+    ukServers: '2',
+    speed: '82.78 Mbps',
+    price: '£1.69',
+    streaming: 'Netflix',
+    rating: '4.4/5',
+    ratingClass: 'bg-green-100 text-green-800'
+  }
 ]; 
