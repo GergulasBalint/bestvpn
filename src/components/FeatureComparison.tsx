@@ -184,18 +184,20 @@ const FeatureComparison: React.FC = () => {
                 {vpnData.map(vpn => (
                   <th 
                     key={vpn.id} 
-                    className={`text-center py-8 px-6 relative w-[15%] ${
+                    className={`text-center py-5 px-6 relative w-[15%] ${
                       vpn.id === 'nordvpn' 
                         ? 'border-x-2 border-t-2 border-yellow-400/50 bg-yellow-400/5' 
                         : ''
                     }`}
                   >
                     {vpn.id === 'nordvpn' && (
-                      <div className="absolute -top-4 left-0 right-0">
-                        <EditorChoice />
-                      </div>
+                      <img 
+                        src="/images/editors-choice-badge.png"
+                        alt="Editor's Choice"
+                        className="absolute -top-4 -right-4 w-16 h-16"
+                      />
                     )}
-                    <span className="font-semibold text-white block mt-4">{vpn.name}</span>
+                    <span className="font-semibold text-white">{vpn.name}</span>
                   </th>
                 ))}
               </tr>
