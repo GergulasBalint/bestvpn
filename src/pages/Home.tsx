@@ -28,17 +28,17 @@ const Home = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 mb-16">
-          <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg">
+          <div className="card-gradient-border border-blue-500/20 hover:border-blue-500/40">
             <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Expert Reviews</h3>
             <p className="text-cyber-gray">In-depth analysis of the best VPN services for UK users</p>
           </div>
           
-          <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg">
+          <div className="card-gradient-border border-purple-500/20 hover:border-purple-500/40">
             <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Price Comparison</h3>
             <p className="text-cyber-gray">Find the best VPN deals and discounts available in the UK</p>
           </div>
           
-          <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg">
+          <div className="card-gradient-border border-green-500/20 hover:border-green-500/40">
             <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Security Focus</h3>
             <p className="text-cyber-gray">Stay informed about VPN security and privacy features</p>
           </div>
@@ -61,7 +61,7 @@ const Home = () => {
               <Link
                 key={city}
                 to={`/city/${city.toLowerCase()}`}
-                className="bg-white/5 backdrop-blur-sm p-4 rounded-lg hover:bg-white/10 transition-colors duration-300"
+                className="card-gradient-border card-hover-glow p-4"
               >
                 <h3 className="text-lg font-semibold text-cyber-blue">
                   {city}
@@ -75,7 +75,7 @@ const Home = () => {
         </section>
 
         {/* Search section */}
-        <div className="mb-12">
+        <div className="mb-12 card-gradient-border">
           <h2 className="text-2xl mb-4">Find VPN recommendations for your city</h2>
           <CitySearch />
         </div>
