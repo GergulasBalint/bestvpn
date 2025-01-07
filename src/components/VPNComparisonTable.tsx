@@ -6,6 +6,18 @@ interface VPNComparisonTableProps {
   className?: string;
 }
 
+const getVpnLogo = (vpnId: string) => {
+  const logoMap: { [key: string]: string } = {
+    nordvpn: '/images/vpn/NordVPN.jpg',
+    expressvpn: '/images/vpn/ExpressVPN.png',
+    surfshark: '/images/vpn/surfshark.jpg',
+    cyberghost: '/images/vpn/CyberGhost.jpg',
+    protonvpn: '/images/vpn/ProtonVPN.jpg',
+    privateinternetaccess: '/images/vpn/PrivateInternetAccessVPN.jpg'
+  };
+  return logoMap[vpnId];
+};
+
 const VPNComparisonTable: React.FC<VPNComparisonTableProps> = ({ vpns, className = '' }) => {
   return (
     <div className={`overflow-x-auto ${className}`}>
@@ -46,7 +58,7 @@ const VPNComparisonTable: React.FC<VPNComparisonTableProps> = ({ vpns, className
               <td className="px-8 py-6">
                 <div className="flex items-center space-x-3">
                   <img 
-                    src={`/images/vpn/${vpn.id}.jpg`} 
+                    src={getVpnLogo(vpn.id)}
                     alt={`${vpn.name} logo`}
                     className="w-10 h-10 object-contain rounded-full bg-white p-1"
                   />
