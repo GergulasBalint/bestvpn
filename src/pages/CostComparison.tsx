@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import VPNComparisonTable from '../components/VPNComparisonTable';
 import { vpnTableData } from '../data/vpnData';
+import VPNPriceCalculator from '../components/VPNPriceCalculator';
 
 const CostComparison: React.FC = () => {
   return (
@@ -43,6 +44,11 @@ const CostComparison: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Calculator Section */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+          <VPNPriceCalculator />
         </div>
 
         {/* Main Comparison Table */}
