@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { vpnData } from '../data/vpnData';
-import EditorChoice from '../components/EditorChoice';
 
 interface Feature {
   name: string;
