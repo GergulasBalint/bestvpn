@@ -53,6 +53,32 @@ const Home = () => {
           </Link>
         </div>
 
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-cyber-blue">Why Use a VPN?</h2>
+          <div className="grid md:grid-cols-4 gap-6">
+            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300 shadow-lg">
+              <div className="text-3xl mb-4">🔒</div>
+              <h3 className="text-lg font-semibold text-white mb-2">Privacy</h3>
+              <p className="text-gray-300">Protect your online activity from tracking</p>
+            </div>
+            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300 shadow-lg">
+              <div className="text-3xl mb-4">🌍</div>
+              <h3 className="text-lg font-semibold text-white mb-2">Access</h3>
+              <p className="text-gray-300">Bypass geo-restrictions on content</p>
+            </div>
+            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300 shadow-lg">
+              <div className="text-3xl mb-4">🛡️</div>
+              <h3 className="text-lg font-semibold text-white mb-2">Security</h3>
+              <p className="text-gray-300">Stay safe on public Wi-Fi networks</p>
+            </div>
+            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300 shadow-lg">
+              <div className="text-3xl mb-4">💰</div>
+              <h3 className="text-lg font-semibold text-white mb-2">Savings</h3>
+              <p className="text-gray-300">Find better deals on online purchases</p>
+            </div>
+          </div>
+        </section>
+
         {/* Frequently searched cities section */}
         <section className="mb-12">
           <h2 className="text-3xl font-bold mb-8 text-cyber-blue">Frequently Searched Cities</h2>
@@ -85,6 +111,19 @@ const Home = () => {
 
         {/* Review Form section */}
         <ReviewForm />
+
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold mb-8 text-cyber-blue">Latest VPN News</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300 shadow-lg">
+              <time className="text-sm text-gray-400">March 5, 2024</time>
+              <h3 className="text-lg font-semibold text-white mt-2">New Privacy Laws Impact VPN Users</h3>
+              <p className="text-gray-300 mt-2">Recent changes in UK privacy regulations affect how VPNs operate...</p>
+              <Link to="/news" className="text-cyber-blue hover:underline mt-4 inline-block">Read More →</Link>
+            </div>
+            {/* Add 2 more news cards */}
+          </div>
+        </section>
       </section>
     </div>
   );
