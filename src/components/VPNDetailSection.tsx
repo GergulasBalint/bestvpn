@@ -73,7 +73,7 @@ const VPNDetailSection: React.FC<VPNDetailSectionProps> = ({ vpn }) => {
               </p>
             </div>
 
-            <div className="bg-gray-900/50 p-6 rounded-xl">
+            <div className="card-gradient-border border-purple-500/20 hover:border-purple-500/40 p-6 rounded-xl">
               <h3 className="text-xl font-semibold mb-4 text-cyber-blue">Key Features:</h3>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-4" itemProp="features">
                 {vpn.features.map((feature, index) => (

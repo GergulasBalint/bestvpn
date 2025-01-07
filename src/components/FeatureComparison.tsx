@@ -143,7 +143,7 @@ const FeatureComparison: React.FC = () => {
     : features.filter(f => f.category === selectedCategory);
 
   return (
-    <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6">
+    <div className="card-gradient-border">
       <h2 className="text-2xl font-bold text-cyber-blue mb-4">Feature Comparison</h2>
       
       <div className="mb-6 flex gap-2">

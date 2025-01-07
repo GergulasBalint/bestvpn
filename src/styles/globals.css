@@ -1,0 +1,11 @@
+/* Add this to your global CSS */
+.card-gradient-border {
+  @apply bg-white/5 backdrop-blur-sm rounded-xl border border-cyber-blue/20 
+  hover:border-cyber-blue/40 transition-all duration-300 
+  hover:shadow-[0_0_15px_rgba(59,130,246,0.1)] p-6;
+}
+
+.card-hover-glow {
+  @apply hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] 
+  hover:border-cyber-blue/50 transition-all duration-300;
+} 

@@ -43,7 +43,7 @@ const VPNPriceCalculator: FC = () => {
   }, [duration, devices]);
 
   return (
-    <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6">
+    <div className="card-gradient-border border-green-500/20 hover:border-green-500/40">
       <div className="space-y-8">
         {/* Duration Slider */}
         <div className="space-y-4">
