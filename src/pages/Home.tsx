@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom';
 import CitySearch from '../components/CitySearch';
 import SEO from '../components/SEO';
+import DealAlerts from '../components/DealAlerts';
+import PrivacyNews from '../components/PrivacyNews';
+import SetupGuides from '../components/SetupGuides';
+import SpeedTestWidget from '../components/SpeedTestWidget';
+
 const Home = () => {
+  const popularCities = ["London", "Manchester", "Birmingham", "Edinburgh", "Glasgow"];
+
   return (
     <div className="min-h-screen relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
       <SEO 
@@ -92,7 +99,34 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Rest of your content... */}
+      {/* Popular Cities Section */}
+      <section className="max-w-7xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text">
+          Popular City Guides
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {popularCities.map((city) => (
+            <Link
+              key={city}
+              to={`/city/${city.toLowerCase()}`}
+              className="bg-gradient-to-br from-gray-800/50 via-gray-800/30 to-gray-800/50 backdrop-blur-md p-6 rounded-xl border border-gray-700/50 shadow-lg group hover:border-cyber-blue/50 transition-all duration-500 text-center"
+            >
+              <h3 className="text-xl font-semibold text-white group-hover:text-cyber-blue transition-colors">
+                {city}
+              </h3>
+              <p className="text-sm text-gray-400 mt-2">VPN Guide</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Features Grid */}
+      <section className="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <SpeedTestWidget />
+        <DealAlerts />
+        <PrivacyNews />
+        <SetupGuides />
+      </section>
     </div>
   );
 };
