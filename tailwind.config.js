@@ -16,14 +16,36 @@ export default {
       animation: {
         'gradient-x': 'gradient-x 15s ease infinite',
         'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'float-delayed': 'float 6s ease-in-out infinite -2s',
+        'float-slow': 'float 8s ease-in-out infinite -4s',
+        'scan': 'scan 8s linear infinite',
       },
       keyframes: {
         'gradient-x': {
           '0%, 100%': {
-            'background-position': 'left center',
+            'background-position': '0% 50%',
           },
           '50%': {
-            'background-position': 'right center',
+            'background-position': '100% 50%',
+          },
+        },
+        float: {
+          '0%, 100%': {
+            transform: 'translateY(0) translateX(0)',
+            opacity: '0.3',
+          },
+          '50%': {
+            transform: 'translateY(-20px) translateX(20px)',
+            opacity: '0.8',
+          },
+        },
+        scan: {
+          '0%': {
+            transform: 'translateY(-100%)',
+          },
+          '100%': {
+            transform: 'translateY(100%)',
           },
         },
       },
