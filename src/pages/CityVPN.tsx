@@ -150,42 +150,146 @@ const CityVPN: FC = () => {
             </div>
           </section>
 
-          {/* Public WiFi Security Map */}
+          {/* Replace the map section with this Interactive Hotspot Section */}
           <section className="mb-16">
             <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700">
               <h2 className="text-2xl font-bold text-cyber-blue mb-6">
-                Public WiFi Security Map
+                Public WiFi Security Zones
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="col-span-2 bg-gray-900/50 rounded-xl h-[300px] overflow-hidden">
-                  {/* Replace YOUR_API_KEY with actual key from .env */}
-                  <iframe
-                    title={`Map of ${cityData.name} hotspots`}
-                    width="100%"
-                    height="100%"
-                    loading="lazy"
-                    src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}&q=${cityData.name},UK&zoom=13`}
-                  ></iframe>
+                <div className="bg-gradient-to-br from-red-500/20 to-red-900/20 p-6 rounded-xl border border-red-500/30">
+                  <h3 className="text-xl font-semibold text-red-400 mb-4">High Risk Zones</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-center space-x-3">
+                      <span className="w-8 h-8 bg-red-500/20 rounded-lg flex items-center justify-center">
+                        <svg className="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                      </span>
+                      <span className="text-gray-300">Shopping Centers & Malls</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <span className="w-8 h-8 bg-red-500/20 rounded-lg flex items-center justify-center">
+                        <svg className="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                      </span>
+                      <span className="text-gray-300">Train & Bus Stations</span>
+                    </li>
+                  </ul>
                 </div>
-                <div className="space-y-4">
-                  <div className="bg-gray-900/50 p-4 rounded-xl">
-                    <h3 className="font-semibold text-cyber-blue mb-2">High-Risk Areas</h3>
-                    <ul className="text-gray-300 space-y-2">
-                      <li>• Shopping Centers</li>
-                      <li>• Train Stations</li>
-                      <li>• Coffee Shops</li>
-                      <li>• Public Libraries</li>
-                    </ul>
-                  </div>
-                  <div className="bg-gray-900/50 p-4 rounded-xl">
-                    <h3 className="font-semibold text-cyber-blue mb-2">Safety Tips</h3>
-                    <ul className="text-gray-300 space-y-2">
-                      <li>• Always enable VPN before connecting</li>
-                      <li>• Use 2-factor authentication</li>
-                      <li>• Avoid financial transactions</li>
-                      <li>• Keep auto-connect enabled</li>
-                    </ul>
-                  </div>
+
+                <div className="bg-gradient-to-br from-yellow-500/20 to-yellow-900/20 p-6 rounded-xl border border-yellow-500/30">
+                  <h3 className="text-xl font-semibold text-yellow-400 mb-4">Medium Risk Zones</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-center space-x-3">
+                      <span className="w-8 h-8 bg-yellow-500/20 rounded-lg flex items-center justify-center">
+                        <svg className="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                      </span>
+                      <span className="text-gray-300">Cafes & Restaurants</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <span className="w-8 h-8 bg-yellow-500/20 rounded-lg flex items-center justify-center">
+                        <svg className="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                      </span>
+                      <span className="text-gray-300">Hotels & Hostels</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-gradient-to-br from-green-500/20 to-green-900/20 p-6 rounded-xl border border-green-500/30">
+                  <h3 className="text-xl font-semibold text-green-400 mb-4">Protected with VPN</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-center space-x-3">
+                      <span className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
+                        <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                      </span>
+                      <span className="text-gray-300">Encrypted Connection</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <span className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
+                        <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                      </span>
+                      <span className="text-gray-300">Safe for Banking</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Security Tips */}
+              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-gray-900/50 p-6 rounded-xl">
+                  <h3 className="text-xl font-semibold text-cyber-blue mb-4">Essential Security Steps</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-center space-x-3 text-gray-300">
+                      <span className="text-cyber-blue">1.</span>
+                      <span>Enable VPN before connecting to any public WiFi</span>
+                    </li>
+                    <li className="flex items-center space-x-3 text-gray-300">
+                      <span className="text-cyber-blue">2.</span>
+                      <span>Use 2-factor authentication for sensitive accounts</span>
+                    </li>
+                    <li className="flex items-center space-x-3 text-gray-300">
+                      <span className="text-cyber-blue">3.</span>
+                      <span>Keep auto-connect to VPN enabled on your devices</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-gray-900/50 p-6 rounded-xl">
+                  <h3 className="text-xl font-semibold text-cyber-blue mb-4">Additional Protection</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-center space-x-3 text-gray-300">
+                      <span className="text-cyber-blue">•</span>
+                      <span>Use HTTPS-only mode in your browser</span>
+                    </li>
+                    <li className="flex items-center space-x-3 text-gray-300">
+                      <span className="text-cyber-blue">•</span>
+                      <span>Enable firewall on your device</span>
+                    </li>
+                    <li className="flex items-center space-x-3 text-gray-300">
+                      <span className="text-cyber-blue">•</span>
+                      <span>Keep your device's software updated</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Add a new VPN Setup Guide section */}
+          <section className="mb-16">
+            <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700">
+              <h2 className="text-2xl font-bold text-cyber-blue mb-6">
+                Quick Setup Guide for {cityData.name}
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div className="bg-gray-900/50 p-6 rounded-xl">
+                  <div className="text-3xl font-bold text-cyber-blue mb-4">1</div>
+                  <h3 className="text-lg font-semibold text-white mb-2">Choose Provider</h3>
+                  <p className="text-gray-300 text-sm">Select a VPN from our recommended providers above</p>
+                </div>
+                <div className="bg-gray-900/50 p-6 rounded-xl">
+                  <div className="text-3xl font-bold text-cyber-blue mb-4">2</div>
+                  <h3 className="text-lg font-semibold text-white mb-2">Install App</h3>
+                  <p className="text-gray-300 text-sm">Download and install the VPN application</p>
+                </div>
+                <div className="bg-gray-900/50 p-6 rounded-xl">
+                  <div className="text-3xl font-bold text-cyber-blue mb-4">3</div>
+                  <h3 className="text-lg font-semibold text-white mb-2">Connect</h3>
+                  <p className="text-gray-300 text-sm">Select a {cityData.region} server and connect</p>
+                </div>
+                <div className="bg-gray-900/50 p-6 rounded-xl">
+                  <div className="text-3xl font-bold text-cyber-blue mb-4">4</div>
+                  <h3 className="text-lg font-semibold text-white mb-2">Verify</h3>
+                  <p className="text-gray-300 text-sm">Check your connection is secure and working</p>
                 </div>
               </div>
             </div>
