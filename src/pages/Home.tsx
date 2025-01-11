@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom';
 import CitySearch from '../components/CitySearch';
 import SEO from '../components/SEO';
-import Testimonials from '../components/Testimonials';
-import ReviewForm from '../components/ReviewForm';
-import EditorChoice from '../components/EditorChoice';
-
 const Home = () => {
-  const popularCities = ["London", "Manchester", "Birmingham", "Edinburgh", "Glasgow"];
-
   return (
     <div className="min-h-screen relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+      <SEO 
+        title="Best VPN UK - Compare Top VPN Services"
+        description="Find the perfect VPN for your needs in the UK. Compare prices, features, and security options."
+        keywords="VPN UK, best VPN services, UK VPN comparison"
+      />
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Animated Grid */}
