@@ -20,10 +20,27 @@ const CityVPN: FC = () => {
         <meta name="description" content={`Find the best VPN for ${cityData.name}. Compare speeds, features, and local server performance. Average speeds of ${cityData.internetStats.averageSpeed}.`} />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
-        {/* Hero Section with City Stats */}
-        <div className="relative overflow-hidden bg-gradient-to-b from-gray-900 via-gray-800 to-transparent py-24">
-          <div className="absolute inset-0 bg-[url('/images/cyber-grid.svg')] opacity-10"></div>
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white relative">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute inset-0 bg-[url('/images/cyber-grid.svg')] opacity-10 bg-repeat"></div>
+          
+          <div className="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-cyber-blue/10 rounded-full blur-[120px]"></div>
+          <div className="absolute top-1/3 -right-1/4 w-1/2 h-1/2 bg-purple-500/10 rounded-full blur-[120px]"></div>
+          <div className="absolute -bottom-1/4 left-1/3 w-1/2 h-1/2 bg-green-500/10 rounded-full blur-[120px]"></div>
+          
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyber-blue/5 to-transparent 
+            animate-pulse opacity-20"></div>
+
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-10 w-32 h-32 bg-cyber-blue/20 rounded-full blur-xl animate-pulse-slow"></div>
+            <div className="absolute bottom-20 right-10 w-40 h-40 bg-purple-500/20 rounded-full blur-xl animate-pulse-slow delay-1000"></div>
+            <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-green-500/20 rounded-full blur-xl animate-pulse-slow delay-2000"></div>
+            
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent_0%,rgba(0,246,255,0.05)_50%,transparent_100%)] animate-gradient-x"></div>
+          </div>
+        </div>
+
+        <div className="relative overflow-hidden bg-gradient-to-b from-gray-900/80 via-gray-800/80 to-transparent py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text">
@@ -36,19 +53,23 @@ const CityVPN: FC = () => {
 
             {/* City Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-              <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 text-center">
+              <div className="bg-gradient-to-br from-gray-800/50 via-gray-800/30 to-gray-800/50 backdrop-blur-md p-8 rounded-xl border border-gray-700/50 shadow-lg shadow-black/20 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="text-4xl font-bold text-cyber-blue mb-2">{cityData.internetStats.averageSpeed}</div>
                 <div className="text-gray-400">Average Speed</div>
               </div>
-              <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 text-center">
+              <div className="bg-gradient-to-br from-gray-800/50 via-gray-800/30 to-gray-800/50 backdrop-blur-md p-8 rounded-xl border border-gray-700/50 shadow-lg shadow-black/20 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="text-4xl font-bold text-purple-400 mb-2">{cityData.vpnUsage.percentage}%</div>
                 <div className="text-gray-400">VPN Usage</div>
               </div>
-              <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 text-center">
+              <div className="bg-gradient-to-br from-gray-800/50 via-gray-800/30 to-gray-800/50 backdrop-blur-md p-8 rounded-xl border border-gray-700/50 shadow-lg shadow-black/20 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="text-4xl font-bold text-green-400 mb-2">{cityData.internetStats.mainProviders.length}</div>
                 <div className="text-gray-400">Major ISPs</div>
               </div>
-              <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 text-center">
+              <div className="bg-gradient-to-br from-gray-800/50 via-gray-800/30 to-gray-800/50 backdrop-blur-md p-8 rounded-xl border border-gray-700/50 shadow-lg shadow-black/20 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="text-4xl font-bold text-yellow-400 mb-2">{cityData.population.toLocaleString()}</div>
                 <div className="text-gray-400">Population</div>
               </div>
@@ -128,7 +149,8 @@ const CityVPN: FC = () => {
           {/* Local Insights Section */}
           <section className="mb-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700">
+              <div className="bg-gradient-to-br from-gray-800/50 via-gray-800/30 to-gray-800/50 backdrop-blur-md p-8 rounded-xl border border-gray-700/50 shadow-lg shadow-black/20 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <h2 className="text-2xl font-bold text-cyber-blue mb-6">Local VPN Usage Insights</h2>
                 <div className="space-y-4">
                   {cityData.vpnUsage.popularUses.map((use, index) => (
@@ -144,7 +166,8 @@ const CityVPN: FC = () => {
                 </div>
               </div>
 
-              <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700">
+              <div className="bg-gradient-to-br from-gray-800/50 via-gray-800/30 to-gray-800/50 backdrop-blur-md p-8 rounded-xl border border-gray-700/50 shadow-lg shadow-black/20 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <h2 className="text-2xl font-bold text-cyber-blue mb-6">Internet Infrastructure</h2>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
@@ -176,7 +199,8 @@ const CityVPN: FC = () => {
 
           {/* Local Tips Section */}
           <section className="mb-16">
-            <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700">
+            <div className="bg-gradient-to-br from-gray-800/50 via-gray-800/30 to-gray-800/50 backdrop-blur-md p-8 rounded-xl border border-gray-700/50 shadow-lg shadow-black/20 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <h2 className="text-2xl font-bold text-cyber-blue mb-6">
                 Local VPN Tips for {cityData.name}
               </h2>
@@ -221,7 +245,8 @@ const CityVPN: FC = () => {
 
           {/* Replace the map section with this Interactive Hotspot Section */}
           <section className="mb-16">
-            <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700">
+            <div className="bg-gradient-to-br from-gray-800/50 via-gray-800/30 to-gray-800/50 backdrop-blur-md p-8 rounded-xl border border-gray-700/50 shadow-lg shadow-black/20 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <h2 className="text-2xl font-bold text-cyber-blue mb-6">
                 Public WiFi Security Zones
               </h2>
@@ -335,7 +360,8 @@ const CityVPN: FC = () => {
 
           {/* Add a new VPN Setup Guide section */}
           <section className="mb-16">
-            <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700">
+            <div className="bg-gradient-to-br from-gray-800/50 via-gray-800/30 to-gray-800/50 backdrop-blur-md p-8 rounded-xl border border-gray-700/50 shadow-lg shadow-black/20 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <h2 className="text-2xl font-bold text-cyber-blue mb-6">
                 Quick Setup Guide for {cityData.name}
               </h2>
@@ -366,7 +392,8 @@ const CityVPN: FC = () => {
 
           {/* Speed Test Results */}
           <section className="mb-16">
-            <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700">
+            <div className="bg-gradient-to-br from-gray-800/50 via-gray-800/30 to-gray-800/50 backdrop-blur-md p-8 rounded-xl border border-gray-700/50 shadow-lg shadow-black/20 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <h2 className="text-2xl font-bold text-cyber-blue mb-6">
                 Local Speed Test Results
               </h2>
@@ -423,7 +450,8 @@ const CityVPN: FC = () => {
 
           {/* Local Streaming Guide */}
           <section className="mb-16">
-            <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700">
+            <div className="bg-gradient-to-br from-gray-800/50 via-gray-800/30 to-gray-800/50 backdrop-blur-md p-8 rounded-xl border border-gray-700/50 shadow-lg shadow-black/20 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <h2 className="text-2xl font-bold text-cyber-blue mb-6">
                 Streaming Guide for {cityData.name}
               </h2>
@@ -458,7 +486,8 @@ const CityVPN: FC = () => {
 
           {/* FAQ Section */}
           <section className="mb-16">
-            <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700">
+            <div className="bg-gradient-to-br from-gray-800/50 via-gray-800/30 to-gray-800/50 backdrop-blur-md p-8 rounded-xl border border-gray-700/50 shadow-lg shadow-black/20 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <h2 className="text-2xl font-bold text-cyber-blue mb-6">
                 Frequently Asked Questions
               </h2>
