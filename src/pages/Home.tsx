@@ -6,164 +6,94 @@ import ReviewForm from '../components/ReviewForm';
 import EditorChoice from '../components/EditorChoice';
 
 const Home = () => {
-  // We'll just use a few popular cities for the featured section
   const popularCities = ["London", "Manchester", "Birmingham", "Edinburgh", "Glasgow"];
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
-      <SEO 
-        title="Best VPN UK - Compare Top VPN Services for UK Users"
-        description="Find the perfect VPN for your needs in the UK. Compare prices, features, and security options. Expert reviews and city-specific recommendations for optimal online privacy."
-        keywords="VPN UK, best VPN services, UK VPN comparison, online privacy UK, secure VPN UK"
-      />
-      
-      <section className="max-w-4xl mx-auto">
-        <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text">
-          Best VPN UK
-        </h1>
-        
-        <p className="text-xl text-cyber-gray mb-8 max-w-2xl mx-auto">
-          Your trusted source for VPN comparisons, reviews, and expert recommendations. 
-          We help UK users find the perfect VPN for their needs, with detailed analysis 
-          and up-to-date information on the best VPN services available.
-        </p>
+    <div className="min-h-screen relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+      {/* Dynamic Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Animated Grid */}
+        <div 
+          className="absolute inset-0 bg-[url('/images/cyber-grid.svg')] opacity-20 bg-repeat animate-pulse-slow"
+          style={{ backgroundSize: '50px 50px' }}
+        ></div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 mb-16">
-          <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300 shadow-lg">
-            <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Expert Reviews</h3>
-            <p className="text-cyber-gray">In-depth analysis of the best VPN services for UK users</p>
-          </div>
+        {/* Gradient Orbs */}
+        <div className="absolute top-0 -left-1/4 w-1/2 h-1/2 bg-gradient-to-r from-cyber-blue/20 to-purple-500/20 rounded-full blur-[150px] animate-pulse-slow"></div>
+        <div className="absolute top-1/4 -right-1/4 w-1/2 h-1/2 bg-gradient-to-l from-purple-500/20 to-cyber-blue/20 rounded-full blur-[150px] animate-pulse-slow delay-700"></div>
+        <div className="absolute -bottom-1/4 left-1/4 w-1/2 h-1/2 bg-gradient-to-t from-green-500/20 to-cyber-blue/20 rounded-full blur-[150px] animate-pulse-slow delay-1000"></div>
+
+        {/* Floating Particles */}
+        <div className="absolute inset-0">
+          <div className="absolute w-2 h-2 bg-cyber-blue rounded-full top-1/4 left-1/4 animate-float"></div>
+          <div className="absolute w-2 h-2 bg-purple-500 rounded-full top-1/3 right-1/4 animate-float-delayed"></div>
+          <div className="absolute w-2 h-2 bg-green-500 rounded-full bottom-1/4 left-1/3 animate-float-slow"></div>
+        </div>
+
+        {/* Scan Lines */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyber-blue/5 to-transparent animate-scan"></div>
+
+        {/* Cyber Grid Lines */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent_49%,rgba(0,246,255,0.1)_50%,transparent_51%)] bg-[length:50px_50px]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_49%,rgba(0,246,255,0.1)_50%,transparent_51%)] bg-[length:50px_50px]"></div>
+      </div>
+
+      {/* Hero Content */}
+      <div className="relative pt-32 pb-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-cyber-blue via-purple-500 to-cyber-blue bg-clip-text text-transparent animate-gradient-x">
+            Best VPN UK
+          </h1>
           
-          <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300 shadow-lg">
-            <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Price Comparison</h3>
-            <p className="text-cyber-gray">Find the best VPN deals and discounts available in the UK</p>
-          </div>
-          
-          <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-green-500/50 transition-all duration-300 shadow-lg">
-            <h3 className="text-xl font-semibold mb-2 text-cyber-blue">Security Focus</h3>
-            <p className="text-cyber-gray">Stay informed about VPN security and privacy features</p>
-          </div>
-        </div>
+          <p className="text-xl text-cyber-gray mb-12 max-w-2xl mx-auto leading-relaxed">
+            Your trusted source for VPN comparisons, reviews, and expert recommendations. 
+            Protect your online privacy with confidence.
+          </p>
 
-        <div className="mb-16">
-          <Link 
-            to="/best-vpns"
-            className="inline-block bg-cyber-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-600 transition-colors duration-300"
-          >
-            Compare Top VPNs
-          </Link>
-        </div>
-
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-cyber-blue">Why Use a VPN?</h2>
-          <div className="grid md:grid-cols-4 gap-6">
-            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300 shadow-lg">
-              <div className="text-3xl mb-4">🔒</div>
-              <h3 className="text-lg font-semibold text-white mb-2">Privacy</h3>
-              <p className="text-gray-300">Protect your online activity from tracking</p>
-            </div>
-            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300 shadow-lg">
-              <div className="text-3xl mb-4">🌍</div>
-              <h3 className="text-lg font-semibold text-white mb-2">Access</h3>
-              <p className="text-gray-300">Bypass geo-restrictions on content</p>
-            </div>
-            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300 shadow-lg">
-              <div className="text-3xl mb-4">🛡️</div>
-              <h3 className="text-lg font-semibold text-white mb-2">Security</h3>
-              <p className="text-gray-300">Stay safe on public Wi-Fi networks</p>
-            </div>
-            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300 shadow-lg">
-              <div className="text-3xl mb-4">💰</div>
-              <h3 className="text-lg font-semibold text-white mb-2">Savings</h3>
-              <p className="text-gray-300">Find better deals on online purchases</p>
+          {/* Enhanced Search Box */}
+          <div className="mb-16 relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-cyber-blue/20 to-purple-500/20 blur-xl"></div>
+            <div className="relative bg-gray-800/50 backdrop-blur-md p-8 rounded-2xl border border-gray-700/50 shadow-lg">
+              <h2 className="text-2xl font-semibold text-white mb-6">Find VPN Services in Your City</h2>
+              <CitySearch />
             </div>
           </div>
-        </section>
 
-        {/* Frequently searched cities section */}
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-8 text-cyber-blue">Frequently Searched Cities</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
-            {popularCities.map((city) => (
-              <Link
-                key={city}
-                to={`/city/${city.toLowerCase()}`}
-                className="bg-gray-800/50 backdrop-blur-sm p-4 rounded-xl border border-gray-700 hover:border-cyber-blue/50 hover:bg-gray-800/70 transition-all duration-300 shadow-lg"
-              >
-                <h3 className="text-lg font-semibold text-cyber-blue">
-                  {city}
-                </h3>
-                <p className="text-sm text-cyber-gray">
-                  Best VPN for {city}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* Search section */}
-        <div className="mb-12 bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 shadow-lg">
-          <h2 className="text-2xl mb-4">Find VPN recommendations for your city</h2>
-          <CitySearch />
-        </div>
-
-        {/* Testimonials section */}
-        <Testimonials />
-
-        {/* Review Form section */}
-        <ReviewForm />
-
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-8 text-cyber-blue">VPN Speed Comparison</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300 shadow-lg">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-white">ExpressVPN</h3>
-                <span className="text-green-400">94.2 Mbps</span>
-              </div>
-              <div className="w-full bg-gray-700 rounded-full h-2 mb-2">
-                <div className="bg-green-400 h-2 rounded-full" style={{ width: '94%' }}></div>
-              </div>
-              <p className="text-sm text-gray-400">Average UK Download Speed</p>
+          {/* Quick Stats Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div className="bg-gradient-to-br from-gray-800/50 via-gray-800/30 to-gray-800/50 backdrop-blur-md p-8 rounded-xl border border-gray-700/50 shadow-lg group hover:border-cyber-blue/50 transition-all duration-500">
+              <div className="text-4xl font-bold text-cyber-blue mb-2">500+</div>
+              <div className="text-gray-400">Servers Worldwide</div>
             </div>
-
-            <div className="relative bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border-2 border-yellow-400/50 hover:border-yellow-400 transition-all duration-300 shadow-lg hover:shadow-yellow-400/20">
-              <EditorChoice />
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-white">NordVPN</h3>
-                <span className="text-yellow-400">96.8 Mbps</span>
-              </div>
-              <div className="w-full bg-gray-700 rounded-full h-2 mb-2">
-                <div className="bg-yellow-400 h-2 rounded-full" style={{ width: '97%' }}></div>
-              </div>
-              <p className="text-sm text-gray-400">Average UK Download Speed</p>
-              <div className="absolute inset-0 rounded-xl bg-yellow-400/5 pointer-events-none"></div>
+            <div className="bg-gradient-to-br from-gray-800/50 via-gray-800/30 to-gray-800/50 backdrop-blur-md p-8 rounded-xl border border-gray-700/50 shadow-lg group hover:border-purple-500/50 transition-all duration-500">
+              <div className="text-4xl font-bold text-purple-400 mb-2">24/7</div>
+              <div className="text-gray-400">Expert Support</div>
             </div>
-
-            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300 shadow-lg">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-white">Surfshark</h3>
-                <span className="text-purple-400">91.8 Mbps</span>
-              </div>
-              <div className="w-full bg-gray-700 rounded-full h-2 mb-2">
-                <div className="bg-purple-400 h-2 rounded-full" style={{ width: '91%' }}></div>
-              </div>
-              <p className="text-sm text-gray-400">Average UK Download Speed</p>
+            <div className="bg-gradient-to-br from-gray-800/50 via-gray-800/30 to-gray-800/50 backdrop-blur-md p-8 rounded-xl border border-gray-700/50 shadow-lg group hover:border-green-500/50 transition-all duration-500">
+              <div className="text-4xl font-bold text-green-400 mb-2">100%</div>
+              <div className="text-gray-400">Privacy Guaranteed</div>
             </div>
           </div>
-          <div className="text-center mt-6">
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
             <Link 
-              to="/compare-features" 
-              className="text-cyber-blue hover:underline inline-flex items-center gap-2"
+              to="/best-vpns"
+              className="px-8 py-4 bg-cyber-blue text-gray-900 font-semibold rounded-xl hover:bg-cyber-blue/90 transition-colors duration-300"
             >
-              View Full Speed Test Results 
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
+              Compare Top VPNs
+            </Link>
+            <Link 
+              to="/compare-costs"
+              className="px-8 py-4 bg-gray-800/50 backdrop-blur-sm text-white font-semibold rounded-xl border border-cyber-blue/50 hover:border-cyber-blue hover:bg-gray-800/80 transition-all duration-300"
+            >
+              View Latest Deals
             </Link>
           </div>
-        </section>
-      </section>
+        </div>
+      </div>
+
+      {/* Rest of your content... */}
     </div>
   );
 };
