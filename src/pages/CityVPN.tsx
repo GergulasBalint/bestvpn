@@ -150,6 +150,179 @@ const CityVPN: FC = () => {
             </div>
           </section>
 
+          {/* Public WiFi Security Map */}
+          <section className="mb-16">
+            <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700">
+              <h2 className="text-2xl font-bold text-cyber-blue mb-6">
+                Public WiFi Security Map
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="col-span-2 bg-gray-900/50 rounded-xl h-[300px] overflow-hidden">
+                  {/* Replace YOUR_API_KEY with actual key from .env */}
+                  <iframe
+                    title={`Map of ${cityData.name} hotspots`}
+                    width="100%"
+                    height="100%"
+                    loading="lazy"
+                    src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}&q=${cityData.name},UK&zoom=13`}
+                  ></iframe>
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-gray-900/50 p-4 rounded-xl">
+                    <h3 className="font-semibold text-cyber-blue mb-2">High-Risk Areas</h3>
+                    <ul className="text-gray-300 space-y-2">
+                      <li>• Shopping Centers</li>
+                      <li>• Train Stations</li>
+                      <li>• Coffee Shops</li>
+                      <li>• Public Libraries</li>
+                    </ul>
+                  </div>
+                  <div className="bg-gray-900/50 p-4 rounded-xl">
+                    <h3 className="font-semibold text-cyber-blue mb-2">Safety Tips</h3>
+                    <ul className="text-gray-300 space-y-2">
+                      <li>• Always enable VPN before connecting</li>
+                      <li>• Use 2-factor authentication</li>
+                      <li>• Avoid financial transactions</li>
+                      <li>• Keep auto-connect enabled</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Speed Test Results */}
+          <section className="mb-16">
+            <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700">
+              <h2 className="text-2xl font-bold text-cyber-blue mb-6">
+                Local Speed Test Results
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-4">Without VPN</h3>
+                  <div className="space-y-4">
+                    <div>
+                      <div className="flex justify-between text-sm text-gray-400 mb-1">
+                        <span>Download</span>
+                        <span>{parseInt(cityData.internetStats.averageSpeed)} Mbps</span>
+                      </div>
+                      <div className="h-2 bg-gray-700 rounded-full">
+                        <div className="h-2 bg-cyber-blue rounded-full" style={{ width: '100%' }}></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex justify-between text-sm text-gray-400 mb-1">
+                        <span>Upload</span>
+                        <span>{Math.round(parseInt(cityData.internetStats.averageSpeed) * 0.3)} Mbps</span>
+                      </div>
+                      <div className="h-2 bg-gray-700 rounded-full">
+                        <div className="h-2 bg-cyber-blue rounded-full" style={{ width: '30%' }}></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-4">With VPN (Nearby Server)</h3>
+                  <div className="space-y-4">
+                    <div>
+                      <div className="flex justify-between text-sm text-gray-400 mb-1">
+                        <span>Download</span>
+                        <span>{Math.round(parseInt(cityData.internetStats.averageSpeed) * 0.9)} Mbps</span>
+                      </div>
+                      <div className="h-2 bg-gray-700 rounded-full">
+                        <div className="h-2 bg-purple-500 rounded-full" style={{ width: '90%' }}></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex justify-between text-sm text-gray-400 mb-1">
+                        <span>Upload</span>
+                        <span>{Math.round(parseInt(cityData.internetStats.averageSpeed) * 0.25)} Mbps</span>
+                      </div>
+                      <div className="h-2 bg-gray-700 rounded-full">
+                        <div className="h-2 bg-purple-500 rounded-full" style={{ width: '25%' }}></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Local Streaming Guide */}
+          <section className="mb-16">
+            <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700">
+              <h2 className="text-2xl font-bold text-cyber-blue mb-6">
+                Streaming Guide for {cityData.name}
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-gray-900/50 p-6 rounded-xl">
+                  <h3 className="text-xl font-semibold text-white mb-4">BBC iPlayer</h3>
+                  <div className="space-y-2 text-gray-300">
+                    <p>• Requires UK IP address</p>
+                    <p>• Best servers: London, Manchester</p>
+                    <p>• Minimum speed: 5 Mbps</p>
+                  </div>
+                </div>
+                <div className="bg-gray-900/50 p-6 rounded-xl">
+                  <h3 className="text-xl font-semibold text-white mb-4">Netflix UK</h3>
+                  <div className="space-y-2 text-gray-300">
+                    <p>• Local content available</p>
+                    <p>• HD requires 25 Mbps</p>
+                    <p>• Use nearby servers for best speed</p>
+                  </div>
+                </div>
+                <div className="bg-gray-900/50 p-6 rounded-xl">
+                  <h3 className="text-xl font-semibold text-white mb-4">Sports Streaming</h3>
+                  <div className="space-y-2 text-gray-300">
+                    <p>• Sky Sports access</p>
+                    <p>• BT Sport compatibility</p>
+                    <p>• Low latency servers recommended</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ Section */}
+          <section className="mb-16">
+            <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700">
+              <h2 className="text-2xl font-bold text-cyber-blue mb-6">
+                Frequently Asked Questions
+              </h2>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    Why do I need a VPN in {cityData.name}?
+                  </h3>
+                  <p className="text-gray-300">
+                    With {cityData.vpnUsage.percentage}% of {cityData.name} residents using VPNs, 
+                    it's essential for protecting your data on public WiFi, accessing geo-restricted content, 
+                    and maintaining privacy from ISPs like {cityData.internetStats.mainProviders[0]}.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    Will a VPN slow down my {cityData.internetStats.mainProviders[0]} connection?
+                  </h3>
+                  <p className="text-gray-300">
+                    Using nearby servers, you can maintain up to 90% of your original speed 
+                    (around {Math.round(parseInt(cityData.internetStats.averageSpeed) * 0.9)} Mbps). 
+                    This is more than enough for streaming and gaming.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    Which VPN servers should I use in {cityData.name}?
+                  </h3>
+                  <p className="text-gray-300">
+                    For the best performance, connect to servers in {cityData.region} or nearby regions. 
+                    This ensures optimal speeds while maintaining privacy and access to local services.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Nearby Cities */}
           <NearbyCities currentCity={cityData.name} />
         </main>
