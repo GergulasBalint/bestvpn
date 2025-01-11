@@ -5,6 +5,7 @@ import { vpnData } from '../data/vpnData';
 import { getCity } from '../data/cityData';
 import NearbyCities from '../components/NearbyCities';
 import VPNComparisonTable from '../components/VPNComparisonTable';
+import { Link } from 'react-router-dom';
 
 const CityVPN: FC = () => {
   const { cityName } = useParams<{ cityName: string }>();
@@ -54,6 +55,74 @@ const CityVPN: FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Quick Navigation Cards */}
+        <section className="mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Link 
+              to="/best-vpns" 
+              className="group bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300"
+            >
+              <div className="flex items-center space-x-4 mb-3">
+                <div className="w-12 h-12 bg-cyber-blue/10 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6 text-cyber-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-white group-hover:text-cyber-blue transition-colors">Best VPNs</h3>
+              </div>
+              <p className="text-gray-400 mb-4">See our complete rankings and detailed reviews of the top VPN services</p>
+              <span className="text-cyber-blue text-sm flex items-center">
+                Learn more 
+                <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </Link>
+
+            <Link 
+              to="/compare-features" 
+              className="group bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300"
+            >
+              <div className="flex items-center space-x-4 mb-3">
+                <div className="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-white group-hover:text-purple-500 transition-colors">Compare Features</h3>
+              </div>
+              <p className="text-gray-400 mb-4">Side-by-side comparison of security features, servers, and capabilities</p>
+              <span className="text-purple-500 text-sm flex items-center">
+                Compare now 
+                <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </Link>
+
+            <Link 
+              to="/compare-costs" 
+              className="group bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-cyber-blue/50 transition-all duration-300"
+            >
+              <div className="flex items-center space-x-4 mb-3">
+                <div className="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-white group-hover:text-green-500 transition-colors">Price Comparison</h3>
+              </div>
+              <p className="text-gray-400 mb-4">Find the best deals and compare subscription plans</p>
+              <span className="text-green-500 text-sm flex items-center">
+                View prices 
+                <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </Link>
+          </div>
+        </section>
 
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Local Insights Section */}
