@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useState } from 'react';
 
 interface SpeedTestResult {
   downloadSpeed: number;
@@ -18,7 +18,7 @@ const SpeedTestWidget: FC = () => {
 
     try {
       const response = await fetch(imageUrl);
-      const blob = await response.blob();
+      await response.blob();
       const endTime = performance.now();
       
       const durationInSeconds = (endTime - startTime) / 1000;
