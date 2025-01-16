@@ -12,17 +12,39 @@ const SpeedTestWidget: FC = () => {
   const [progress, setProgress] = useState(0);
 
   const measureConnectionSpeed = async () => {
-    const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Snake_River_%285mb%29.jpg';
-    const downloadSize = 5 * 1024 * 1024; // 5MB in bytes
-    const startTime = performance.now();
+    // Test with multiple file sizes
+    const testFiles = [
+      'https://your-server.com/test-1mb.bin',
+      'https://your-server.com/test-5mb.bin',
+      'https://your-server.com/test-10mb.bin'
+    ];
+    
+    const results = await Promise.all(
+      testFiles.map(async (url) => {
+        // Multiple samples per file
+        const samples = [];
+        for(let i = 0; i < 3; i++) {
+          const speed = await measureSingleDownload(url);
+          samples.push(speed);
+        }
+        // Return average speed
+        return samples.reduce((a, b) => a + b) / samples.length;
+      })
+    );
 
+    // Return median of all results
+    return results.sort((a, b) => a - b)[Math.floor(results.length / 2)];
+  };
+
+  const measureSingleDownload = async (url: string) => {
+    const startTime = performance.now();
     try {
-      const response = await fetch(imageUrl);
-      await response.blob();
+      const response = await fetch(url);
+      const blob = await response.blob();
       const endTime = performance.now();
       
       const durationInSeconds = (endTime - startTime) / 1000;
-      const bitsLoaded = downloadSize * 8;
+      const bitsLoaded = blob.size * 8;
       const speedBps = (bitsLoaded / durationInSeconds);
       const speedMbps = speedBps / (1024 * 1024);
 
@@ -45,6 +67,26 @@ const SpeedTestWidget: FC = () => {
     }
   };
 
+  const measureUploadSpeed = async () => {
+    const data = new Blob([new ArrayBuffer(5 * 1024 * 1024)]); // 5MB test file
+    const startTime = performance.now();
+    
+    try {
+      await fetch('https://your-speed-test-server.com/upload', {
+        method: 'POST',
+        body: data
+      });
+      const endTime = performance.now();
+      
+      const durationInSeconds = (endTime - startTime) / 1000;
+      const bitsUploaded = data.size * 8;
+      return (bitsUploaded / durationInSeconds) / (1024 * 1024); // Mbps
+    } catch (error) {
+      console.error('Upload test failed:', error);
+      return 0;
+    }
+  };
+
   const runSpeedTest = async () => {
     setIsLoading(true);
     setProgress(0);
@@ -58,9 +100,9 @@ const SpeedTestWidget: FC = () => {
       setProgress(40);
       const downloadSpeed = await measureConnectionSpeed();
       
-      // Simulate upload speed (typically 1/10 of download)
+      // Measure upload speed
       setProgress(80);
-      const uploadSpeed = downloadSpeed / 10;
+      const uploadSpeed = await measureUploadSpeed();
 
       setResults({
         downloadSpeed,
