@@ -5,6 +5,7 @@ import { vpnTableData } from '../data/vpnData';
 import VPNPriceCalculator from '../components/VPNPriceCalculator';
 import QuickActions from '../components/QuickActions';
 import VPNDeals from '../components/VPNDeals';
+import RelatedLinks from '../components/RelatedLinks';
 
 const CostComparison: React.FC = () => {
   return (
@@ -140,6 +141,10 @@ const CostComparison: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+          <RelatedLinks currentPath="/compare-costs" />
         </div>
       </div>
     </>

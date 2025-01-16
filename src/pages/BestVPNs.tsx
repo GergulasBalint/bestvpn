@@ -3,6 +3,7 @@ import VPNComparisonTable from '../components/VPNComparisonTable';
 import VPNDetailSection from '../components/VPNDetailSection';
 import { vpnData } from '../data/vpnData';
 import { FC } from 'react';
+import RelatedLinks from '../components/RelatedLinks';
 
 const BestVPNs: FC = () => {
   return (
@@ -80,6 +81,8 @@ const BestVPNs: FC = () => {
           {vpnData.map(vpn => (
             <VPNDetailSection key={vpn.id} vpn={vpn} />
           ))}
+
+          <RelatedLinks currentPath="/best-vpns" />
         </main>
       </div>
     </>

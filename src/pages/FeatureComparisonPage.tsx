@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Helmet } from 'react-helmet';
 import FeatureComparison from '../components/FeatureComparison';
 import EditorChoice from '../components/EditorChoice';
+import RelatedLinks from '../components/RelatedLinks';
 
 const FeatureComparisonPage: FC = () => {
   return (
@@ -111,6 +112,8 @@ const FeatureComparisonPage: FC = () => {
               </div>
             </div>
           </section>
+
+          <RelatedLinks currentPath="/compare-features" />
         </main>
       </div>
     </>
