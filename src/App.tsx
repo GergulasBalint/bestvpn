@@ -6,6 +6,7 @@ import About from './pages/About';
 import CostComparison from './pages/CostComparison';
 import FeatureComparisonPage from './pages/FeatureComparisonPage';
 import CityVPN from './pages/CityVPN';
+import Resources from './pages/Resources';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/compare-costs" element={<CostComparison />} />
           <Route path="/about" element={<About />} />
           <Route path="/city/:cityName" element={<CityVPN />} />
+          <Route path="/resources" element={<Resources />} />
         </Routes>
       </Layout>
     </BrowserRouter>
