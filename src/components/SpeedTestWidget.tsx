@@ -51,6 +51,9 @@ const SpeedTestWidget: FC = () => {
   return (
     <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6">
       <h2 className="text-2xl font-bold text-cyber-blue mb-4">Network Speed Test</h2>
+      <p className="text-sm text-gray-400 mb-6 italic">
+        * This is a simulated test for demonstration purposes only. Results may not reflect actual network performance.
+      </p>
       <div className="grid md:grid-cols-3 gap-4 mb-6">
         <div className="bg-gray-800/50 p-4 rounded-xl text-center">
           <div className="text-3xl font-bold text-cyber-blue">
