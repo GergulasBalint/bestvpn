@@ -29,6 +29,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <Link to="/compare-costs" className="hover:text-cyber-blue transition-colors">
                   Compare Costs
                 </Link>
+                <Link to="/resources" className="hover:text-cyber-blue transition-colors">
+                  Setup Guides
+                </Link>
                 <Link to="/about" className="hover:text-cyber-blue transition-colors">
                   About
                 </Link>

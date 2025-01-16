@@ -153,6 +153,44 @@ const Resources: FC = () => {
             ))}
           </div>
 
+          <div className="mt-16 bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+            <h2 className="text-2xl font-bold text-cyber-blue mb-4">More Guides Coming Soon</h2>
+            <div className="space-y-4">
+              <p className="text-gray-300">
+                We're working on additional setup guides for:
+              </p>
+              <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-gray-400">
+                <li className="flex items-center">
+                  <span className="text-cyber-blue mr-2">•</span>
+                  CyberGhost VPN
+                </li>
+                <li className="flex items-center">
+                  <span className="text-cyber-blue mr-2">•</span>
+                  ProtonVPN
+                </li>
+                <li className="flex items-center">
+                  <span className="text-cyber-blue mr-2">•</span>
+                  Private Internet Access
+                </li>
+                <li className="flex items-center">
+                  <span className="text-cyber-blue mr-2">•</span>
+                  Linux Setup Guides
+                </li>
+                <li className="flex items-center">
+                  <span className="text-cyber-blue mr-2">•</span>
+                  Router Configurations
+                </li>
+                <li className="flex items-center">
+                  <span className="text-cyber-blue mr-2">•</span>
+                  Smart TV Setup
+                </li>
+              </ul>
+              <p className="text-sm text-gray-400 mt-4">
+                Check back regularly for updates or subscribe to our newsletter to get notified when new guides are available.
+              </p>
+            </div>
+          </div>
+
           <RelatedLinks currentPath="/resources" />
         </main>
       </div>
