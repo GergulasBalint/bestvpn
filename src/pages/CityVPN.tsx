@@ -5,12 +5,15 @@ import { vpnData } from '../data/vpnData';
 import { getCity } from '../data/cityData';
 import VPNComparisonTable from '../components/VPNComparisonTable';
 import { Link } from 'react-router-dom';
+import CityNotFound from '../components/CityNotFound';
 
 const CityVPN: FC = () => {
   const { cityName } = useParams<{ cityName: string }>();
   const cityData = getCity(cityName || '');
   
-  if (!cityData) return <div>City not found</div>;
+  if (!cityData) {
+    return <CityNotFound searchedCity={cityName || ''} />;
+  }
 
   return (
     <>
