@@ -13,9 +13,9 @@ const FeatureComparisonPage: FC = () => {
         <meta name="description" content="Compare features of top VPN services. See which VPNs offer the security and performance features you need." />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative">
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative text-white">
         <CyberBackground />
-        <div className="relative">
+        <div className="relative z-10">
           <main className="max-w-5xl mx-auto px-4 py-12">
             {/* Hero Section */}
             <header className="text-center mb-16">

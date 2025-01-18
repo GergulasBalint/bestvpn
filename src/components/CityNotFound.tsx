@@ -27,9 +27,9 @@ const CityNotFound: React.FC<{ searchedCity: string }> = ({ searchedCity }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative text-white">
       <CyberBackground />
-      <div className="relative max-w-4xl mx-auto px-4 py-16">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text">
             City Not Found

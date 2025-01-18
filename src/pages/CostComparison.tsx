@@ -16,9 +16,9 @@ const CostComparison: React.FC = () => {
         <meta name="description" content="Compare VPN costs and features to find the best value for your needs. Updated pricing and detailed analysis for 2024." />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative">
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative text-white">
         <CyberBackground />
-        <div className="relative py-12">
+        <div className="relative z-10 py-12">
           {/* Hero Section */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
             <div className="text-center">

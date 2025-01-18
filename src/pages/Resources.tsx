@@ -123,9 +123,9 @@ const Resources: FC = () => {
         <title>VPN Setup Guides & Resources - Best VPN UK</title>
         <meta name="description" content="Step-by-step VPN setup tutorials for all major platforms. Easy-to-follow guides for NordVPN, ExpressVPN, Surfshark, and more." />
       </Helmet>
-      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative">
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative text-white">
         <CyberBackground />
-        <div className="relative">
+        <div className="relative z-10">
           <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <h1 className="text-4xl font-bold mb-8 bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text text-center">
               VPN Setup Guides
