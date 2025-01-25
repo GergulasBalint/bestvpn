@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getAllCityNames } from '../data/cityData';
+import { cities } from '../data/cityData';
 
 interface CityListProps {
   onCitySelect?: (city: string) => void;
@@ -9,9 +10,9 @@ const CityList: React.FC<CityListProps> = ({ onCitySelect }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isListVisible, setIsListVisible] = useState(false);
 
-  const cities = getAllCityNames().sort();
+  const cityNames = getAllCityNames(cities).sort();
   
-  const filteredCities = cities.filter(city =>
+  const filteredCities = cityNames.filter(city =>
     city.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -23,7 +24,7 @@ const CityList: React.FC<CityListProps> = ({ onCitySelect }) => {
           placeholder="Search cities..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
         />
         <button
           onClick={() => setIsListVisible(!isListVisible)}
@@ -44,8 +45,9 @@ const CityList: React.FC<CityListProps> = ({ onCitySelect }) => {
                     onCitySelect(city);
                   }
                   setIsListVisible(false);
+                  setSearchTerm('');
                 }}
-                className="text-left px-3 py-2 hover:bg-gray-100 rounded-md transition-colors"
+                className="text-left px-3 py-2 hover:bg-gray-100 rounded-md transition-colors text-gray-900"
               >
                 {city}
               </button>
