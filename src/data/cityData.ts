@@ -1484,8 +1484,8 @@ export const cities: CityData[] = [
   region: determineRegion(city.name),
   population: determineCityPopulation(city.name),
   coordinates: determineCityCoordinates(city.name),
-  internetStats: generateInternetStats(),
-  vpnUsage: generateVPNUsage()
+    internetStats: generateInternetStats(),
+    vpnUsage: generateVPNUsage()
 }));
 
 // Re-export helper functions

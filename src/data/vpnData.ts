@@ -17,7 +17,8 @@ export const vpnData: VPNData[] = [
     ukServers: '440+',
     speed: '93.21 Mbps',
     streaming: 'Netflix, BBC, Prime',
-    ratingClass: 'bg-green-100 text-green-800'
+    ratingClass: 'bg-green-100 text-green-800',
+    deviceLimit: '10 devices'
   },
   {
     id: 'expressvpn',
@@ -33,7 +34,8 @@ export const vpnData: VPNData[] = [
     ukServers: '4',
     speed: '89.42 Mbps',
     streaming: 'Netflix, BBC, Prime',
-    ratingClass: 'bg-green-100 text-green-800'
+    ratingClass: 'bg-green-100 text-green-800',
+    deviceLimit: '8 devices'
   },
   {
     id: 'surfshark',
@@ -49,7 +51,8 @@ export const vpnData: VPNData[] = [
     ukServers: '3',
     speed: '88.51 Mbps',
     streaming: 'Netflix, BBC',
-    ratingClass: 'bg-green-100 text-green-800'
+    ratingClass: 'bg-green-100 text-green-800',
+    deviceLimit: 'Unlimited devices'
   },
   {
     id: 'cyberghost',
@@ -65,7 +68,8 @@ export const vpnData: VPNData[] = [
     ukServers: '700+',
     speed: '85.96 Mbps',
     streaming: 'Netflix, BBC',
-    ratingClass: 'bg-green-100 text-green-800'
+    ratingClass: 'bg-green-100 text-green-800',
+    deviceLimit: '7 devices'
   },
   {
     id: 'protonvpn',
@@ -81,7 +85,8 @@ export const vpnData: VPNData[] = [
     ukServers: '8',
     speed: '84.18 Mbps',
     streaming: 'Netflix',
-    ratingClass: 'bg-green-100 text-green-800'
+    ratingClass: 'bg-green-100 text-green-800',
+    deviceLimit: '10 devices'
   },
   {
     id: 'privateinternetaccess',
@@ -97,7 +102,8 @@ export const vpnData: VPNData[] = [
     ukServers: '2',
     speed: '82.78 Mbps',
     streaming: 'Netflix',
-    ratingClass: 'bg-green-100 text-green-800'
+    ratingClass: 'bg-green-100 text-green-800',
+    deviceLimit: '10 devices'
   }
 ];
 
@@ -111,7 +117,8 @@ export const vpnTableData: VPNTableData[] = [
     price: '£2.99',
     streaming: 'Netflix, BBC, Prime',
     rating: '4.9/5',
-    ratingClass: 'bg-green-100 text-green-800'
+    ratingClass: 'bg-green-100 text-green-800',
+    deviceLimit: '10 devices'
   },
   {
     id: 'expressvpn',
@@ -121,7 +128,8 @@ export const vpnTableData: VPNTableData[] = [
     price: '£5.99',
     streaming: 'Netflix, BBC, Prime',
     rating: '4.8/5',
-    ratingClass: 'bg-green-100 text-green-800'
+    ratingClass: 'bg-green-100 text-green-800',
+    deviceLimit: '8 devices'
   },
   {
     id: 'surfshark',
@@ -131,7 +139,8 @@ export const vpnTableData: VPNTableData[] = [
     price: '£1.99',
     streaming: 'Netflix, BBC',
     rating: '4.7/5',
-    ratingClass: 'bg-green-100 text-green-800'
+    ratingClass: 'bg-green-100 text-green-800',
+    deviceLimit: 'Unlimited devices'
   },
   {
     id: 'cyberghost',
@@ -141,7 +150,8 @@ export const vpnTableData: VPNTableData[] = [
     price: '£2.89',
     streaming: 'Netflix, BBC',
     rating: '4.6/5',
-    ratingClass: 'bg-green-100 text-green-800'
+    ratingClass: 'bg-green-100 text-green-800',
+    deviceLimit: '7 devices'
   },
   {
     id: 'protonvpn',
@@ -151,7 +161,8 @@ export const vpnTableData: VPNTableData[] = [
     price: '£4.99',
     streaming: 'Netflix',
     rating: '4.5/5',
-    ratingClass: 'bg-green-100 text-green-800'
+    ratingClass: 'bg-green-100 text-green-800',
+    deviceLimit: '10 devices'
   },
   {
     id: 'privateinternetaccess',
@@ -161,6 +172,7 @@ export const vpnTableData: VPNTableData[] = [
     price: '£1.69',
     streaming: 'Netflix',
     rating: '4.4/5',
-    ratingClass: 'bg-green-100 text-green-800'
+    ratingClass: 'bg-green-100 text-green-800',
+    deviceLimit: '10 devices'
   }
 ]; 

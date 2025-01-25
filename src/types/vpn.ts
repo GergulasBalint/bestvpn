@@ -14,6 +14,7 @@ export interface VPNData {
   pros: string[];
   cons: string[];
   link: string;
+  deviceLimit: string;
   // ... any other properties you need
 }
 
@@ -26,4 +27,5 @@ export interface VPNTableData {
   streaming: string;
   rating: string;
   ratingClass: string;
+  deviceLimit: string;
 } 

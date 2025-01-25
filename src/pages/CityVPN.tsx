@@ -273,7 +273,7 @@ const CityVPN: FC = () => {
                   <h3 className="text-xl font-semibold mb-2">Privacy Guide</h3>
                   <p className="text-gray-400">Essential privacy tips and tricks</p>
                 </Link>
-              </div>
+            </div>
             </section>
           </main>
         </div>
