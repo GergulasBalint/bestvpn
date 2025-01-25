@@ -34,6 +34,15 @@ const VPNComparisonTable: React.FC<VPNComparisonTableProps> = ({ vpns, className
               <th scope="col" className="px-4 py-4 text-center text-sm font-semibold text-cyber-blue uppercase tracking-wider">
                 Speed
               </th>
+              <th scope="col" className="px-4 py-4 text-center text-sm font-semibold text-cyber-blue uppercase tracking-wider">
+                Price/mo
+              </th>
+              <th scope="col" className="px-4 py-4 text-center text-sm font-semibold text-cyber-blue uppercase tracking-wider">
+                Streaming
+              </th>
+              <th scope="col" className="px-4 py-4 text-center text-sm font-semibold text-cyber-blue uppercase tracking-wider">
+                Devices
+              </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-700">
@@ -81,6 +90,15 @@ const VPNComparisonTable: React.FC<VPNComparisonTableProps> = ({ vpns, className
                       ></div>
                     </div>
                   </div>
+                </td>
+                <td className="px-4 py-4 text-center text-white">
+                  {vpn.price}
+                </td>
+                <td className="px-4 py-4 text-center text-white">
+                  {vpn.streaming}
+                </td>
+                <td className="px-4 py-4 text-center text-white">
+                  {vpn.deviceLimit}
                 </td>
               </tr>
             ))}
