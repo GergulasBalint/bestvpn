@@ -22,7 +22,7 @@ const BestVPNs: FC = () => {
             <div className="max-w-6xl mx-auto px-4">
               <div className="text-center mb-16">
                 <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text">
-                  Best VPN Services 2024
+                  Best VPN Services
                 </h1>
                 <p className="text-xl text-gray-300 max-w-3xl mx-auto">
                   Expert-tested and verified. Compare the top VPN services for security, speed, and streaming.
