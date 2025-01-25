@@ -71,24 +71,18 @@ const VPNPriceCalculator: React.FC = () => {
 
         <div>
           <label className="block text-gray-300 mb-2">Subscription Length (Months)</label>
-          <div className="relative">
-            <select
-              value={months}
-              onChange={(e) => setMonths(parseInt(e.target.value))}
-              className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white 
-                focus:outline-none focus:border-cyber-blue appearance-none cursor-pointer
-                hover:bg-gray-600/50 transition-colors duration-200"
-            >
-              <option value={1}>1 Month</option>
-              <option value={12}>12 Months</option>
-              <option value={24}>24 Months</option>
-            </select>
-            {/* Custom dropdown arrow */}
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
-              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-              </svg>
-            </div>
+          <input
+            type="range"
+            min="1"
+            max="36"
+            value={months}
+            onChange={(e) => setMonths(parseInt(e.target.value))}
+            className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-cyber-blue"
+          />
+          <div className="mt-2 flex justify-between text-sm text-gray-400">
+            <span>1 Month</span>
+            <span>{months} Months</span>
+            <span>36 Months</span>
           </div>
         </div>
       </div>
