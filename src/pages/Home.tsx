@@ -1,13 +1,18 @@
 import { Link } from 'react-router-dom';
-import CitySearch from '../components/CitySearch';
 import SEO from '../components/SEO';
 import DealAlerts from '../components/DealAlerts';
 import PrivacyNews from '../components/PrivacyNews';
 import SetupGuides from '../components/SetupGuides';
 import SpeedTestWidget from '../components/SpeedTestWidget';
+import CityList from '../components/CityList';
 
 const Home = () => {
   const popularCities = ["London", "Manchester", "Birmingham", "Edinburgh", "Glasgow"];
+
+  const handleCitySelect = (city: string) => {
+    // Handle city selection here
+    console.log('Selected city:', city);
+  };
 
   return (
     <div className="min-h-screen relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
@@ -61,7 +66,7 @@ const Home = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-cyber-blue/20 to-purple-500/20 blur-xl"></div>
             <div className="relative bg-gray-800/50 backdrop-blur-md p-8 rounded-2xl border border-gray-700/50 shadow-lg">
               <h2 className="text-2xl font-semibold text-white mb-6">Find VPN Services in Your City</h2>
-              <CitySearch />
+              <CityList onCitySelect={handleCitySelect} />
             </div>
           </div>
 
