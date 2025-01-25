@@ -10,14 +10,14 @@ const CostComparison: React.FC = () => {
     return pricePerMonth;
   };
 
-  const calculateYearlyCost = () => {
+  const calculateTotalCost = () => {
     return calculateMonthlyCost() * months;
   };
 
   return (
     <div className="space-y-6">
       <div>
-        <label className="block text-gray-300 mb-2">Select VPN</label>
+        <label className="block text-gray-300 mb-2">Select VPN Provider</label>
         <select
           value={selectedVPN.id}
           onChange={(e) => setSelectedVPN(vpnData.find(vpn => vpn.id === e.target.value) || vpnData[0])}
@@ -30,7 +30,7 @@ const CostComparison: React.FC = () => {
       </div>
 
       <div>
-        <label className="block text-gray-300 mb-2">Device Limit</label>
+        <label className="block text-gray-300 mb-2">Number of Devices</label>
         <div className="w-full bg-gray-800 text-white rounded-lg p-3 border border-gray-700">
           {selectedVPN.deviceLimit}
         </div>
@@ -57,7 +57,7 @@ const CostComparison: React.FC = () => {
 
         <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
           <h3 className="text-lg font-semibold mb-2">Total Cost ({months} months)</h3>
-          <p className="text-2xl text-cyber-blue">£{calculateYearlyCost().toFixed(2)}</p>
+          <p className="text-2xl text-cyber-blue">£{calculateTotalCost().toFixed(2)}</p>
         </div>
       </div>
     </div>
