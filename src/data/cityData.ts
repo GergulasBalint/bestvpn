@@ -25,6 +25,7 @@ export const cities: CityData[] = [
   { id: 'london', name: 'London' },
   { id: 'manchester', name: 'Manchester' },
   { id: 'birmingham', name: 'Birmingham' },
+  { id: 'leeds', name: 'Leeds' },
   { id: 'edinburgh', name: 'Edinburgh' },
   { id: 'glasgow', name: 'Glasgow' },
   { id: 'abberton', name: 'Abberton' },
