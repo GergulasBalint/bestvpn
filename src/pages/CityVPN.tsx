@@ -9,7 +9,7 @@ import CityNotFound from '../components/CityNotFound';
 
 const CityVPN: FC = () => {
   const { cityName } = useParams<{ cityName: string }>();
-  const cityData = getCity(cityName || '');
+  const cityData = getCity(cities, cityName || '');
   
   if (!cityData) {
     return <CityNotFound searchedCity={cityName || ''} />;
