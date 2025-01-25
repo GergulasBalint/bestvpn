@@ -1,8 +1,8 @@
-import { getAllCityNames } from '../data/cityData';
+import { getAllCityNames, cities } from '../data/cityData';
 
 export const generateSitemap = () => {
   const baseUrl = 'https://bestvpnuk.com'; // Replace with your actual domain
-  const cities = getAllCityNames();
+  const cityNames = getAllCityNames(cities);
   
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -16,7 +16,7 @@ export const generateSitemap = () => {
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
       </url>
-      ${cities.map(city => `
+      ${cityNames.map(city => `
         <url>
           <loc>${baseUrl}/city/${city.toLowerCase()}</loc>
           <changefreq>weekly</changefreq>

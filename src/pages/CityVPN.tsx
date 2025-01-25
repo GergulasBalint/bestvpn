@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { vpnData } from '../data/vpnData';
-import { getCity } from '../data/cityData';
+import { getCity, cities } from '../data/cityData';
 import VPNComparisonTable from '../components/VPNComparisonTable';
 import { Link } from 'react-router-dom';
 import CityNotFound from '../components/CityNotFound';
