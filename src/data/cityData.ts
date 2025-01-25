@@ -94,7 +94,7 @@ export const cities: CityData[] = [
           city.name === 'Sheffield' ? 'Yorkshire and the Humber' :
           city.name === 'Nottingham' ? 'East Midlands' :
           city.name === 'Oxford' ? 'South East England' :
-          city.name === 'Cambridge' ? 'East of England' ? 'South East England' : 'West Midlands' :
+          city.name === 'Cambridge' ? 'East of England' :
           'Unknown',
   population: city.name === 'Leeds' ? 789194 :
               city.name === 'Manchester' ? 547627 :
