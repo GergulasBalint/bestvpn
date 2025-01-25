@@ -22,6 +22,11 @@ export interface CityData {
 
 // Full list of UK cities
 export const cities: CityData[] = [
+  { id: 'london', name: 'London' },
+  { id: 'manchester', name: 'Manchester' },
+  { id: 'birmingham', name: 'Birmingham' },
+  { id: 'edinburgh', name: 'Edinburgh' },
+  { id: 'glasgow', name: 'Glasgow' },
   { id: 'abberton', name: 'Abberton' },
   { id: 'abbeydale', name: 'Abbeydale' },
   { id: 'abbeytown', name: 'Abbeytown' },
