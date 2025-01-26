@@ -12,8 +12,8 @@ const CostComparison: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>VPN Cost Comparison 2024 | Best Value Analysis</title>
-        <meta name="description" content="Compare VPN costs and features to find the best value for your needs. Updated pricing and detailed analysis for 2024." />
+        <title>VPN Cost Comparison | Best Value Analysis</title>
+        <meta name="description" content="Compare VPN costs and features to find the best value for your needs. Updated pricing and detailed analysis." />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative text-white">

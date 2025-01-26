@@ -38,21 +38,21 @@ export const vpnData: VPNData[] = [
     deviceLimit: '8 devices'
   },
   {
-    id: 'surfshark',
-    name: 'Surfshark',
+    id: 'protonvpn',
+    name: 'ProtonVPN',
     rating: "4.7",
-    image: '/images/vpn/surfshark.jpg',
-    description: 'Affordable VPN with unlimited connections',
-    features: ['CleanWeb', 'Unlimited Devices', 'MultiHop'],
-    pros: ['Unlimited devices', 'Affordable', 'Strong privacy'],
-    cons: ['Newer provider', 'Variable speeds'],
-    price: '£1.99',
-    link: 'https://surfshark.com',
-    ukServers: '3',
+    image: '/images/vpn/ProtonVPN.jpg',
+    description: 'Secure VPN from the makers of ProtonMail',
+    features: ['Secure Core', 'NetShield', 'TOR over VPN'],
+    pros: ['Strong privacy focus', 'Open source', 'Swiss jurisdiction'],
+    cons: ['Higher price', 'Fewer servers'],
+    price: '£4.99',
+    link: 'https://protonvpn.com',
+    ukServers: '8',
     speed: '88.51 Mbps',
     streaming: 'Netflix, BBC',
     ratingClass: 'bg-green-100 text-green-800',
-    deviceLimit: 'Unlimited devices'
+    deviceLimit: '10 devices'
   },
   {
     id: 'cyberghost',
@@ -70,23 +70,6 @@ export const vpnData: VPNData[] = [
     streaming: 'Netflix, BBC',
     ratingClass: 'bg-green-100 text-green-800',
     deviceLimit: '7 devices'
-  },
-  {
-    id: 'protonvpn',
-    name: 'ProtonVPN',
-    rating: "4.5",
-    image: '/images/vpn/ProtonVPN.jpg',
-    description: 'Security-focused VPN from the makers of ProtonMail',
-    features: ['Secure Core', 'NetShield', 'TOR over VPN'],
-    pros: ['Strong privacy focus', 'Open source', 'Free tier'],
-    cons: ['Limited server network', 'Higher prices'],
-    price: '£4.99',
-    link: 'https://protonvpn.com',
-    ukServers: '8',
-    speed: '84.18 Mbps',
-    streaming: 'Netflix',
-    ratingClass: 'bg-green-100 text-green-800',
-    deviceLimit: '10 devices'
   },
   {
     id: 'privateinternetaccess',
@@ -132,15 +115,15 @@ export const vpnTableData: VPNTableData[] = [
     deviceLimit: '8 devices'
   },
   {
-    id: 'surfshark',
-    name: 'Surfshark',
-    ukServers: '3',
+    id: 'protonvpn',
+    name: 'ProtonVPN',
+    ukServers: '8',
     speed: '88.51 Mbps',
-    price: '£1.99',
+    price: '£4.99',
     streaming: 'Netflix, BBC',
     rating: '4.7/5',
     ratingClass: 'bg-green-100 text-green-800',
-    deviceLimit: 'Unlimited devices'
+    deviceLimit: '10 devices'
   },
   {
     id: 'cyberghost',
@@ -152,17 +135,6 @@ export const vpnTableData: VPNTableData[] = [
     rating: '4.6/5',
     ratingClass: 'bg-green-100 text-green-800',
     deviceLimit: '7 devices'
-  },
-  {
-    id: 'protonvpn',
-    name: 'ProtonVPN',
-    ukServers: '8',
-    speed: '84.18 Mbps',
-    price: '£4.99',
-    streaming: 'Netflix',
-    rating: '4.5/5',
-    ratingClass: 'bg-green-100 text-green-800',
-    deviceLimit: '10 devices'
   },
   {
     id: 'privateinternetaccess',
