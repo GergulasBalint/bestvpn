@@ -12,7 +12,7 @@ const CostComparison: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>VPN Cost Comparison | Best Value Analysis</title>
+        <title>Best VPN UK Price Comparison</title>
         <meta name="description" content="Compare VPN costs and features to find the best value for your needs. Updated pricing and detailed analysis." />
       </Helmet>
 
@@ -23,7 +23,7 @@ const CostComparison: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text">
-                VPN Price Comparison
+                Best VPN UK Price Comparison
               </h1>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
                 Find the perfect balance of features and affordability with our comprehensive VPN comparison

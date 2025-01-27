@@ -1,5 +1,5 @@
 import React, { ReactNode, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import CitySearch from './CitySearch';
 
 interface LayoutProps {
@@ -8,6 +8,11 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  
+  const isActivePath = (path: string) => {
+    return location.pathname === path ? "text-cyber-blue" : "hover:text-cyber-blue";
+  };
 
   return (
     <div className="min-h-screen bg-cyber-dark text-white">
@@ -20,28 +25,45 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <span className="text-cyber-blue font-bold text-xl">Best VPN UK</span>
               </Link>
               <div className="hidden md:flex items-center gap-6">
-                <Link to="/" className="hover:text-cyber-blue transition-colors">
+                <Link 
+                  className={`${isActivePath('/')} transition-colors`}
+                  to="/"
+                >
                   Home
                 </Link>
-                <Link to="/best-vpns" className="hover:text-cyber-blue transition-colors">
+                <Link 
+                  className={`${isActivePath('/best-vpns')} transition-colors`}
+                  to="/best-vpns"
+                >
                   Best VPNs
                 </Link>
-                <Link to="/compare-features" className="hover:text-cyber-blue transition-colors">
+                <Link 
+                  className={`${isActivePath('/compare-features')} transition-colors`}
+                  to="/compare-features"
+                >
                   Compare Features
                 </Link>
-                <Link to="/compare-costs" className="hover:text-cyber-blue transition-colors">
-                  Compare Costs
+                <Link 
+                  className={`${isActivePath('/compare-costs')} transition-colors`}
+                  to="/compare-costs"
+                >
+                  Price Comparison
                 </Link>
-                <Link to="/resources" className="hover:text-cyber-blue transition-colors">
+                <Link 
+                  className={`${isActivePath('/resources')} transition-colors`}
+                  to="/resources"
+                >
                   Setup Guides
                 </Link>
-                <Link to="/about" className="hover:text-cyber-blue transition-colors">
+                <Link 
+                  className={`${isActivePath('/about')} transition-colors`}
+                  to="/about"
+                >
                   About
                 </Link>
                 <Link 
-                  to="/faq" 
-                  className="hover:text-cyber-blue transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`${isActivePath('/faq')} transition-colors`}
+                  to="/faq"
                 >
                   FAQ
                 </Link>

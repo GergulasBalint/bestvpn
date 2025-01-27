@@ -18,7 +18,7 @@ const BestVPNs: FC = () => {
         <CyberBackground />
         <div className="relative z-10">
           {/* Hero Section */}
-          <div className="relative overflow-hidden py-24 mb-12">
+          <div className="relative overflow-hidden py-12 mb-6">
             <div className="max-w-6xl mx-auto px-4">
               <div className="text-center mb-16">
                 <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text">
@@ -50,7 +50,7 @@ const BestVPNs: FC = () => {
               </div>
 
               {/* Key Benefits */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700">
                   <div className="text-3xl mb-4">🛡️</div>
                   <h3 className="text-xl font-semibold text-white mb-3">Maximum Security</h3>

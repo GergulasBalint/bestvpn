@@ -24,7 +24,7 @@ const RelatedLinks: React.FC<{ currentPath: string }> = ({ currentPath }) => {
       description: "VPN pricing and value comparison"
     },
     {
-      title: "Resources",
+      title: "Setup Guides",
       path: "/resources",
       description: "VPN guides and tools"
     }
