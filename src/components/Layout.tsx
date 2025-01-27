@@ -24,11 +24,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <img 
                   src="/images/vpn/logo.png"
                   alt="Best VPN UK" 
-                  className="h-8 w-8"
+                  className="w-8 h-8 object-contain"
                   width={32}
                   height={32}
                   loading="eager"
                   decoding="async"
+                  fetchPriority="high"
                 />
                 <span className="text-cyber-blue font-bold text-xl">Best VPN UK</span>
               </Link>
