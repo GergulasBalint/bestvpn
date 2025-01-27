@@ -7,15 +7,15 @@ const About: FC = () => {
   return (
     <>
       <Helmet>
-        <title>About Us - Best VPN UK</title>
-        <meta name="description" content="Learn about our mission to help UK users find the perfect VPN service. Independent reviews and expert analysis." />
+        <title>About Best VPN UK</title>
+        <meta name="description" content="Learn about our mission to help UK users find the best VPN services through comprehensive comparisons and expert analysis." />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative text-white">
         <CyberBackground />
-        <div className="relative z-10">
-          <main className="max-w-4xl mx-auto px-4 py-16">
-            <h1 className="text-4xl font-bold mb-8 bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text text-center">
+        <div className="relative z-10 py-12">
+          <div className="max-w-4xl mx-auto px-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-cyber-blue to-purple-500 text-transparent bg-clip-text text-center">
               About Best VPN UK
             </h1>
             
@@ -72,7 +72,7 @@ const About: FC = () => {
             </div>
 
             <RelatedLinks currentPath="/about" />
-          </main>
+          </div>
         </div>
       </div>
     </>
