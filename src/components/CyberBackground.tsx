@@ -1,15 +1,17 @@
+import React from 'react';
+
 const CyberBackground: React.FC = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Animated Grid */}
       <div 
-        className="absolute inset-0 bg-[url('/images/cyber-grid.svg')] opacity-20 bg-repeat animate-pulse-slow"
+        className="absolute inset-0 bg-[url('/images/cyber-grid.svg')] opacity-20 bg-repeat"
         style={{ backgroundSize: '50px 50px' }}
       ></div>
       
       {/* Gradient Orbs */}
-      <div className="absolute top-0 -left-1/4 w-1/2 h-1/2 bg-gradient-to-r from-cyber-blue/20 to-purple-500/20 rounded-full blur-[150px] animate-pulse-slow"></div>
-      <div className="absolute top-1/4 -right-1/4 w-1/2 h-1/2 bg-gradient-to-l from-purple-500/20 to-cyber-blue/20 rounded-full blur-[150px] animate-pulse-slow delay-700"></div>
+      <div className="absolute top-0 -left-1/4 w-1/2 h-1/2 bg-gradient-to-r from-cyber-blue/20 to-purple-500/20 rounded-full blur-[150px]"></div>
+      <div className="absolute top-1/4 -right-1/4 w-1/2 h-1/2 bg-gradient-to-l from-purple-500/20 to-cyber-blue/20 rounded-full blur-[150px]"></div>
       <div className="absolute -bottom-1/4 left-1/4 w-1/2 h-1/2 bg-gradient-to-t from-green-500/20 to-cyber-blue/20 rounded-full blur-[150px] animate-pulse-slow delay-1000"></div>
       
       {/* Floating Particles */}

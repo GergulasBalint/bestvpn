@@ -1,6 +1,7 @@
 import React, { ReactNode, useState, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import CitySearch from './CitySearch';
+import CyberBackground from './CyberBackground';
 
 interface LayoutProps {
   children: ReactNode;
@@ -18,6 +19,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <div className="min-h-screen bg-cyber-dark text-white">
+      <CyberBackground />
       <nav className="bg-cyber-dark/90 backdrop-blur-sm fixed w-full z-50 border-b border-cyber-blue/20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
@@ -171,7 +173,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </div>
       </nav>
       
-      <main className="pt-16">
+      <main className="pt-16 relative z-10">
         {children}
       </main>
 
