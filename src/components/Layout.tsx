@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useState, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import CitySearch from './CitySearch';
 
@@ -10,9 +10,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   
-  const isActivePath = (path: string) => {
-    return location.pathname === path ? "text-cyber-blue" : "hover:text-cyber-blue";
-  };
+  // Memoize active path check
+  const memoizedIsActivePath = useMemo(
+    () => (path: string) => location.pathname === path ? "text-cyber-blue" : "hover:text-cyber-blue",
+    [location.pathname]
+  );
 
   return (
     <div className="min-h-screen bg-cyber-dark text-white">
@@ -32,43 +34,43 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </Link>
               <div className="hidden md:flex items-center gap-6">
                 <Link 
-                  className={`${isActivePath('/')} transition-colors`}
+                  className={`${memoizedIsActivePath('/')} transition-colors`}
                   to="/"
                 >
                   Home
                 </Link>
                 <Link 
-                  className={`${isActivePath('/best-vpns')} transition-colors`}
+                  className={`${memoizedIsActivePath('/best-vpns')} transition-colors`}
                   to="/best-vpns"
                 >
                   Best VPNs
                 </Link>
                 <Link 
-                  className={`${isActivePath('/compare-features')} transition-colors`}
+                  className={`${memoizedIsActivePath('/compare-features')} transition-colors`}
                   to="/compare-features"
                 >
                   Compare Features
                 </Link>
                 <Link 
-                  className={`${isActivePath('/compare-costs')} transition-colors`}
+                  className={`${memoizedIsActivePath('/compare-costs')} transition-colors`}
                   to="/compare-costs"
                 >
                   Price Comparison
                 </Link>
                 <Link 
-                  className={`${isActivePath('/resources')} transition-colors`}
+                  className={`${memoizedIsActivePath('/resources')} transition-colors`}
                   to="/resources"
                 >
                   Setup Guides
                 </Link>
                 <Link 
-                  className={`${isActivePath('/about')} transition-colors`}
+                  className={`${memoizedIsActivePath('/about')} transition-colors`}
                   to="/about"
                 >
                   About
                 </Link>
                 <Link 
-                  className={`${isActivePath('/faq')} transition-colors`}
+                  className={`${memoizedIsActivePath('/faq')} transition-colors`}
                   to="/faq"
                 >
                   FAQ
