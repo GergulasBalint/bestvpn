@@ -26,7 +26,7 @@ const CostComparison: React.FC = () => {
                 Best VPN UK Price Comparison
               </h1>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Find the perfect balance of features and affordability with our comprehensive VPN comparison
+                Find the perfect balance of features and affordability using our Best VPN UK Price Comparison, to give you an unrivaled and Comprehensive overview
               </p>
             </div>
 
