@@ -76,7 +76,7 @@ const BestVPNs: FC = () => {
             </div>
           </div>
 
-          <main className="max-w-6xl mx-auto px-4 py-12">
+          <main className="max-w-6xl mx-auto px-4 py-4">
             {/* Existing VPN comparison content */}
             <VPNComparisonTable vpns={vpnData} />
             
