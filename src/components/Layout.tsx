@@ -22,11 +22,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="flex items-center gap-8">
               <Link to="/" className="flex items-center gap-2">
                 <img 
-                  src="/images/vpn/logo.webp" 
+                  src="/images/vpn/logo.png"
                   alt="Best VPN UK" 
                   className="h-8 w-8"
                   width={32}
                   height={32}
+                  loading="eager"
+                  decoding="async"
                 />
                 <span className="text-cyber-blue font-bold text-xl">Best VPN UK</span>
               </Link>
