@@ -21,7 +21,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-8">
               <Link to="/" className="flex items-center gap-2">
-                <img src="/images/vpn/logo.png" alt="Best VPN UK" className="h-8 w-auto" />
+                <img 
+                  src="/images/vpn/logo.webp" 
+                  alt="Best VPN UK" 
+                  className="h-8 w-8"
+                  width={32}
+                  height={32}
+                />
                 <span className="text-cyber-blue font-bold text-xl">Best VPN UK</span>
               </Link>
               <div className="hidden md:flex items-center gap-6">

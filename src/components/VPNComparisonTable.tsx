@@ -67,7 +67,8 @@ const VPNComparisonTable: React.FC<VPNComparisonTableProps> = ({ vpns, className
                     <img 
                       src={getVpnLogo(vpn.id)} 
                       alt={vpn.name}
-                      className="w-10 h-10 rounded-full bg-white p-1"
+                      className="w-12 h-12 object-contain"
+                      loading="lazy"
                     />
                     <div>
                       <div className="font-medium text-white">{vpn.name}</div>
