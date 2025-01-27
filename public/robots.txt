@@ -1,10 +1,25 @@
+# https://bestvpnuk.netlify.app/robots.txt
 User-agent: *
 Allow: /
+
+# Main Pages
+Allow: /best-vpns
+Allow: /compare-features
+Allow: /compare-costs
+Allow: /resources
+Allow: /about
+Allow: /faq
+
+# City Pages
+Allow: /city/*
+
+# Block Search & Admin
+Disallow: /search
+Disallow: /admin
+Disallow: /api/
 
 # Sitemaps
 Sitemap: https://bestvpnuk.netlify.app/sitemap.xml
 
-# Disallow
-Disallow: /assets/
-Disallow: /api/
-Disallow: /admin/ 
+# Crawl-delay
+Crawl-delay: 1 

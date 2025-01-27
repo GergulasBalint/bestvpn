@@ -1,7 +1,6 @@
-import React, { ReactNode, useState, useMemo } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import CitySearch from './CitySearch';
-import CyberBackground from './CyberBackground';
 
 interface LayoutProps {
   children: ReactNode;
@@ -11,15 +10,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   
-  // Memoize active path check
-  const memoizedIsActivePath = useMemo(
-    () => (path: string) => location.pathname === path ? "text-cyber-blue" : "hover:text-cyber-blue",
-    [location.pathname]
-  );
+  const isActivePath = (path: string) => {
+    return location.pathname === path ? "text-cyber-blue" : "hover:text-cyber-blue";
+  };
 
   return (
     <div className="min-h-screen bg-cyber-dark text-white">
-      <CyberBackground />
       <nav className="bg-cyber-dark/90 backdrop-blur-sm fixed w-full z-50 border-b border-cyber-blue/20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
@@ -36,43 +32,43 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </Link>
               <div className="hidden md:flex items-center gap-6">
                 <Link 
-                  className={`${memoizedIsActivePath('/')} transition-colors`}
+                  className={`${isActivePath('/')} transition-colors`}
                   to="/"
                 >
                   Home
                 </Link>
                 <Link 
-                  className={`${memoizedIsActivePath('/best-vpns')} transition-colors`}
+                  className={`${isActivePath('/best-vpns')} transition-colors`}
                   to="/best-vpns"
                 >
                   Best VPNs
                 </Link>
                 <Link 
-                  className={`${memoizedIsActivePath('/compare-features')} transition-colors`}
+                  className={`${isActivePath('/compare-features')} transition-colors`}
                   to="/compare-features"
                 >
                   Compare Features
                 </Link>
                 <Link 
-                  className={`${memoizedIsActivePath('/compare-costs')} transition-colors`}
+                  className={`${isActivePath('/compare-costs')} transition-colors`}
                   to="/compare-costs"
                 >
                   Price Comparison
                 </Link>
                 <Link 
-                  className={`${memoizedIsActivePath('/resources')} transition-colors`}
+                  className={`${isActivePath('/resources')} transition-colors`}
                   to="/resources"
                 >
                   Setup Guides
                 </Link>
                 <Link 
-                  className={`${memoizedIsActivePath('/about')} transition-colors`}
+                  className={`${isActivePath('/about')} transition-colors`}
                   to="/about"
                 >
                   About
                 </Link>
                 <Link 
-                  className={`${memoizedIsActivePath('/faq')} transition-colors`}
+                  className={`${isActivePath('/faq')} transition-colors`}
                   to="/faq"
                 >
                   FAQ
@@ -173,7 +169,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </div>
       </nav>
       
-      <main className="pt-16 relative z-10">
+      <main className="pt-16">
         {children}
       </main>
 

@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Suspense, lazy, useEffect } from 'react';
+import { Suspense, lazy } from 'react';
 import Layout from './components/Layout';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -11,21 +11,6 @@ const FeatureComparisonPage = lazy(() => import('./pages/FeatureComparisonPage')
 const CityVPN = lazy(() => import('./pages/CityVPN'));
 const Resources = lazy(() => import('./pages/Resources'));
 const FAQ = lazy(() => import('./pages/FAQ'));
-
-// Preload critical components
-const preloadRoutes = () => {
-  const routes = [
-    import('./pages/Home'),
-    import('./pages/BestVPNs'),
-    import('./components/VPNComparisonTable')
-  ];
-  return Promise.all(routes);
-};
-
-// Preload after initial render
-useEffect(() => {
-  preloadRoutes();
-}, []);
 
 function App() {
   return (

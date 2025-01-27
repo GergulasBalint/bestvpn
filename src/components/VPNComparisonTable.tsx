@@ -69,8 +69,6 @@ const VPNComparisonTable: React.FC<VPNComparisonTableProps> = ({ vpns, className
                       alt={vpn.name}
                       className="w-12 h-12 object-contain"
                       loading="lazy"
-                      decoding="async"
-                      fetchPriority="low"
                     />
                     <div>
                       <div className="font-medium text-white">{vpn.name}</div>
