@@ -8,7 +8,6 @@ import FeatureComparisonPage from './pages/FeatureComparisonPage';
 import CityVPN from './pages/CityVPN';
 import Resources from './pages/Resources';
 import FAQ from './pages/FAQ';
-import News from './pages/News';
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
           <Route path="/city/:cityName" element={<CityVPN />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/faq" element={<FAQ />} />
-          <Route path="/news" element={<News />} />
         </Routes>
       </Layout>
     </BrowserRouter>

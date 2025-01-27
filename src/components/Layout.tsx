@@ -45,13 +45,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 >
                   FAQ
                 </Link>
-                <Link 
-                  to="/news" 
-                  className="hover:text-cyber-blue transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  News
-                </Link>
               </div>
             </div>
 
@@ -139,13 +132,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 FAQ
-              </Link>
-              <Link 
-                to="/news" 
-                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-800 transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                News
               </Link>
               <div className="px-3 py-2">
                 <CitySearch variant="compact" />
