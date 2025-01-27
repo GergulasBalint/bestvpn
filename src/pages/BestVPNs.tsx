@@ -25,7 +25,7 @@ const BestVPNs: FC = () => {
                   Best VPN Services UK
                 </h1>
                 <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                  Expert-tested and verified. Compare the leading UK VPN services for security, speed, and streaming capabilities.
+                  Expert tested and verified to find you the Best VPN services UK. We Compare security, speed & streaming for you!
                 </p>
               </div>
 
