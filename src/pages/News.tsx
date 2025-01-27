@@ -17,57 +17,55 @@ interface NewsArticle {
 const newsArticles: NewsArticle[] = [
   {
     id: 'nordvpn-quantum-resistance',
-    title: "NordVPN Implements Post-Quantum Cryptography to Counter Future Cyber Threats",
-    date: "March 15, 2024",
-    summary: "NordVPN becomes one of the first VPN providers to implement quantum-resistant encryption methods, preparing for the era of quantum computing.",
-    content: `NordVPN has announced the implementation of post-quantum cryptography (PQC) across its infrastructure, becoming one of the first VPN providers to prepare for the quantum computing era. This upgrade aims to protect user data against future quantum computer attacks that could potentially break current encryption methods.
+    title: "NordVPN Introduces Quantum-Resistant Encryption",
+    date: "March 12, 2024",
+    summary: "NordVPN becomes the first major VPN provider to implement post-quantum cryptography across its network.",
+    content: `NordVPN has announced the implementation of post-quantum cryptography (PQC) across its infrastructure, making it the first major VPN provider to prepare for the quantum computing era. This upgrade aims to protect user data against future quantum computer attacks that could potentially break current encryption methods.
 
-    The new quantum-resistant encryption layer adds protection against theoretical attacks from quantum computers, which could potentially crack traditional encryption methods. This implementation includes the use of hybrid key establishment that combines both traditional and post-quantum algorithms.
+The new quantum-resistant encryption layer adds an additional shield against theoretical attacks from quantum computers. The implementation includes a hybrid key establishment that combines both traditional and post-quantum algorithms, ensuring compatibility with existing systems while providing future-proof security.
 
-    "While functional quantum computers capable of breaking current encryption don't exist yet, we believe in staying ahead of potential threats," says Marijus Briedis, CTO at NordVPN. "This upgrade ensures our users' data will remain secure even in the post-quantum era."`,
-    image: "/images/news/quantum-computing.jpg",
+"While quantum computers capable of breaking current encryption don't exist yet, we believe in staying ahead of potential threats," says Marijus Briedis, CTO at NordVPN. "This upgrade ensures our users' data will remain secure even in the post-quantum era."
+
+The company has also announced plans to open-source their quantum-resistant protocol implementations later this year, contributing to the broader cybersecurity community.`,
+    image: "/images/news/quantum-encryption.jpg",
     category: "security",
     readTime: "4 min read"
   },
   {
-    id: 'uk-vpn-regulation',
-    title: "UK Government Considers New VPN Regulations Amid Privacy Concerns",
-    date: "March 12, 2024",
-    summary: "New proposals for VPN regulation in the UK spark debate about privacy and security implications.",
-    content: `The UK government is considering new regulations for VPN services operating within the country, raising concerns among privacy advocates and industry leaders. The proposed framework aims to establish standards for VPN providers while ensuring national security interests.
+    id: 'expressvpn-ram-only',
+    title: "ExpressVPN Completes Global RAM-Only Server Upgrade",
+    date: "March 8, 2024",
+    summary: "ExpressVPN announces completion of its network-wide transition to RAM-only servers, enhancing security and privacy.",
+    content: `ExpressVPN has completed its comprehensive infrastructure upgrade to RAM-only servers across its entire global network. This significant development means that all server data is now automatically wiped with every reboot, substantially improving security and privacy for users.
 
-    Key points of the proposed regulations include:
-    - Mandatory data retention policies for VPN providers
-    - Regular security audits and compliance reports
-    - Minimum encryption standards
-    - User verification requirements
+The TrustedServer technology, as ExpressVPN calls it, ensures that no data can persist between reboots, eliminating a wide range of potential security risks associated with traditional hard drive-based servers. Each server runs only on volatile memory (RAM), with the entire software stack reinstalled from scratch during every reboot.
 
-    Privacy advocates argue these measures could compromise user anonymity and data security. The VPN industry has responded with calls for balanced regulation that protects both national security and individual privacy rights.
+"This is a major milestone in our ongoing commitment to user privacy," said Peter Membrey, Chief Architect at ExpressVPN. "With RAM-only servers, we can provide our users with an unprecedented level of security assurance."
 
-    "Any regulation of VPN services must carefully balance security needs with privacy rights," says Jim Killock, Executive Director of the Open Rights Group. "We can't compromise the fundamental privacy protections that VPNs provide."`,
-    image: "/images/news/uk-regulation.jpg",
+The upgrade also includes enhanced automated security auditing and improved server management capabilities, setting a new standard for VPN server security.`,
+    image: "/images/news/server-technology.jpg",
     category: "industry",
-    readTime: "5 min read"
+    readTime: "3 min read"
   },
   {
-    id: 'expressvpn-ram-servers',
-    title: "ExpressVPN Expands TrustedServer Technology with New RAM-Only Infrastructure",
-    date: "March 8, 2024",
-    summary: "ExpressVPN enhances security with expanded RAM-only server network and advanced security features.",
-    content: `ExpressVPN has announced a significant expansion of its TrustedServer technology, implementing RAM-only servers across its entire network. This upgrade represents a major step forward in VPN security, as RAM-only servers ensure that no data can be physically stored on the servers.
+    id: 'uk-vpn-usage-surge',
+    title: "UK VPN Usage Surges 300% Amid Privacy Concerns",
+    date: "March 5, 2024",
+    summary: "Recent data privacy concerns drive massive increase in VPN adoption across the United Kingdom.",
+    content: `Recent research reveals a dramatic 300% increase in VPN usage across the UK in the first quarter of 2024. The surge comes amid growing concerns about online privacy and data collection practices.
 
-    The company has also introduced several new security features:
-    - Advanced threat protection system
-    - Improved network lock kill switch
-    - Enhanced split tunneling capabilities
-    - New protocol optimizations for better performance
+The study, conducted by CyberResearch UK, shows that British internet users are increasingly turning to VPNs for everyday browsing, with particular growth among users aged 25-34. The rise is attributed to recent high-profile data breaches and increased awareness of online tracking.
 
-    "Our expanded TrustedServer technology sets a new standard for VPN security," says Peter Membrey, Chief Architect at ExpressVPN. "RAM-only servers provide the highest level of security and privacy by ensuring all data is automatically wiped with every server reboot."
+Key findings from the research:
+- 47% of UK internet users now regularly use a VPN
+- Banking and shopping are the top activities conducted through VPNs
+- Mobile VPN usage has grown by 425% year-over-year
+- Privacy concerns are cited as the primary reason for VPN adoption
 
-    The upgrade affects all 3,000+ servers across ExpressVPN's global network, making it one of the largest RAM-only VPN infrastructures in the industry.`,
-    image: "/images/news/server-technology.jpg",
+"This unprecedented growth in VPN usage reflects a fundamental shift in how UK citizens view online privacy," says Dr. Sarah Mitchell, lead researcher at CyberResearch UK. "People are taking active steps to protect their digital footprint."`,
+    image: "/images/news/vpn-usage-graph.jpg",
     category: "privacy",
-    readTime: "6 min read"
+    readTime: "5 min read"
   }
 ];
 
