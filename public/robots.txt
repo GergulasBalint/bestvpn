@@ -1,4 +1,4 @@
-# https://bestvpnuk.netlify.app/robots.txt
+# https://bestvpnuk.uk/robots.txt
 User-agent: *
 Allow: /
 
@@ -19,7 +19,7 @@ Disallow: /admin
 Disallow: /api/
 
 # Sitemaps
-Sitemap: https://bestvpnuk.netlify.app/sitemap.xml
+Sitemap: https://bestvpnuk.uk/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1 

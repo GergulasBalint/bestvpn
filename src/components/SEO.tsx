@@ -18,7 +18,7 @@ const SEO: React.FC<SEOProps> = ({
   imageUrl = '/images/default-vpn-hero.jpg',
   schema
 }) => {
-  const siteUrl = 'https://bestvpn-uk.com';
+  const siteUrl = 'https://bestvpnuk.uk';
   const defaultSchema = generateWebsiteSchema();
 
   return (

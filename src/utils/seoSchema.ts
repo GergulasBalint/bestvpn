@@ -75,8 +75,8 @@ interface VPNSoftwareApplication {
 export const generateOrganizationSchema = (): Organization => ({
   "@type": "Organization",
   name: "Best VPN UK",
-  url: "https://bestvpn-uk.com",
-  logo: "https://bestvpn-uk.com/images/logo.png",
+  url: "https://bestvpnuk.uk",
+  logo: "https://bestvpnuk.uk/images/logo.png",
   sameAs: [
     "https://twitter.com/bestvpnuk",
     "https://facebook.com/bestvpnuk",
@@ -88,7 +88,7 @@ export const generateOrganizationSchema = (): Organization => ({
 export const generateWebsiteSchema = (): WebSite => ({
   "@type": "WebSite",
   name: "Best VPN UK",
-  url: "https://bestvpn-uk.com",
+  url: "https://bestvpnuk.uk",
   description: "Compare and find the best VPN services for users in the United Kingdom",
   publisher: generateOrganizationSchema(),
   potentialAction: {
@@ -259,8 +259,8 @@ export const generateVPNBusinessSchema = () => ({
   "@type": "Organization",
   name: "Best VPN UK",
   description: "Leading VPN comparison and review platform in the UK",
-  url: "https://bestvpn-uk.com",
-  logo: "https://bestvpn-uk.com/images/logo.png",
+  url: "https://bestvpnuk.uk",
+  logo: "https://bestvpnuk.uk/images/logo.png",
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+44-XXX-XXXX-XXX",

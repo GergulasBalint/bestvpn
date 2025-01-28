@@ -1,7 +1,7 @@
 import { getAllCityNames, cities } from '../data/cityData';
 
 export const generateSitemap = () => {
-  const baseUrl = 'https://bestvpnuk.netlify.app'; // Replace with your actual domain
+  const baseUrl = 'https://bestvpnuk.uk'; // Updated base URL
   const cityNames = getAllCityNames(cities);
   
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
