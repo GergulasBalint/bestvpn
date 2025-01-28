@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet';
+import { generateWebsiteSchema, generateOrganizationSchema } from '../utils/seoSchema';
 
 interface SEOProps {
   title: string;
@@ -6,6 +7,7 @@ interface SEOProps {
   keywords: string;
   canonicalUrl?: string;
   imageUrl?: string;
+  schema?: any;
 }
 
 const SEO: React.FC<SEOProps> = ({ 
@@ -13,9 +15,11 @@ const SEO: React.FC<SEOProps> = ({
   description, 
   keywords, 
   canonicalUrl,
-  imageUrl = '/images/default-vpn-hero.jpg' // Add a default hero image
+  imageUrl = '/images/default-vpn-hero.jpg',
+  schema
 }) => {
-  const siteUrl = 'https://yourdomain.com'; // Replace with your actual domain
+  const siteUrl = 'https://bestvpn-uk.com';
+  const defaultSchema = generateWebsiteSchema();
 
   return (
     <Helmet>
@@ -36,21 +40,15 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={`${siteUrl}${imageUrl}`} />
 
-      {/* Schema.org markup for Google */}
+      {/* Schema.org markup */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "WebPage",
-          "name": title,
-          "description": description,
-          "publisher": {
-            "@type": "Organization",
-            "name": "Your Site Name",
-            "logo": {
-              "@type": "ImageObject",
-              "url": `${siteUrl}/logo.png`
-            }
-          }
+          "@graph": [
+            defaultSchema,
+            generateOrganizationSchema(),
+            schema
+          ].filter(Boolean)
         })}
       </script>
     </Helmet>
